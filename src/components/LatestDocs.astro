@@ -1,0 +1,165 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  directory: string;
+  limit?: number;
+  title?: string;
+}
+
+const {
+  directory,
+  limit = 6,
+  title = 'Dernières mises à jour',
+} = Astro.props;
+
+const normalizedDirectory = directory
+  .replace(/^\/+|\/+$/g, '')
+  .toLowerCase();
+
+const allDocs = await getCollection('docs');
+
+const latestDocs = allDocs
+  .filter((entry) => {
+    const id = entry.id.toLowerCase();
+
+    // Conserve le dossier lui-même et tous ses sous-dossiers.
+    const belongsToDirectory =
+      id === normalizedDirectory ||
+      id.startsWith(`${normalizedDirectory}/`);
+
+    // Évite d’afficher la page d’accueil de la rubrique.
+    const isIndex =
+      id === `${normalizedDirectory}/index` ||
+      id === normalizedDirectory;
+
+    // Cache éventuellement les brouillons.
+    const isDraft = entry.data.draft === true;
+
+    return belongsToDirectory && !isIndex && !isDraft;
+  })
+  .sort((a, b) => {
+    const dateA = a.data.lastUpdated
+      ? new Date(a.data.lastUpdated).getTime()
+      : 0;
+
+    const dateB = b.data.lastUpdated
+      ? new Date(b.data.lastUpdated).getTime()
+      : 0;
+
+    return dateB - dateA;
+  })
+  .slice(0, limit);
+
+function entryUrl(id: string): string {
+  return `/${id.replace(/\/index$/, '')}/`;
+}
+
+function formatDate(value: unknown): string {
+  if (!value) return '';
+
+  const date = new Date(value as string | Date);
+
+  if (Number.isNaN(date.getTime())) return '';
+
+  return new Intl.DateTimeFormat('fr-FR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+}
+---
+
+<section class="latest-docs">
+  <h2>{title}</h2>
+
+  {
+    latestDocs.length > 0 ? (
+      <ul>
+        {latestDocs.map((entry) => (
+          <li>
+            <a href={entryUrl(entry.id)}>
+              <span class="latest-docs__content">
+                <strong>{entry.data.title}</strong>
+
+                {entry.data.description && (
+                  <span class="latest-docs__description">
+                    {entry.data.description}
+                  </span>
+                )}
+              </span>
+
+              {entry.data.lastUpdated && (
+                <time datetime={new Date(entry.data.lastUpdated).toISOString()}>
+                  {formatDate(entry.data.lastUpdated)}
+                </time>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>
+        Aucune page datée n’est disponible dans cette rubrique.
+      </p>
+    )
+  }
+</section>
+
+<style>
+  .latest-docs {
+    margin-block: 2rem;
+  }
+
+  .latest-docs ul {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .latest-docs li {
+    margin: 0;
+  }
+
+  .latest-docs a {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .latest-docs a:hover {
+    border-color: var(--sl-color-accent);
+    background: var(--sl-color-gray-6);
+  }
+
+  .latest-docs__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .latest-docs__description {
+    color: var(--sl-color-gray-2);
+    font-size: 0.9rem;
+  }
+
+  .latest-docs time {
+    flex-shrink: 0;
+    color: var(--sl-color-gray-2);
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 40rem) {
+    .latest-docs a {
+      flex-direction: column;
+    }
+  }
+</style>

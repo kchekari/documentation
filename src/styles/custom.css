@@ -1,0 +1,26 @@
+/* Largeur de contenu étendue (desktop / tablette) */
+@media (min-width: 50rem) {
+  :root {
+    --sl-content-width: calc(
+      100vw
+      - 2 * var(--sl-sidebar-width)
+      - 2 * var(--sl-sidebar-pad-x)
+    );
+  }
+}
+
+/* Mobile : laisser Starlight gérer la largeur */
+@media (max-width: 50rem) {
+  :root {
+    --sl-content-width: 100%;
+  }
+}
+
+/* Centre les images sans casser le layout */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}

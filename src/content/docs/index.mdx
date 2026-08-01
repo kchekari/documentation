@@ -1,0 +1,105 @@
+---
+title: Aktraizer Docs
+description: Documentation technique consacrée aux systèmes, réseaux, services, logiciels, langages, matériels et environnements numériques.
+hero:
+  title: Aktraizer Docs
+  tagline: Documentation technique, procédures et ressources pour l’administration système, les réseaux, la virtualisation et l’informatique.
+  actions:
+    - text: Parcourir la documentation
+      link: /Systemes/
+      icon: right-arrow
+      variant: primary
+    - text: Voir le dépôt GitHub
+      link: https://github.com/kchekari/documentation
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Explorer la documentation
+
+Retrouvez les procédures, configurations et ressources classées par domaine technique.
+
+<CardGrid>
+  <LinkCard
+    title="Systèmes"
+    description="Linux, Debian, Ubuntu, Windows, Kali et administration des systèmes d’exploitation."
+    href="/systemes/"
+  />
+
+  <LinkCard
+    title="Virtualisation"
+    description="Proxmox VE, Proxmox Backup Server, machines virtuelles, conteneurs et stockage."
+    href="/virtualisation/"
+  />
+
+  <LinkCard
+    title="Réseaux"
+    description="Adressage IP, VLAN, routage, DNS, DHCP, pare-feu et équipements réseau."
+    href="/reseaux/"
+  />
+
+  <LinkCard
+    title="Services"
+    description="Active Directory, serveurs web, messagerie, supervision, sauvegarde et services réseau."
+    href="/services/"
+  />
+
+  <LinkCard
+    title="Logiciels"
+    description="Installation, configuration et utilisation des logiciels employés dans les cours et projets."
+    href="/logiciels/"
+  />
+
+  <LinkCard
+    title="Langages"
+    description="Scripts, développement web, automatisation et exemples de code."
+    href="/langages/"
+  />
+
+  <LinkCard
+    title="Hardware"
+    description="Matériel informatique, diagnostic, maintenance, BIOS, stockage et périphériques."
+    href="/hardware/"
+  />
+
+  <LinkCard
+    title="Impression 3D"
+    description="Imprimantes 3D, préparation des modèles, tranchage, réglages et dépannage."
+    href="/impression-3D/"
+  />
+
+  <LinkCard
+    title="Gaming"
+    description="Consoles, jeux vidéo, rétro-gaming, configurations et projets personnels."
+    href="/gaming/"
+  />
+</CardGrid>
+
+## À propos d’Aktraizer Docs
+
+Aktraizer Docs rassemble des procédures techniques, des supports pédagogiques et des retours d’expérience autour de l’administration système et réseau.
+
+Le contenu est principalement consacré à :
+
+- Linux et Windows ;
+- Proxmox et la virtualisation ;
+- les réseaux et services d’infrastructure ;
+- la maintenance informatique ;
+- les outils utilisés en BTS SIO ;
+- les projets personnels liés au matériel, au gaming et à l’impression 3D.
+
+:::tip[Utiliser la recherche]
+Utilisez la barre de recherche située en haut de la page ou le raccourci `Ctrl + K` pour retrouver rapidement une procédure.
+:::
+
+## Contribuer ou signaler une erreur
+
+La documentation est versionnée sur GitHub. Une erreur, une information obsolète ou une procédure à compléter peut être signalée depuis le dépôt.
+
+<LinkCard
+  title="Consulter le dépôt GitHub"
+  description="Accéder aux sources Markdown et à l’historique des modifications."
+  href="https://github.com/kchekari/documentation"
+/>
