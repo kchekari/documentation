@@ -123,20 +123,6 @@ export default defineConfig({
             collapsed: true,
           },
         },
-        {
-          label: 'Gaming',
-          autogenerate: {
-            directory: 'gaming',
-            collapsed: true,
-          },
-        },
-        {
-          label: 'Impression 3D',
-          autogenerate: {
-            directory: 'impression-3d',
-            collapsed: true,
-          },
-        },
       ],
     }),
 
