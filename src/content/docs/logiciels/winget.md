@@ -23,7 +23,7 @@ Pour connaitre la version installée de winget, utilisez la commande suivante da
 winget --version
 ```
 
-![alt text](./images/winget-1767856914414.png)
+![alt text](images/winget-1767856914414.png)
 
 Comme pour les autres gestionnaires de paquets, winget utilise des "sources" pour récupérer les informations sur les paquets disponibles. La source par défaut est le dépôt officiel de Microsoft.
 Pour afficher les sources configurées, utilisez la commande suivante :
@@ -32,7 +32,7 @@ Pour afficher les sources configurées, utilisez la commande suivante :
 winget source list
 ```
 
-![alt text](./images/winget-1767856965061.png)
+![alt text](images/winget-1767856965061.png)
 
 Pour mettre à jour la liste des paquets disponibles, utilisez la commande suivante :
 
@@ -40,7 +40,7 @@ Pour mettre à jour la liste des paquets disponibles, utilisez la commande suiva
 winget source update
 ```
 
-![alt text](./images/winget-1767857130699.png)
+![alt text](images/winget-1767857130699.png)
 
 Pour rechercher un paquet, utilisez la commande suivante :
 
@@ -48,7 +48,7 @@ Pour rechercher un paquet, utilisez la commande suivante :
 winget search <nom_du_paquet>
 ``` 
 
-![alt text](./images/winget-1767857266194.png)
+![alt text](images/winget-1767857266194.png)
 
 pour installer un paquet, utilisez la commande suivante :
 
@@ -56,4 +56,4 @@ pour installer un paquet, utilisez la commande suivante :
 winget install <nom_du_paquet> --source <source>
 ```
 
-![alt text](./images/winget-1767857477781.png)
+![alt text](images/winget-1767857477781.png)
