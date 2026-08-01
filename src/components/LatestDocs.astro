@@ -5,60 +5,108 @@ interface Props {
   directory: string;
   limit?: number;
   title?: string;
+  debug?: boolean;
 }
 
 const {
   directory,
   limit = 6,
   title = 'Dernières mises à jour',
+  debug = false,
 } = Astro.props;
 
-const normalizedDirectory = directory
-  .replace(/^\/+|\/+$/g, '')
-  .toLowerCase();
+const normalizedDirectory = normalizePath(directory);
 
 const allDocs = await getCollection('docs');
 
-const latestDocs = allDocs
-  .filter((entry) => {
-    const id = entry.id.toLowerCase();
-
-    // Conserve le dossier lui-même et tous ses sous-dossiers.
-    const belongsToDirectory =
-      id === normalizedDirectory ||
-      id.startsWith(`${normalizedDirectory}/`);
-
-    // Évite d’afficher la page d’accueil de la rubrique.
-    const isIndex =
-      id === `${normalizedDirectory}/index` ||
-      id === normalizedDirectory;
-
-    // Cache éventuellement les brouillons.
-    const isDraft = entry.data.draft === true;
-
-    return belongsToDirectory && !isIndex && !isDraft;
-  })
-  .sort((a, b) => {
-    const dateA = a.data.lastUpdated
-      ? new Date(a.data.lastUpdated).getTime()
-      : 0;
-
-    const dateB = b.data.lastUpdated
-      ? new Date(b.data.lastUpdated).getTime()
-      : 0;
-
-    return dateB - dateA;
-  })
-  .slice(0, limit);
-
-function entryUrl(id: string): string {
-  return `/${id.replace(/\/index$/, '')}/`;
+/**
+ * Normalise un chemin ou un identifiant :
+ * - remplace les antislashs Windows ;
+ * - retire les slashs au début et à la fin ;
+ * - convertit en minuscules.
+ */
+function normalizePath(value: string): string {
+  return value
+    .replace(/\\/g, '/')
+    .replace(/^\/+|\/+$/g, '')
+    .toLowerCase();
 }
 
+/**
+ * Retourne un timestamp exploitable pour le tri.
+ */
+function getTimestamp(value: unknown): number {
+  if (!value) return 0;
+
+  const date =
+    value instanceof Date
+      ? value
+      : new Date(String(value));
+
+  const timestamp = date.getTime();
+
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+/**
+ * Détermine si une entrée appartient au répertoire demandé.
+ *
+ * Attention :
+ * lorsqu’un champ `slug` personnalisé est utilisé,
+ * Astro peut remplacer l’identifiant basé sur le chemin.
+ */
+function belongsToDirectory(entry: (typeof allDocs)[number]): boolean {
+  const id = normalizePath(entry.id);
+
+  const frontmatterSlug =
+    'slug' in entry.data && typeof entry.data.slug === 'string'
+      ? normalizePath(entry.data.slug)
+      : '';
+
+  return (
+    id === normalizedDirectory ||
+    id.startsWith(`${normalizedDirectory}/`) ||
+    frontmatterSlug === normalizedDirectory ||
+    frontmatterSlug.startsWith(`${normalizedDirectory}/`)
+  );
+}
+
+/**
+ * Exclut la page d’accueil de la rubrique.
+ */
+function isDirectoryIndex(entry: (typeof allDocs)[number]): boolean {
+  const id = normalizePath(entry.id);
+
+  return (
+    id === normalizedDirectory ||
+    id === `${normalizedDirectory}/index`
+  );
+}
+
+/**
+ * Génère l’URL publique d’une page.
+ *
+ * L’ID retourné par Astro prend déjà en compte un éventuel slug.
+ */
+function entryUrl(id: string): string {
+  const normalizedId = id
+    .replace(/\\/g, '/')
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\/index$/, '');
+
+  return `/${normalizedId}/`;
+}
+
+/**
+ * Formate une date en français.
+ */
 function formatDate(value: unknown): string {
   if (!value) return '';
 
-  const date = new Date(value as string | Date);
+  const date =
+    value instanceof Date
+      ? value
+      : new Date(String(value));
 
   if (Number.isNaN(date.getTime())) return '';
 
@@ -68,6 +116,50 @@ function formatDate(value: unknown): string {
     year: 'numeric',
   }).format(date);
 }
+
+if (debug) {
+  console.log(
+    `[LatestDocs] Répertoire recherché : ${normalizedDirectory}`,
+  );
+
+  console.table(
+    allDocs
+      .filter((entry) =>
+        entry.data.title
+          ?.toLowerCase()
+          .includes('portfolio'),
+      )
+      .map((entry) => ({
+        id: entry.id,
+        title: entry.data.title,
+        slug:
+          'slug' in entry.data
+            ? entry.data.slug
+            : undefined,
+        lastUpdated: entry.data.lastUpdated,
+        draft: entry.data.draft,
+        retenu: belongsToDirectory(entry),
+      })),
+  );
+}
+
+const latestDocs = allDocs
+  .filter((entry) => {
+    const isDraft = entry.data.draft === true;
+
+    return (
+      belongsToDirectory(entry) &&
+      !isDirectoryIndex(entry) &&
+      !isDraft
+    );
+  })
+  .sort((a, b) => {
+    const dateA = getTimestamp(a.data.lastUpdated);
+    const dateB = getTimestamp(b.data.lastUpdated);
+
+    return dateB - dateA;
+  })
+  .slice(0, limit);
 ---
 
 <section class="latest-docs">
@@ -76,31 +168,42 @@ function formatDate(value: unknown): string {
   {
     latestDocs.length > 0 ? (
       <ul>
-        {latestDocs.map((entry) => (
-          <li>
-            <a href={entryUrl(entry.id)}>
-              <span class="latest-docs__content">
-                <strong>{entry.data.title}</strong>
+        {latestDocs.map((entry) => {
+          const timestamp = getTimestamp(
+            entry.data.lastUpdated,
+          );
 
-                {entry.data.description && (
-                  <span class="latest-docs__description">
-                    {entry.data.description}
-                  </span>
+          return (
+            <li>
+              <a href={entryUrl(entry.id)}>
+                <span class="latest-docs__content">
+                  <strong>{entry.data.title}</strong>
+
+                  {entry.data.description && (
+                    <span class="latest-docs__description">
+                      {entry.data.description}
+                    </span>
+                  )}
+                </span>
+
+                {timestamp > 0 && (
+                  <time
+                    datetime={new Date(
+                      timestamp,
+                    ).toISOString()}
+                  >
+                    {formatDate(entry.data.lastUpdated)}
+                  </time>
                 )}
-              </span>
-
-              {entry.data.lastUpdated && (
-                <time datetime={new Date(entry.data.lastUpdated).toISOString()}>
-                  {formatDate(entry.data.lastUpdated)}
-                </time>
-              )}
-            </a>
-          </li>
-        ))}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     ) : (
       <p>
-        Aucune page datée n’est disponible dans cette rubrique.
+        Aucune page datée n’est disponible dans cette
+        rubrique.
       </p>
     )
   }
@@ -132,6 +235,9 @@ function formatDate(value: unknown): string {
     border-radius: 0.75rem;
     color: inherit;
     text-decoration: none;
+    transition:
+      border-color 150ms ease,
+      background-color 150ms ease;
   }
 
   .latest-docs a:hover {
@@ -141,6 +247,7 @@ function formatDate(value: unknown): string {
 
   .latest-docs__content {
     display: flex;
+    min-width: 0;
     flex-direction: column;
     gap: 0.25rem;
   }
