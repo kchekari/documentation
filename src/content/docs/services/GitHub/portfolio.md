@@ -4,6 +4,7 @@ tableOfContents: false
 sidebar:
   label: "GitHub Portfolio"
 date: 2026-08-01
+lastUpdated: 2026-08-01
 slug: github-portfolio
 tags:
   - GitHub
