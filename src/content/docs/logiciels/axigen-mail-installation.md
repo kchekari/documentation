@@ -7,8 +7,8 @@ Axigen Mail Server est un serveur de messagerie professionnel complet, compatibl
 
 https://www.axigen.com
 ## Installation 
-![alt text](./images/image-61.png)
-![alt text](./images/image-62.png)
+![alt text](images/image-61.png)
+![alt text](images/image-62.png)
 On accepte le contrat de licence.
 ![alt text](./images/image-63.png)
 Nous pouvons laisser l’emplacement par défaut pour nos TPs
