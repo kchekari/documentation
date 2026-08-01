@@ -23,7 +23,7 @@ Tant que BitLocker est actif, les données du disque ne peuvent être lues que s
 
 ## Pourquoi désactiver BitLocker avant un clonage ?
 
-![alt text](./images/windows-disable-bitlocker-1768913063386.png)
+![alt text](images/windows-disable-bitlocker-1768913063386.png)
 
 Dans un contexte de clonage ou de déploiement d’images systèmes, BitLocker doit être désactivé, le disque chiffré est lié matériellement à la machine source. 
 
@@ -33,7 +33,7 @@ Pour garantir un déploiement fiable et fonctionnel sur plusieurs machines, il e
 
 Exécuter la commande `manage-bde -status` pour voir si le disque est chiffré
 
-![alt text](./images/windows-disable-bitlocker-1768913216350.png)
+![alt text](images/windows-disable-bitlocker-1768913216350.png)
 
 Pour déchiffrer le lecteur :
 
@@ -41,7 +41,7 @@ Pour déchiffrer le lecteur :
 manage-bde -off C:
 ```
 
-![alt text](./images/windows-disable-bitlocker-1768913375411.png)
+![alt text](images/windows-disable-bitlocker-1768913375411.png)
 
 On peut vérifier le status en relançant la commande :
 
@@ -49,4 +49,4 @@ On peut vérifier le status en relançant la commande :
 manage-bde -status
 ```
 
-![alt text](./images/windows-disable-bitlocker-1768913433194.png)
+![alt text](images/windows-disable-bitlocker-1768913433194.png)

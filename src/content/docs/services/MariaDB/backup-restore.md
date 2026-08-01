@@ -30,7 +30,7 @@ Pour sauvegarder une base de données MariaDB en ligne de commande, vous pouvez 
 mysqldump -u root -p my_db > backup_my_db.sql
 ```
 
-![alt text](./images/backup-restore-1768488502898.png)
+![alt text](images/backup-restore-1768488502898.png)
 
 3. Entrez le mot de passe de l'utilisateur root lorsque vous y êtes invité.
 
@@ -41,11 +41,11 @@ mysqldump -u root -p my_db > backup_my_db.sql
 3. Cliquez sur l'onglet "Exporter".
 4. Choisissez le format d'exportation (généralement SQL) et cliquez sur "Exécuter" pour télécharger le fichier de sauvegarde.
 
-![alt text](./images/backup-restore-1768487994539.png)
+![alt text](images/backup-restore-1768487994539.png)
 
 Les fichiers peuvent être ouverts avec un éditeur de texte ou un IDE adapté pour visualiser le contenu SQL.
 
-![alt text](./images/backup-restore-1768488052299.png)
+![alt text](images/backup-restore-1768488052299.png)
 
 ## Restauration
 ### Méthode 1 : Ligne de commande

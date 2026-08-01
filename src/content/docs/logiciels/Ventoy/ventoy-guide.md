@@ -27,24 +27,24 @@ Vous pouvez télécharger Ventoy depuis son [site officiel](https://www.ventoy.n
 2. Extrayez le contenu du fichier ZIP.
 3. Exécutez `Ventoy2Disk.exe` en tant qu'administrateur.
 
-![alt text](./images/ventoy-guide-1768633206048.png)
+![alt text](images/ventoy-guide-1768633206048.png)
 
 4. Sélectionnez votre clé USB et cliquez sur "Install".
 
-![alt text](./images/ventoy-guide-1768633230458.png)
+![alt text](images/ventoy-guide-1768633230458.png)
 
 5. Confirmez l'installation. **install**
 
 6. Validez que les données seront effacées en cliquant sur "Yes" (deux fois).
 
-![alt text](./images/ventoy-guide-1768633319528.png)
+![alt text](images/ventoy-guide-1768633319528.png)
 
 Ventoy est maintenant installé sur votre clé USB.
 
-![alt text](./images/ventoy-guide-1768633354493.png)
+![alt text](images/ventoy-guide-1768633354493.png)
 
 Il apparaît dans l'explorateur de fichiers comme une clé USB normale.
 
-![alt text](./images/ventoy-guide-1768633561068.png)
+![alt text](images/ventoy-guide-1768633561068.png)
 
 Vous pouvez maintenant copier vos fichiers ISO directement sur la clé USB.

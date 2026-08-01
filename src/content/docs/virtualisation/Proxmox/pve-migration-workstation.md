@@ -28,7 +28,7 @@ qm importdisk 100 &lt;fichier_vmdk> &lt;datastore> --format qcow2
 qm importdisk 100 /tmp/SRV-SOPHOS-disk1.vmdk PROFS --format qcow2
 ```
 
-![alt text](./images/proxmox-migration-workstation-1765967130487.png)
+![alt text](images/proxmox-migration-workstation-1765967130487.png)
 
 Une fois converti, il faut l’attacher à la VM.
 
@@ -38,10 +38,10 @@ Le disque non utilisé apparait.
 
 Il faut aller sur la VM et faire Add.
 
-![alt text](./images/proxmox-migration-workstation-1765967150428.png)
+![alt text](images/proxmox-migration-workstation-1765967150428.png)
 
 Dans le doute (car il s’agit d’une VM Sophos), nous allons choisir SATA pour le Bus/Device
-![alt text](./images/proxmox-migration-workstation-1765967160890.png)
+![alt text](images/proxmox-migration-workstation-1765967160890.png)
 Dans les Options > Boot Order, nous allons mettre le disque dans la séquence de boot.
-![alt text](./images/proxmox-migration-workstation-1765967170014.png)
+![alt text](images/proxmox-migration-workstation-1765967170014.png)
 Le VM démarre.

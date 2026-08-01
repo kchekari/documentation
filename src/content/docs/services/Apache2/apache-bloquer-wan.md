@@ -21,7 +21,7 @@ Du coup, je vais vous montrer comment faire, car je pense que c’est une faille
 
 Effectivement, depuis Internet, mon PhpMyAdmin est accessible :
 
-![alt text](./images/apache-bloquer-wan-1766153483673.png)
+![alt text](images/apache-bloquer-wan-1766153483673.png)
 
 Du coup, j’ai trouvé l’astuce 🙂
 
@@ -38,6 +38,6 @@ Allow from 192.168.1.0/24 #VOTRE RESEAU OU VOTRE IP
 
 Un petit rechargement d’apache et le tour est joué.
 
-![alt text](./images/apache-bloquer-wan-1766153514416.png)
+![alt text](images/apache-bloquer-wan-1766153514416.png)
 
 Le PhpMyAdmin reste toutefois disponible depuis mon LAN.

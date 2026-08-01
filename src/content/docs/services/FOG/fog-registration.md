@@ -23,38 +23,38 @@ Quoi qu'il en soit, même avec un registrement rapide, il est toujours possible 
 :::note
 Pour pouvoir faire un enregistrement rapide, il faut activer dans les options de Fog le **QUICKREG AUTOPOP**.
 
-![alt text](./images/fog-registration-1768897761028.png)
+![alt text](images/fog-registration-1768897761028.png)
 
-![alt text](./images/fog-registration-1768897793265.png)
+![alt text](images/fog-registration-1768897793265.png)
 :::
 
 On commence par démarrer sur le poste en PXE.
 
-![alt text](./images/fog-registration-1768837163739.png)
+![alt text](images/fog-registration-1768837163739.png)
 
 Nous voyons que l'hôte n'est pas enregistré. Nous allons faire un enregistrement rapide **Quick Registration ans Inventory**.
 
 L'enregistrement se lance.
 
-![alt text](./images/fog-registration-1768837255436.png)
+![alt text](images/fog-registration-1768837255436.png)
 
 Pour un enregistrement complet, saisir le nom d'hôte.
 
-![alt text](./images/fog-registration-1768837939896.png)
+![alt text](images/fog-registration-1768837939896.png)
 
 Préciser l'image associée et le groupe si vous le souhaitez.
 
-![alt text](./images/fog-registration-1768838006697.png)
+![alt text](images/fog-registration-1768838006697.png)
 
-![alt text](./images/fog-registration-1768838059324.png)
+![alt text](images/fog-registration-1768838059324.png)
 
 L'hote est bien enregistré.
 
-![alt text](./images/fog-registration-1768838079051.png)
+![alt text](images/fog-registration-1768838079051.png)
 
 Et apparait sur l'interface web de FOG.
 
-![alt text](./images/fog-registration-1768838104508.png)
+![alt text](images/fog-registration-1768838104508.png)
 
 :::caution
 Pour renommer l'hôte ou modifier sa description, il faut au préalable lui avoir affecté une image

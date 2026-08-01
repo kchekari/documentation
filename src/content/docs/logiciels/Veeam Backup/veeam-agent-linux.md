@@ -51,7 +51,7 @@ smbclient -L '\\IP_SMB' -U root
 ```
 Remplacez IP_SMB par l’adresse IP du serveur SMB. Si la connexion est réussie, vous verrez la liste des partages disponibles sur le serveur SMB.
 
-![alt text](./images/image.png)
+![alt text](images/image.png)
 
 ## Installation de Veeam Agent for Linux
 Installation des paquerets nécessaires pour Veeam Agent for Linux
@@ -80,43 +80,43 @@ Lancer la commande `veeam` pour initialiser Veeam Agent for Linux
 veeam
 ```
 Accepter le contrat de licence (**Touche ESPACE**)
-![alt text](./images/image-27.png)
+![alt text](images/image-27.png)
 ::: caution
 Créer le média de restauration personnalisée :
 À savoir ! Le média de récupération Veeam peut être téléchargé directement sur leur site.
 À cette étape, Veeam Agent vous propose de créer une version personnalisée qui intégrera les drivers spécifiques de la machine sauvegardée.
 Cela permet d’assurer une meilleure compatibilité lors de la restauration sur du matériel différent.
 :::
-![alt text](./images/image-38.png)
+![alt text](images/image-38.png)
 Choisir de le sauvegarder dans le dossier `/root`
 
 Terminer par accepter la licence
-![alt text](./images/image-28.png)
-![alt text](./images/image-29.png)
+![alt text](images/image-28.png)
+![alt text](images/image-29.png)
 Récupérer l'ISO de Veeam Recovery
 Patienter le temps de la création de l’ISO
 
 ## Création du job de sauvegarde
 Lancer l’outil Veeam Agent for Linux avec la commande **veeam** puis appuyer sur la touche **C** pour CONFIGURE :
 Nommer le job
-![alt text](./images/image-30.png)
+![alt text](images/image-30.png)
 Choisir les données à sauvegarder
-![alt text](./images/image-31.png)
+![alt text](images/image-31.png)
 Choisir la destination
-![alt text](./images/image-32.png)
+![alt text](images/image-32.png)
 Nous allons utiliser un partage SMB
-![alt text](./images/image-33.png)
+![alt text](images/image-33.png)
 Dans "Advanced", il est possible de définir une fréquence pour les backup full (par exemple tous les dimanches).
-![alt text](./images/image-34.png)
+![alt text](images/image-34.png)
 On planifie ensuite la sauvegarde
-![alt text](./images/image-35.png)
+![alt text](images/image-35.png)
 On exécute le job.
-![alt text](./images/image-36.png)
+![alt text](images/image-36.png)
 Le job se lance
 ```bash
  veeamconfig job start --name "BackupJob1"
 ```
-![alt text](./images/image-37.png)
+![alt text](images/image-37.png)
 Il est possible de voir le job réussi
 
 Les fichiers ont bien été sauvegardés sur le NAS.

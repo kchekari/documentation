@@ -23,7 +23,7 @@ Il y a des particularités dans l’installation d’une VM Windows et Linux, el
 
 En haut à droite, cliquer sur Create VM
 
-![alt text](./images/pve-creation-vm-carriat-1766072436000.png)
+![alt text](images/pve-creation-vm-carriat-1766072436000.png)
 
 Une fenêtre se lance avec différents onglets
 
@@ -34,17 +34,17 @@ Une fenêtre se lance avec différents onglets
 - Name : Le nom doit toujours commencer par votre nom de famille en MAJUSCULE puis séparé par des tirets,vous mettez des précisions sur l’objectif de la VM ainsi que son système d’exploitation.
 - Resource Pool : Votre pool SIOx-XX.
 
-![alt text](./images/pve-creation-vm-carriat-1766072465411.png)
+![alt text](images/pve-creation-vm-carriat-1766072465411.png)
 
 ### OS
 
 Debian
 
-![alt text](./images/pve-creation-vm-carriat-1766072512656.png)
+![alt text](images/pve-creation-vm-carriat-1766072512656.png)
 
 Windows
 
-![alt text](./images/pve-creation-vm-carriat-1766072519792.png)
+![alt text](images/pve-creation-vm-carriat-1766072519792.png)
 
 - Use CD/DVD disc image file (iso), Storage iso : Aller chercher votre fichier iso.
 - Guest OS : Microsoft Windows ou Linux
@@ -60,11 +60,11 @@ Windows n’intègre pas les drivers disque dur de Proxmox. Il faut donc ajouter
 
 Linux
 
-![alt text](./images/pve-creation-vm-carriat-1766072566644.png)
+![alt text](images/pve-creation-vm-carriat-1766072566644.png)
 
 Windows
 
-![alt text](./images/pve-creation-vm-carriat-1766072575923.png)
+![alt text](images/pve-creation-vm-carriat-1766072575923.png)
 
 - Qemu Agent : Cocher pour l’activer, il faudra toutefois l’installer sur le système.
 
@@ -76,7 +76,7 @@ Pour Windows :
 
 ### Disks
 
-![alt text](./images/pve-creation-vm-carriat-1766072629671.png)
+![alt text](images/pve-creation-vm-carriat-1766072629671.png)
 
 - Discard : cocher la case.
 
@@ -88,7 +88,7 @@ Option
 
 ### CPU
 
-![alt text](./images/pve-creation-vm-carriat-1766073144918.png)
+![alt text](images/pve-creation-vm-carriat-1766073144918.png)
 
 - Pour Linux : 1 sockets, 2 cores.
 - Pour Windows : 2 socket, 2 cores.
@@ -97,7 +97,7 @@ Sauf demande spécifique de votre enseignant.
 
 ### Memory
 
-![alt text](./images/pve-creation-vm-carriat-1766073192648.png)
+![alt text](images/pve-creation-vm-carriat-1766073192648.png)
 
 - Pour Linux : 2048
 - Pour Windows 11 : 4096
@@ -107,13 +107,13 @@ Sauf demande spécifique de votre enseignant.
 
 ### Network
 
-![alt text](./images/pve-creation-vm-carriat-1766073202605.png)
+![alt text](images/pve-creation-vm-carriat-1766073202605.png)
 
 Bridge : Sélectionner votre réseau
 
 ### Confirm
 
-![alt text](./images/pve-creation-vm-carriat-1766073216231.png)
+![alt text](images/pve-creation-vm-carriat-1766073216231.png)
 
 Nous avons un résumé de la configuration prévue.
 
@@ -121,4 +121,4 @@ Il est possible de lancer la VM après sa création.
 
 La machine démarre.
 
-![alt text](./images/pve-creation-vm-carriat-1766073226214.png)
+![alt text](images/pve-creation-vm-carriat-1766073226214.png)

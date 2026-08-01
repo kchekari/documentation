@@ -25,27 +25,27 @@ Une fois que vous avez le fichier sur votre appareil, ouvrez-le.
 
 Un message `Profil téléchargé` apparaîtra. Cliquez sur `Fermer`.
 
-![alt text](./images/ios-dns-prive-1781005353674.png)
+![alt text](images/ios-dns-prive-1781005353674.png)
 
 Allez dans `Réglages` > `Général` > `VPN et gestion de l'appareil`.
 Le profil téléchargé devrait apparaître dans la section `PROFIL Téléchargé`. Cliquez dessus.
 
-![alt text](./images/ios-dns-prive-1781005394742.png)
+![alt text](images/ios-dns-prive-1781005394742.png)
 
 Puis cliquez sur `Installer` en haut à droite de l'écran.
 
-![alt text](./images/ios-dns-prive-1781005417650.png)
+![alt text](images/ios-dns-prive-1781005417650.png)
 
 Validez l'installation du profil en entrant votre code de verrouillage si nécessaire, puis cliquez à nouveau sur `Installer` pour confirmer.
 
-![alt text](./images/ios-dns-prive-1781005449951.png)
+![alt text](images/ios-dns-prive-1781005449951.png)
 
 Puis à nouveau sur `Installer` pour finaliser le processus.
 
-![alt text](./images/ios-dns-prive-1781005474928.png)
+![alt text](images/ios-dns-prive-1781005474928.png)
 
 Le profil de configuration est maintenant installé.
 
-![alt text](./images/ios-dns-prive-1781005501604.png)
+![alt text](images/ios-dns-prive-1781005501604.png)
 
 A vous un monde sans publicité et sans suivi !

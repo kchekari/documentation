@@ -15,4 +15,4 @@ featured: true
 
 ## A voir pour les tests
 
-![alt text](./images/test-1785441709752.png)
+![alt text](images/test-1785441709752.png)

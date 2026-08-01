@@ -10,22 +10,22 @@ Un snapshot permet de créer et gérer des instantanés de la VM. Un snapshot en
 
 Dans l’onglet snapshot, cliquer sur "Take Snapshot"
 
-![alt text](./images/image-154.png)
+![alt text](images/image-154.png)
 
 Dans la fenêtre qui s’ouvre, on doit donner un nom au snapshot (attention, les espaces et les caractères accentués ne sont pas autorisés). Ensuite, nous pouvons mettre une description.
 
-![alt text](./images/image-156.png)
+![alt text](images/image-156.png)
 
 Le snapshot apparait dans la fenêtre.
 
-![alt text](./images/image-157.png)
+![alt text](images/image-157.png)
 
 ## Restaurer un snapshot
 
 En sélectionnant un snapshot, vous pouvez l’appliquer en utilisant le bouton Rollback.
 
-![alt text](./images/image-158.png)
+![alt text](images/image-158.png)
 
 Une fenêtre de confirmation apparait. Choisir Yes.
 
-![alt text](./images/image-159.png)
+![alt text](images/image-159.png)

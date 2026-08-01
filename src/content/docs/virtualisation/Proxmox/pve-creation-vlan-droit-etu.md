@@ -7,17 +7,17 @@ sidebar:
 ## Création du VNet
 
 Dans un premier temps, il faut créer le VNets
-![alt text](./images/pve-creation-vlan-droit-etu-1765876134925.png)
+![alt text](images/pve-creation-vlan-droit-etu-1765876134925.png)
 Par contre le switch ne connait pas le VLAN.
 
 ## Ajout des droits
 
 Sur un serveur, dans la zone `carriat`
 Ajout des droits avec le rôle pour le groupe AD.
-![alt text](./images/pve-creation-vlan-droit-etu-1765876343704.png)
+![alt text](images/pve-creation-vlan-droit-etu-1765876343704.png)
 
 Création d'un pool pour l'étudiant et mise en place des droits
-![alt text](./images/pve-creation-vlan-droit-etu-1765876410785.png)
+![alt text](images/pve-creation-vlan-droit-etu-1765876410785.png)
 
 ## Configuration de l'accès depuis le Huawei
 

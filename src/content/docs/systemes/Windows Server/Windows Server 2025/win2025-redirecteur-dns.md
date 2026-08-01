@@ -14,4 +14,4 @@ Dans un environnement Active Directory, les redirecteurs DNS permettent à ton s
 
 Lancer l’outil DNS, sur le serveur, clic droit > Propriétés > Redirecteurs > Modifier.
 
-![alt text](./images/win2025-redirecteur-dns-1765895487467.png)
+![alt text](images/win2025-redirecteur-dns-1765895487467.png)

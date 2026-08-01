@@ -21,15 +21,15 @@ Pour passer le clavier en français sur Windows Server 2025, suivez les étapes 
 2. Cliquez sur **Time & Language**.
 3. Sélectionnez **Language & region**.
 
-![alt text](./images/win2025-kb-fr-1767860474501.png)
+![alt text](images/win2025-kb-fr-1767860474501.png)
 
 4. Ajouter le **Français**.
 
-![alt text](./images/win2025-kb-fr-1767860536993.png)
+![alt text](images/win2025-kb-fr-1767860536993.png)
 
 5. Nous pouvons maintenant basculer sur le clavier français en cliquant sur l'icône de langue dans la barre des tâches.
 
-![alt text](./images/win2025-kb-fr-1767860654139.png)
+![alt text](images/win2025-kb-fr-1767860654139.png)
 
 ## Par PowerShell
 
@@ -39,7 +39,7 @@ Vous pouvez également utiliser PowerShell pour ajouter la disposition de clavie
 Set-WinUserLanguageList -LanguageList fr-FR
 ```
 
-![alt text](./images/win2025-kb-fr-1767901028058.png)
+![alt text](images/win2025-kb-fr-1767901028058.png)
 
 Cette commande configure la langue de l'utilisateur en français (France) et ajoute la disposition de clavier française.
 Il faut ensuite sortir de PowerShell pour bénéficier du clavier français.

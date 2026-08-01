@@ -26,7 +26,7 @@ admin-fw@KCH-M2L-RT:~$ sudo nano /etc/default/isc-dhcp-server
 
 La confguration se fait ensuite dans le fichier /etc/dhcp/dhcpd.conf
 
-![alt text](./images/isc-dhcp-config-1766154694706.png)
+![alt text](images/isc-dhcp-config-1766154694706.png)
 
 - subnet correspond au masque de sous réseau
 - range représente l’étendue DHCP
@@ -54,7 +54,7 @@ Pour consulter les logs du serveur DHCP :
 sudo journalctl -xe | grep -e DHCPACK -e DHCPOFFER
 ```
 
-![alt text](./images/isc-dhcp-config-1768293686900.png)
+![alt text](images/isc-dhcp-config-1768293686900.png)
 
 Pour voir la liste des baux DHCP attribués, il faut consulter le fichier /var/lib/dhcp/dhcpd.leases
 
@@ -62,4 +62,4 @@ Pour voir la liste des baux DHCP attribués, il faut consulter le fichier /var/l
 cat /var/lib/dhcp/dhcpd.leases
 ```
 
-![alt text](./images/isc-dhcp-config-1768293775007.png)
+![alt text](images/isc-dhcp-config-1768293775007.png)

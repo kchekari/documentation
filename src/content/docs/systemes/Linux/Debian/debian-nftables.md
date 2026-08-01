@@ -41,4 +41,4 @@ Pour activer le NAT-PAT (Port Address Translation) avec nftables, vous devez cr�
 
     Remplacez `[INTERFACE_WAN]` par le nom de votre interface réseau connectée à Internet (par exemple, `eth0`).
 
-![alt text](./images/debian-nftables-1773413393284.png)
+![alt text](images/debian-nftables-1773413393284.png)

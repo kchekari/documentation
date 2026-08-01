@@ -11,6 +11,6 @@ authors:
 featured: true
 ---
 Lancer services.msc
-![alt text](./images/windows-update-1765921870429.png)
+![alt text](images/windows-update-1765921870429.png)
 Désactiver le service Windows Update.
-![alt text](./images/windows-update-1765921876399.png)
+![alt text](images/windows-update-1765921876399.png)

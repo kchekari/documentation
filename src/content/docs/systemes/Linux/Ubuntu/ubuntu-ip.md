@@ -22,8 +22,8 @@ ip a
 ### Depuis l’interface graphique
 
 Aller dans les paramètres filaire de votre carte réseau.
-![alt text](./images/ubuntu-ip-1765897179667.png)
+![alt text](images/ubuntu-ip-1765897179667.png)
 On clique ensuite sur la roue
-![alt text](./images/ubuntu-ip-1765897188509.png)
+![alt text](images/ubuntu-ip-1765897188509.png)
 Et les informations IP s’affiche.
-![alt text](./images/ubuntu-ip-1765897196781.png)
+![alt text](images/ubuntu-ip-1765897196781.png)

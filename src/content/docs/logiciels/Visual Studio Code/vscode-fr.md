@@ -15,12 +15,12 @@ Pour passer Visual Studio Code en français, il faut simplement installer une ex
 
 Aller dans **Extensions > Rechercher « French » > Installer le package**
 
-![alt text](./images/vscode-fr-1766067672564.png)
+![alt text](images/vscode-fr-1766067672564.png)
 
 Une fois installé, il faut lancer cliquer sur "Change Language et Restart".
 
-![alt text](./images/vscode-fr-1766067689049.png)
+![alt text](images/vscode-fr-1766067689049.png)
 
 VS Code est maintenant en français.
 
-![alt text](./images/vscode-fr-1766067700713.png)
+![alt text](images/vscode-fr-1766067700713.png)

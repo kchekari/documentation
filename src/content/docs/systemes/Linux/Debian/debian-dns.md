@@ -14,7 +14,7 @@ featured: true
 ---
 Si vous avez installé votre Debian 12 et que vous n’aviez pas de réseau, le paquet relatif au DNS ne s’est pas installé.
 
-![alt text](./images/debian-dns-1766153660742.png)
+![alt text](images/debian-dns-1766153660742.png)
 
 Le problème se repère rapidement quand vous voyez que vous n’avez pas de fichier resolv.conf.
 
@@ -26,11 +26,11 @@ Lancer la commande :
 # apt install resolvconf
 ```
 
-![alt text](./images/debian-dns-1766153678169.png)
+![alt text](images/debian-dns-1766153678169.png)
 
 Votre fichier resolv.conf existe bien dorénavant.
 
-![alt text](./images/debian-dns-1766153692979.png)
+![alt text](images/debian-dns-1766153692979.png)
 
 Ajouter les lignes avec vos serveurs DNS
 
@@ -38,8 +38,8 @@ Ajouter les lignes avec vos serveurs DNS
 nameserver 8.8.8.8
 ```
 
-![alt text](./images/debian-dns-1766153703487.png)
+![alt text](images/debian-dns-1766153703487.png)
 
 On sauvegarde le fichier et la résolution DNS fonctionne 😀.
 
-![alt text](./images/debian-dns-1766153713184.png)
+![alt text](images/debian-dns-1766153713184.png)

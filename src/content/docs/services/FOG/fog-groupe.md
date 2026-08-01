@@ -18,11 +18,11 @@ Dans FOG, les groupes d’hôtes permettent de regrouper plusieurs postes ayant 
 
 Aller dans le menu **GROUPS** puis **Create New Group**.
 
-![alt text](./images/fog-groupe-1768898871110.png)
+![alt text](images/fog-groupe-1768898871110.png)
 
 Il faut simplement lui donner un nom
 
-![alt text](./images/fog-groupe-1768898909261.png)
+![alt text](images/fog-groupe-1768898909261.png)
 
 ## Ajouter des ordinateurs dans un groupe
 
@@ -30,4 +30,4 @@ Pour ajouter des ordinateurs dans un groupe, il faut aller dans le groupe puis *
 
 Nous allons afficher les ordinateurs sans groupe, les sélectionner puis les ajouter.
 
-![alt text](./images/fog-groupe-1768898996567.png)
+![alt text](images/fog-groupe-1768898996567.png)

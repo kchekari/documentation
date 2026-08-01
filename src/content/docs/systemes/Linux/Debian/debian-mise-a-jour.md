@@ -20,10 +20,10 @@ Pour faire une mise à jour, on commence par mettre à jour la liste des paquets
 ```bash
 $ apt update
 ```
-![alt text](./images/image-7.png)
+![alt text](images/image-7.png)
 ## Lancement de la mise à jour du système
 Une fois la mise à jour des paquets, il faut lancer la mise à jour.
 ```bash
 $ apt upgrade
 ```
-![alt text](./images/image-8.png)
+![alt text](images/image-8.png)

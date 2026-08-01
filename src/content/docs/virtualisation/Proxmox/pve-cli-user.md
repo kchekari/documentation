@@ -17,7 +17,7 @@ featured: true
 pveum user list
 ```
 
-![alt text](./images/pve-cli-user-1765995721113.png)
+![alt text](images/pve-cli-user-1765995721113.png)
 
 ### Supprimer un utilisateur
 
@@ -25,7 +25,7 @@ pveum user list
 pveum user delete utilisateur@realm
 ```
 
-![alt text](./images/pve-cli-user-1765995730888.png)
+![alt text](images/pve-cli-user-1765995730888.png)
 
 Ajouter un utilisateur :
 

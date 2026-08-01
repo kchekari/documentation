@@ -15,7 +15,7 @@ Cloudflare est un service de réseau de distribution de contenu (CDN) et de séc
 
 La fonctionnalité qui nous interesse dans Cloudflare Tunnel, est la possibilité de mettre à disposition un service local (ex: un serveur web, un serveur de jeu, etc.) sur Internet de manière sécurisée, sans avoir à ouvrir de ports sur votre routeur ou à configurer des règles de pare-feu complexes.
 
-![alt text](./images/tunnel-1774541594650.png)
+![alt text](images/tunnel-1774541594650.png)
 
 ## Configuration du tunnel sur Cloudflare
 
@@ -25,11 +25,11 @@ Pour configurer un tunnel sur Cloudflare, vous devez suivre les étapes suivante
 2. Cliquez sur "Create a Tunnel" pour commencer la configuration du tunnel.
 3. Donnez un nom à votre tunnel et cliquez sur "Next".
 
-![alt text](./images/tunnel-1774541892730.png)
+![alt text](images/tunnel-1774541892730.png)
 
 4. Choisissez le système d'exploitation de votre serveur local (Linux, Windows, etc.) et votre architecture (x86, x64, etc.) et suivez les instructions pour télécharger et installer le client Cloudflare Tunnel sur votre serveur.
 
-![alt text](./images/tunnel-1774542058849.png)
+![alt text](images/tunnel-1774542058849.png)
 
 5. Une fois le client installé, vous devrez exécuter une commande pour connecter votre serveur local au tunnel Cloudflare. Cette commande variera en fonction de votre système d'exploitation et de votre architecture, mais elle ressemblera généralement à quelque chose comme ceci :
 
@@ -47,7 +47,7 @@ echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudf
 sudo apt-get update && sudo apt-get install cloudflared
 ```
 
-![alt text](./images/tunnel-1774542573465.png)
+![alt text](images/tunnel-1774542573465.png)
 
 ## Installer le tunnel comme un service
 
@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install cloudflared
 sudo cloudflared service install ####################################################################################
 ```
 
-![alt text](./images/tunnel-1774542641130.png)
+![alt text](images/tunnel-1774542641130.png)
 
 ## Démarrer le tunnel manuellement
 
@@ -66,17 +66,17 @@ cloudflared tunnel run --token #################################################
 
 Nous pouvons voir le status du service
 
-![alt text](./images/tunnel-1774542733740.png)
+![alt text](images/tunnel-1774542733740.png)
 
 Et nous le voyons connecté sur Cloudflare
 
-![alt text](./images/tunnel-1774542763828.png)
+![alt text](images/tunnel-1774542763828.png)
 
 ## Ajout d'une route pour exposer un service local
 
 
-![alt text](./images/tunnel-1774542951333.png)
+![alt text](images/tunnel-1774542951333.png)
 
 Nous pouvons également voir qu'un enregistrement DNS a été ajouté automatiquement pour le tunnel.
 
-![alt text](./images/tunnel-1774543067021.png)
+![alt text](images/tunnel-1774543067021.png)

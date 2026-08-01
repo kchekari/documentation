@@ -26,7 +26,7 @@ pveum pool add <nom_du_pool> -comment "Mon pool"
 pveum pool list
 ```
 
-![alt text](./images/pve-cli-pool-1765972457883.png)
+![alt text](images/pve-cli-pool-1765972457883.png)
 
 ### Supprimer un pool
 
@@ -111,8 +111,8 @@ Le lancer
 ./create_all_pools.sh
 ```
 
-![alt text](./images/pve-cli-pool-1765972482204.png)
+![alt text](images/pve-cli-pool-1765972482204.png)
 
 Les pools apparaissent bien dans Proxmox.
 
-![alt text](./images/pve-cli-pool-1765972488398.png)
+![alt text](images/pve-cli-pool-1765972488398.png)

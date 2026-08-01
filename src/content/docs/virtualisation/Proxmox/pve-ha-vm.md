@@ -19,11 +19,11 @@ Dans notre contexte, nous avons 3 serveurs Proxmox VE :
 
 Pour créer un cluster, il faut aller au niveau du Centre de données > HA > Groupes > Créer.
 
-![alt text](./images/pve-ha-vm-1766150693360.png)
+![alt text](images/pve-ha-vm-1766150693360.png)
 
 Les groupes permettent d’établir des règles communes à plusieurs nœuds du cluster avec des niveaux de priorité (sous la forme d’un entier).
 
-![alt text](./images/pve-ha-vm-1766150661584.png)
+![alt text](images/pve-ha-vm-1766150661584.png)
 
 Si ces derniers sont définis, une machine virtuelle créée sur un serveur ira en priorité sur celui ayant la plus haute priorité, sauf exception.
 
@@ -33,4 +33,4 @@ On indique combien de fois une tentative de redémarrage ou de relocalisation (m
 
 Dans les options du Datacenter on choisit la politique d’arrêt d’un nœud. En le passant sur Migrate par exemple, les ressources seront déplacées dans un autre nœud avant que l’arrêt ne soit effectif.
 
-![alt text](./images/pve-ha-vm-1766150674730.png)
+![alt text](images/pve-ha-vm-1766150674730.png)

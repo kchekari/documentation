@@ -89,19 +89,19 @@ Se connecter au site phpMyAdmin (par exemple : http://192.168.1.1/phpmyadmin) :
 - Une fois connecté, cliquer sur “Nouvelle base de données”.
 - Saisir le nom de la base et cliquer sur le bouton “Créer”.
 
-![alt text](./images/mariadb-creationbdd-1766159212428.png)
+![alt text](images/mariadb-creationbdd-1766159212428.png)
 
 - Une fois la base de données créée, phpMyAdmin vous propose de créer des tables dans la base.
 - Cliquer sur la base de données my_db pour ignirer cette étape
 - Puis cliquer sur le menu “Privilèges” et choisir l’option Créer un nouvel utilisateur”
 
-![alt text](./images/mariadb-creationbdd-1766159253369.png)
+![alt text](images/mariadb-creationbdd-1766159253369.png)
 
 - Configurer le login, le mode d’accès local via localhost et le mot de passe.
 - Cocher la case “Donner tous les privilèges sur cette base de données”
 - Et pour finir cliquer sur le bouton “Exécuter” en bas de la page.
 
-![alt text](./images/mariadb-creationbdd-1766159285552.png)
+![alt text](images/mariadb-creationbdd-1766159285552.png)
 
 :::caution
 Attention ! Ne pas accorder de privilèges globaux sur MariaDB pour cet utilisateur dédié.
@@ -114,8 +114,8 @@ Pour vérifier la présence de cette base de données avec phpMyAdmin :
 - Se déconnecter de la session active dans phpMyAdmin
 - S’authentifier à nouveau avec le compte my_user et sont mot de passe my_password.
 
-![alt text](./images/mariadb-creationbdd-1766159299994.png)
+![alt text](images/mariadb-creationbdd-1766159299994.png)
 
 - Une fois la session ouverte, la base de données est disponible dans le panneau latéral gauche :
 
-![alt text](./images/mariadb-creationbdd-1766159307097.png)
+![alt text](images/mariadb-creationbdd-1766159307097.png)

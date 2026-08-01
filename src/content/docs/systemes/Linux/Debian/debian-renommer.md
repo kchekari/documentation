@@ -17,7 +17,7 @@ Pour voir son hostname, utiliser la commande :
 hostnamectl
 ```
 
-![alt text](./images/image-26.png)
+![alt text](images/image-26.png)
 
 ## Étapes pour renommer le serveur Debian
 
@@ -29,7 +29,7 @@ nano /etc/hostname
 ```
 Remplacez l'ancien nom par le nouveau nom souhaité. Enregistrez et fermez le fichier.
 
-![alt text](./images/image-28.png)
+![alt text](images/image-28.png)
 
 2. **Modifier le fichier /etc/hosts**
 
@@ -39,7 +39,7 @@ Ouvrez le fichier `/etc/hosts` avec un éditeur de texte en utilisant les privil
 nano /etc/hosts
 ```
 
-![alt text](./images/image-27.png)
+![alt text](images/image-27.png)
 
    Remplacez l'ancien nom par le nouveau nom souhaité. Enregistrez et fermez le fichier.
 
@@ -59,4 +59,4 @@ Sinon, il est recommandé de redémarrer le serveur pour s'assurer que tous les 
 reboot
 ``` 
 
-![alt text](./images/image-29.png)
+![alt text](images/image-29.png)

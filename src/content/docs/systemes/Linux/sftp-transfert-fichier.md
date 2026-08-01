@@ -58,11 +58,11 @@ FileZilla permet d’utiliser le protocole SFTP. Le SFTP (Secure File Transfert 
 
 Les informations de connexion sont les mêmes que dans PuTTY ou un client SSH.
 
-![alt text](./images/image-118.png)
+![alt text](images/image-118.png)
 
 Si la connexion SSH est possible, la connexion SFTP l’ai forcement aussi et comme pour la connexion SSH, l’utilisateur arrive dans son répertoire personnel :
 
-![alt text](./images/image-119.png)
+![alt text](images/image-119.png)
 
 Dans la fenêtre de navigation, Il est possible de voir le propriétaire, le groupe ainsi que les droits d’accès.
 
@@ -70,7 +70,7 @@ Dans la fenêtre de navigation, Il est possible de voir le propriétaire, le gro
 Attention, comme sur le serveur, vous ne pouvez manipuler les fichiers que si vous avez les droits.
 :::
 
-![alt text](./images/image-120.png)
+![alt text](images/image-120.png)
 
 ## Conclusion
 Le SFTP est un outil puissant pour le transfert sécurisé de fichiers entre une machine locale et un serveur distant. En utilisant les commandes de base décrites ci-dessus, vous pouvez facilement gérer vos fichiers à distance. N'oubliez pas de toujours sécuriser vos connexions SSH pour protéger vos données.

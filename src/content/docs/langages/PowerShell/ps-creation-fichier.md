@@ -24,7 +24,7 @@ fsutil file createnew c:\work\150-Mo.txt 152428800
 fsutil file createnew c:\work\200-Mo.txt 202428800
 ```
 
-![alt text](./images/image-7.png)
+![alt text](images/image-7.png)
 
 ## Méthode 2 : Utilisation de dd
 

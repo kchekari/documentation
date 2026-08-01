@@ -29,15 +29,15 @@ Celui-ci créera automatiquement les OU, les groupes de sécurité et les compte
 - Ouvrir PowerShell ISE en tant qu'administrateur.
 - Executer le script.
 
-![alt text](./images/win2025-import-user-1766292820597.png)
+![alt text](images/win2025-import-user-1766292820597.png)
 
 Vous devez avoir un résultat positif dans la fenêtre d'éxécution.
 
-![alt text](./images/win2025-import-user-1766292918142.png)
+![alt text](images/win2025-import-user-1766292918142.png)
 
 Constater dans le composant Utilisateurs et ordinateurs Active Directory que les utilisateurs sont importés.
 
-![alt text](./images/win2025-import-user-1766293437300.png)
+![alt text](images/win2025-import-user-1766293437300.png)
 
 ```powershell
 Import-Module ActiveDirectory -ErrorAction Stop

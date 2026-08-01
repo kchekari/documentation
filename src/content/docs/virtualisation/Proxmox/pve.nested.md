@@ -25,7 +25,7 @@ AMD :
 N ou Y
 ```
 
-![alt text](./images/pve.nested-1766151675085.png)
+![alt text](images/pve.nested-1766151675085.png)
 
 Si ce n’est pas activé, il faut ajouter la ligne suivante dans le fichier :
 
@@ -54,4 +54,4 @@ Dans les configurations des machines virtuelles, il faut activer l’option suiv
 CPU Type : Host
 ```
 
-![alt text](./images/pve.nested-1770039010480.png)
+![alt text](images/pve.nested-1770039010480.png)

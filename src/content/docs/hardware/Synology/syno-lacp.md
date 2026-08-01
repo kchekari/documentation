@@ -19,39 +19,39 @@ Direction l’interface de configuration du commutateur, menu « Link Aggregatio
 
 Il faudra activer la configuration que lorsque le synology est configuré aussi sinon vous en perdrez l’accès.
 
-![alt text](./images/syno-lacp-1766157358916.png)
+![alt text](images/syno-lacp-1766157358916.png)
 
 On lui donne ensuite un nom et on positionne les deux interfaces concernées (pour moi la 21 et la 22) ainsi que le type LACP.
 
-![alt text](./images/syno-lacp-1766157368831.png)
+![alt text](images/syno-lacp-1766157368831.png)
 
 C’est tout bon, on passe au Synology.
 
-![alt text](./images/syno-lacp-1766157378744.png)
+![alt text](images/syno-lacp-1766157378744.png)
 
 Dans le panneau de configuration, on sélectionne Créer un bond dans le réseau
 
-![alt text](./images/syno-lacp-1766157389606.png)
+![alt text](images/syno-lacp-1766157389606.png)
 
 On sélectionne bien la technologie LACP
 
-![alt text](./images/syno-lacp-1766157397873.png)
+![alt text](images/syno-lacp-1766157397873.png)
 
 Et les deux interfaces
 
-![alt text](./images/syno-lacp-1766157405781.png)
+![alt text](images/syno-lacp-1766157405781.png)
 
 Il faut ensuite valider la configuration réseau en définissant la valeur par défaut
 
-![alt text](./images/syno-lacp-1766157419904.png)
+![alt text](images/syno-lacp-1766157419904.png)
 
 En activant la configuration, on voit que le statut devient « up » sur le commutateur
 
-![alt text](./images/syno-lacp-1766157436535.png)
-![alt text](./images/syno-lacp-1766157446311.png)
+![alt text](images/syno-lacp-1766157436535.png)
+![alt text](images/syno-lacp-1766157446311.png)
 
 Et sur le Synology aussi
 
 C’est parti ! on a une bande passante doublée maintenant !
 
-![alt text](./images/syno-lacp-1766157454163.png)
+![alt text](images/syno-lacp-1766157454163.png)

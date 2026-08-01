@@ -10,23 +10,23 @@ https://www.axigen.com
 ![alt text](images/image-61.png)
 ![alt text](images/image-62.png)
 On accepte le contrat de licence.
-![alt text](./images/image-63.png)
+![alt text](images/image-63.png)
 Nous pouvons laisser l’emplacement par défaut pour nos TPs
-![alt text](./images/image-64.png)
+![alt text](images/image-64.png)
 Une fois l’installation terminée, votre navigateur s’ouvre sur la page de configuration https://localhost:9443.
-![alt text](./images/image-65.png)
+![alt text](images/image-65.png)
 ## Configuration
 Vous avez une alerte car le certificat est auto-signé.
-![alt text](./images/image-67-1024x591.png)
+![alt text](images/image-67-1024x591.png)
 On accepte le certificat auto-signé et le contrat de licence.
-![alt text](./images/image-68-1024x539.png)
+![alt text](images/image-68-1024x539.png)
 Nous allons définir le mot de passe administrateur
-![alt text](./images/image-69-1024x537.png)
+![alt text](images/image-69-1024x537.png)
 Nous allons sauter l’étape
-![alt text](./images/image-70-1024x535.png)
+![alt text](images/image-70-1024x535.png)
 Nous avons ensuite la liste des services avec leurs ports par défaut.
-![alt text](./images/image-71-1024x535.png)
+![alt text](images/image-71-1024x535.png)
 Nous allons créer un domaine et un mot de passe pour POSTMASTER
-![alt text](./images/image-73-1024x534.png)
+![alt text](images/image-73-1024x534.png)
 La configuration de base est terminée.
-![alt text](./images/image-74-1024x537.png)
+![alt text](images/image-74-1024x537.png)

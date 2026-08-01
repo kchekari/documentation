@@ -26,7 +26,7 @@ L’option -m permet de créer son repertoire personnel.
 
 Pour définir son mot de passe, il faut ensuite utiliser la commande passwd
 
-![alt text](./images/debian-useradd-1766155381274.png)
+![alt text](images/debian-useradd-1766155381274.png)
 
 ## Supprimer un utilisateur
 

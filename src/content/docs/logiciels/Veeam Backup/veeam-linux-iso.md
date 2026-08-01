@@ -29,4 +29,4 @@ veeamconfig downloadIso
 ```
 
 Une fois la commande exécutée, vous trouverez l'images/image ISO bootable de Veeam Agent for Linux à l'emplacement spécifié. Vous pouvez utiliser cette images/image pour démarrer un système et effectuer des opérations de sauvegarde ou de restauration selon vos besoins.
-![alt text](./images/image-39.png)
+![alt text](images/image-39.png)

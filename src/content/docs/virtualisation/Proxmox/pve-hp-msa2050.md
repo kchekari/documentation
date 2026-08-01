@@ -16,22 +16,22 @@ On va partir d’une baie vierge au niveau stockage.
 
 ### Création des Pools de disques
 Je suis parti de l’idée de faire un seul pool avec tous mes disques. Je ferai ensuite un volume par serveur.
-![alt text](./images/image-3.png)
+![alt text](images/image-3.png)
 Mon pool SSD sera en RAID5 quand mon pool SAS sera en RAID6 (j’ai plus de disques).
 
 ### Création des volumes
 Je vais faire un volume de 11Tb par serveur.
-![alt text](./images/image-4.png)
-![alt text](./images/image-5.png)
+![alt text](images/image-4.png)
+![alt text](images/image-5.png)
 
 ### Rattachement aux contrôleurs
 
 On va ensuite mapper les volumes sur les contrôleurs.
 
 `Mappage > Action > Mapper`
-![alt text](./images/image-6.png)
+![alt text](images/image-6.png)
 Pour limiter les soucis, on va monter le stockage PVE21 sur le port 1, PVE22 sur le port 2 et PVR23 sur le port 3.
-![alt text](./images/image-7-1024x208.png)
+![alt text](images/image-7-1024x208.png)
 Coté baie, c’est bon, on passe à Proxmox.
 
 ## Configuration de Proxmox
@@ -45,7 +45,7 @@ On peut voir le stockage avec la commande :
 lsscsi -s
 ```
 Il apparait deux fois, une fois par contrôleur. Si j’avais mappé les 3 stockages, on aurait eu 6 lignes.
-![alt text](./images/image-8.png)
+![alt text](images/image-8.png)
 On va récupérer l’id du stockage, on voit qu’il est identique pour les deux stockages sdx car c’est le même, mais sur un contrôleur différent.
 ```bash
 root@pve21:~# /lib/udev/scsi_id -g -u -d /dev/sdb
@@ -66,7 +66,7 @@ On peut le voir ensuite dans le fichier wwids
 ```bash
 nano /etc/multipath/wwids
 ```
-![alt text](./images/image-9.png)
+![alt text](images/image-9.png)
 Ensuite, il faut configurer le fichier multipath à personnaliser avec l’id et l’alias.
 ```bash
 nano /etc/multipath.conf

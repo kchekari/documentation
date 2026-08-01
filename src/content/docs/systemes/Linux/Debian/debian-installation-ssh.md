@@ -49,7 +49,7 @@ Par défaut et pour des raisons de sécurité, le compte utilisateur root n’a 
 ssh username@ip-serveur-sshd 
 ```
 Dans l’exemple ci-dessous, on peut voir que le client s’est connecté en tant qu’utilisateur « carriat » sur le serveur « debian (192.168.110.58) » avec un compte non-root, car le prompt Linux affiche un « $ ».
-![alt text](./images/image-51.png)
+![alt text](images/image-51.png)
 Une fois l’authentification réussie, vous avez accès au Shell à distance avec des communications réseaux chiffrées et sécurisées.
 ## PUTTY : CLIENT SSH SOUS WINDOWS
 :::tip{icon="heart"}
@@ -61,11 +61,11 @@ PuTTY est un programme permettant de se connecter à distance à des serveurs en
     - l’IP de la machine Serveur SSH
     - le port 22 (port par défaut de SSH)
 
-![alt text](./images/image-5-1.png)
+![alt text](images/image-5-1.png)
 Il est possible de sauvegarder la configuration de la session pour la rouvrir facilement.
-![alt text](./images/image-6-1.png)
+![alt text](images/image-6-1.png)
 Si vous avez un problème d’affichage des caractères spéciaux, il faut modifier le jeu de caractères dans l’onglet « Translation ».
-![alt text](./images/image-7-1.png)
+![alt text](images/image-7-1.png)
 Lors de la première connexion sur le serveur, PuTTY vous affiche la clé de cryptage du serveur et vous demande si vous souhaitez vous connecter sur le serveur. Cliquez Oui !
-![alt text](./images/image-8-1.png)
+![alt text](images/image-8-1.png)
 <iframe width="720" height="576" src="https://www.youtube.com/embed/qbJ_ijOqQww?si=cJf3z8ajXAtLOZ2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

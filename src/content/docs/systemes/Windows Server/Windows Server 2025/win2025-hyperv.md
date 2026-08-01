@@ -11,5 +11,5 @@ authors:
  - Karim
 featured: true
 ---
-![alt text](./images/image-43.png)
+![alt text](images/image-43.png)
 

@@ -25,12 +25,12 @@ Grâce au DN, les serveurs Linux peuvent s’intégrer à l’Active Directory p
 
 Pour trouver le DN d'un objet, il faut activer les fonctionnalités avancées de l'élément "Utilisateurs et ordinateurs Active Directory".
 
-![alt text](./images/win2025-dn-1766338670876.png)
+![alt text](images/win2025-dn-1766338670876.png)
 
 Aller ensuite dans les propriétés de l'éléments.
 
-![alt text](./images/win2025-dn-1766338055336.png)
+![alt text](images/win2025-dn-1766338055336.png)
 
 Puis dans les éditeurs d'attributs.
 
-![alt text](./images/win2025-dn-1766338238715.png)
+![alt text](images/win2025-dn-1766338238715.png)

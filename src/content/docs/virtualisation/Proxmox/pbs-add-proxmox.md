@@ -22,18 +22,18 @@ Avant d'ajouter le PBS à Proxmox VE, assurez-vous d'avoir les informations suiv
 
 Dans le **DATASTORE** > **Summary** > **Show Connection Information** > **Fingerprint**.
 
-![alt text](./images/pbs-add-proxmox-1770210955244.png)
+![alt text](images/pbs-add-proxmox-1770210955244.png)
 
 Dans **Dashboard** > **Show Fingerprint**.
 
-![alt text](./images/pbs-add-proxmox-1770211066787.png)
+![alt text](images/pbs-add-proxmox-1770211066787.png)
 
 ## 2. Ajout du PBS à Proxmox VE
 
 Connectez-vous à l'interface web de Proxmox VE.
 Selectionnez **Datacenter** > **Storage** > **Add** > **Proxmox Backup Server**.
 
-![alt text](./images/pbs-add-proxmox-1770212285210.png)
+![alt text](images/pbs-add-proxmox-1770212285210.png)
 
 Dans la fenêtre qui s'ouvre, remplissez les champs suivants :
 - **ID** : Donnez un nom à votre stockage PBS.
@@ -43,5 +43,5 @@ Dans la fenêtre qui s'ouvre, remplissez les champs suivants :
 - **Fingerprint** : Collez l'empreinte du certificat que vous avez récupérée précédemment.
 - **Datastore** : Sélectionnez le datastore que vous souhaitez utiliser pour les sauvegardes.
 
-![alt text](./images/pbs-add-proxmox-1770212431498.png)
+![alt text](images/pbs-add-proxmox-1770212431498.png)
 

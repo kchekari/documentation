@@ -14,12 +14,12 @@ Pour renommer un serveur, il existe plusieurs chemins d’accès.
 
 Personnellement, je lance le Gestionnaire de serveur :
 
-![alt text](./images/win2025-configuration-ip-1765997742992.png)
+![alt text](images/win2025-configuration-ip-1765997742992.png)
 
 Dans Ethernet, on clique sur Adresse IPv4.
 
-![alt text](./images/win2025-configuration-ip-1765997751092.png)
+![alt text](images/win2025-configuration-ip-1765997751092.png)
 
 On sélectionne ensuite la carte réseau > Propriétés >Protocole Internet version 4 puis on réalise le paramétrage.
 
-![alt text](./images/win2025-configuration-ip-1765997757645.png)
+![alt text](images/win2025-configuration-ip-1765997757645.png)

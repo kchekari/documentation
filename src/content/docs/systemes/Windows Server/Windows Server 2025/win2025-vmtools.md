@@ -12,8 +12,8 @@ authors:
 featured: true
 ---
 Insérer les VM Tools dans la machine depuis le menu de VMWare Workstation, VM > Install VMWare Tools…
-![alt text](./images/win2025-vmtools-1765896129273.png)
+![alt text](images/win2025-vmtools-1765896129273.png)
 Une fois le disque inséré, vous pouvez lancer le fichier setup64 présent dans le lecteur.
-![alt text](./images/win2025-vmtools-1765896137588.png)
+![alt text](images/win2025-vmtools-1765896137588.png)
 Réaliser une installation standard.
-![alt text](./images/win2025-vmtools-1765896142794.png)
+![alt text](images/win2025-vmtools-1765896142794.png)

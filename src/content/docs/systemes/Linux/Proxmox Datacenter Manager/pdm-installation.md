@@ -31,35 +31,35 @@ Configurer une VM dans Proxmox avec les caractéristiques suivantes :
 
 ## INSTALLATION
 L'installation ressemble à une installation Proxmox / Debian
-![alt text](./images/image.png)
+![alt text](images/image.png)
 Il faut accepter la licence ** I agree**
-![alt text](./images/image-1.png)
+![alt text](images/image-1.png)
 Choisir le disque qui va contenir le système d'exploitation.
-![alt text](./images/image-2.png)
+![alt text](images/image-2.png)
 Sélection du pays et du clavier.
-![alt text](./images/image-3.png)
+![alt text](images/image-3.png)
 Puis le mot de passe
-![alt text](./images/image-4.png)
+![alt text](images/image-4.png)
 Réaliser ensuite la configuration IP
-![alt text](./images/image-5.png)
+![alt text](images/image-5.png)
 Tout est pret pour lancer l'installation !
-![alt text](./images/image-6.png)
+![alt text](images/image-6.png)
 Le serveur est installé et accessible.
-![alt text](./images/image-7.png)
-![alt text](./images/image-8.png)
-![alt text](./images/image-9.png)
+![alt text](images/image-7.png)
+![alt text](images/image-8.png)
+![alt text](images/image-9.png)
 
 ## Ajout d'un hôte
 Dans le menu Remotes > Add > Proxmox VE
-![alt text](./images/image-10.png)
+![alt text](images/image-10.png)
 Renseigner l'adresse distante
-![alt text](./images/image-11.png)
+![alt text](images/image-11.png)
 Puis valider le certificat de connexion
-![alt text](./images/image-12.png)
+![alt text](images/image-12.png)
 Renseigner ensuite les champs afin de s'authentifier sur le serveur
-![alt text](./images/image-13.png)
+![alt text](images/image-13.png)
 Le serveur faisant partie d'un cluster, PDM me propose de rajouter tous les noeuds.
 Il ne reste plus qu'à valider
-![alt text](./images/image-14.png)
+![alt text](images/image-14.png)
 Les serveurs sont rajoutés et nous avons une vision globale des noeuds.
-![alt text](./images/image-15.png)
+![alt text](images/image-15.png)

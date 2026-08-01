@@ -18,4 +18,4 @@ ou
 admin-deb10@KCH-M2L-DEB10:~$ uname -a
 ```
 
-![alt text](./images/debian-version-1766154557694.png)
+![alt text](images/debian-version-1766154557694.png)

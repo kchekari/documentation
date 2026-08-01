@@ -15,14 +15,14 @@ scp /chemin/vers/fichier.txt utilisateur@serveur_distant:/chemin/de/destination/
 ```
 Remplacez `/chemin/vers/fichier.txt` par le chemin du fichier que vous souhaitez copier, `utilisateur` par votre nom d'utilisateur sur le serveur distant, `serveur_distant` par l'adresse IP ou le nom de domaine du serveur distant, et `/chemin/de/destination/` par le répertoire de destination sur le serveur distant.
 
-![alt text](./images/image-19-1024x101.png)
+![alt text](images/image-19-1024x101.png)
 
 ## Copier un dossier local vers un serveur distant
 Pour copier un dossier entier, utilisez l'option `-r` (récursif) :
 ```bash
 scp -r /chemin/vers/dossier utilisateur@serveur_distant:/chemin/de/destination/
 ```
-![alt text](./images/image-20-1024x65.png)
+![alt text](images/image-20-1024x65.png)
 
 ## Copier un fichier depuis un serveur distant vers la machine locale
 Pour copier un fichier depuis un serveur distant vers votre machine locale, utilisez la commande suivante :
@@ -47,7 +47,7 @@ Après le transfert, vous pouvez vérifier que le fichier ou le dossier a bien �
 ```bash
 ssh utilisateur@serveur_distant 'ls /chemin/de/destination/'
 ```
-![alt text](./images/image-21-1024x92.png)
+![alt text](images/image-21-1024x92.png)
 
 ## Conclusion
 SCP est un outil puissant et simple pour transférer des fichiers entre machines Linux de manière sécurisée.

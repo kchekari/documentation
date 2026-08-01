@@ -16,15 +16,15 @@ Lors de la première connexion, depuis n’importe quel ordinateur, vous devrez 
 
 Saisir votre identifiant et le mot de passe par défaut : Etudiant_1234
 
-![alt text](./images/windows-connexion-1765964647285.png)
+![alt text](images/windows-connexion-1765964647285.png)
 
 On invite à changer votre mot de passe
-![alt text](./images/windows-connexion-1765964657040.png)
+![alt text](images/windows-connexion-1765964657040.png)
 Saisir deux fois votre nouveau mot de passe et valider par Entrée
-![alt text](./images/windows-connexion-1765964665702.png)
+![alt text](images/windows-connexion-1765964665702.png)
 Le mot de passe a été changé !
 
 Votre session va s’initialiser, il faut patienter.
-![alt text](./images/windows-connexion-1765964702810.png)
+![alt text](images/windows-connexion-1765964702810.png)
 Et vous êtes connecté. Félicitations !
-![alt text](./images/windows-connexion-1765964712796.png)
+![alt text](images/windows-connexion-1765964712796.png)

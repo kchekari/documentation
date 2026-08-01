@@ -18,4 +18,4 @@ Vous pouvez ensuite installer des pilotes, des logiciels.
 
 Une fois terminer, lancer un sysprep en arrêtant le système afin de pouvoir capturer l’OS.
 
-![alt text](./images/windows-mode-audit-1765921961003.png)
+![alt text](images/windows-mode-audit-1765921961003.png)

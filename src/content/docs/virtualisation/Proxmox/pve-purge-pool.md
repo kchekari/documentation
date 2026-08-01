@@ -38,4 +38,4 @@ Tous les étudiants étant dans des pools "SIO1-XX" et "SIO2-XX", j'ai utilisé 
 for i in $(seq -w 1 25); do pvesh get /pools/[DEBUT DU NOM DU POOL]-$i --output-format json | jq -r '.members[] | select(.type=="qemu" or .type=="lxc") | "\(.node) \(.type) \(.vmid)"' | while read -r NODE TYPE VMID; do echo "Suppression de $TYPE $VMID sur $NODE"; if [ "$TYPE" = "qemu" ]; then ssh -n root@"$NODE" "qm stop '$VMID' 2>/dev/null || true; qm destroy '$VMID' --purge"; else ssh -n root@"$NODE" "pct stop '$VMID' 2>/dev/null || true; pct destroy '$VMID' --purge"; fi; done; done
 ```
 
-![alt text](./images/pve-purge-pool-1784622842632.png)
+![alt text](images/pve-purge-pool-1784622842632.png)

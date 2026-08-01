@@ -15,7 +15,7 @@ root@MONITORING-D13:~ # docker pull <nom image>
 ```shell
 root@MONITORING-D13:~ # root@MONITORING-D13:~ # docker images
 ```
-![alt text](./images/image.png)
+![alt text](images/image.png)
 ### Créer un volume
 ```shell
 root@MONITORING-D13:~ # docker pull <nom volume>

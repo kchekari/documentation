@@ -20,18 +20,18 @@ Sous Windows, les connexions série sont identifiées par des ports COM (COM1, C
 3. Dans la liste des périphériques, développez la section "Ports (COM et LPT)". Vous devriez voir un périphérique nommé "USB Serial Port (COMx)" où "x" est le numéro du port COM attribué à votre câble.
 4. Notez ce numéro de port COM, car vous en aurez besoin pour configurer PuTTY.
 
-![Ouverture du gestionnaire de périphérique](./images/image-29.png)
+![Ouverture du gestionnaire de périphérique](images/image-29.png)
 
 Dans Port (COM et LPT), regardé la ligne Prolific PL2303GC. Dans mon cas, ce sera le port COM6.
 
-![alt text](./images/image-30.png)
+![alt text](images/image-30.png)
 
 Dans PuTTy, choisir Serial puis le bon port COM puis Open
 
-![alt text](./images/image-31.png)
+![alt text](images/image-31.png)
 
 La connexion au commutateur est réussite.
 
 Appuyer sur [ENTRÉE] pour afficher l’invite de commande.
 
-![alt text](./images/image-32.png)
+![alt text](images/image-32.png)

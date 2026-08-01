@@ -69,7 +69,7 @@ sudo service apache2 status
 
 La sortie de commande service devrait afficher un message comme celui-ci :
 
-![alt text](./images/debian-12-lamp-1766158074295.png)
+![alt text](images/debian-12-lamp-1766158074295.png)
 
 Vérifiez le port utilisé par Apache avec la commande ss
 
@@ -106,7 +106,7 @@ ip a
 
 Depuis un navigateur web sur le poste client, saisir l’adresse IP du serveur LAMP dans la barre d’adresse. La page d’accueil par défaut d’Apache s’affiche :
 
-![alt text](./images/debian-12-lamp-1766158221126.png)
+![alt text](images/debian-12-lamp-1766158221126.png)
 
 #### Créer une page de test
 
@@ -139,7 +139,7 @@ Vérifiez l’affichage de la page avec lynx (navigateur en mode textuel) :
 lynx http://127.0.0.1/test.html
 ```
 
-![alt text](./images/debian-12-lamp-1766158250720.png)
+![alt text](images/debian-12-lamp-1766158250720.png)
 
 Depuis un navigateur web sur le poste client, saisir l’adresse IP du serveur LAMP dans la barre d’adresse. Par exemple : http://192.168.1.1/test.html
 
@@ -148,7 +148,7 @@ Si l’affichage des caractères spéciaux n’est pas convenable, cela vient du
 - Modifier le /etc/apache2/conf-available/charset.conf
 - Décommenter la ligne AddDefaultCharset UTF-8, en supprimant le symbole # et enregistrer.
 
-![alt text](./images/debian-12-lamp-1766158257397.png)
+![alt text](images/debian-12-lamp-1766158257397.png)
 
 Recharger la configuration d’Apache :
 
@@ -263,7 +263,7 @@ show databases;
 
 Voici un exemple de sortie proposé par la commande :
 
-![alt text](./images/debian-12-lamp-1766158324037.png)
+![alt text](images/debian-12-lamp-1766158324037.png)
 
 Utiliser la commande suivante pour quitter l’instance MariaDB :
 
@@ -311,7 +311,7 @@ Depuis un navigateur web sur le poste client, saisir l’adresse IP du serveur L
 
 http://192.168.1.1/phpinfo.p.html
 
-![alt text](./images/debian-12-lamp-1766158356222.png)
+![alt text](images/debian-12-lamp-1766158356222.png)
 
 Supprimer le fichier phpinfo.php
 
@@ -341,11 +341,11 @@ Choisir le serveur Web à reconfigurer automatiquement apache2 :
 - Sélectionner apache2
 - Presser la touche [ESPACE] puis [ENTER]
 
-![alt text](./images/debian-12-lamp-1766158376735.png)
+![alt text](images/debian-12-lamp-1766158376735.png)
 
 Choisir l’option pour confirmer la configuration de phpMyAdmin avec dbconfig-common :
 
-![alt text](./images/debian-12-lamp-1766158384342.png)
+![alt text](images/debian-12-lamp-1766158384342.png)
 
 Depuis un navigateur web sur le poste client :
 

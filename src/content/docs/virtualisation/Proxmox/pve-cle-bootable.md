@@ -31,10 +31,10 @@ Télécharger Etcher (ou Rufus) et l’installer (si vous ne l’avez pas déjà
 
 Ensuite, c’est tout simple, choisir l’iso, la clé USB et lancer le Flash!
 
-![alt text](./images/pve-cle-bootable-1766152468876.png)
+![alt text](images/pve-cle-bootable-1766152468876.png)
 
 La copie se lance
 
 Il ne reste plus qu’à booter sur la clé USB depuis le serveur.
 
-![alt text](./images/pve-cle-bootable-1766152476735.png)
+![alt text](images/pve-cle-bootable-1766152476735.png)

@@ -17,4 +17,4 @@ Pour désactiver cette fonctionnalité, il faut aller dans le menu **Fichier** e
 
 Dans l'onglet **Vérification**, cliquer sur le bouton **Options de correction automatique ...**. Puis, décocher **Majuscule en début de phrase**.
 
-![alt text](./images/onenote-correction-auto-1767814229245.png)
+![alt text](images/onenote-correction-auto-1767814229245.png)

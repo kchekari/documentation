@@ -46,7 +46,7 @@ Pour décompresser une archive TAR.GZ, utilisez l'option `-x` avec `-z` (gzip) 
 tar -xzf archive.tar.gz
 ```
 
-![alt text](./images/tar-guide-1768578155049.png)
+![alt text](images/tar-guide-1768578155049.png)
 
 ### Décompresser une archive TAR.BZ2
 

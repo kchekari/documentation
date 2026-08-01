@@ -14,7 +14,7 @@ La baie est connectée aux serveurs en double attachement.
 
 Les disques apparaissent donc deux fois :
 
-![alt text](./images/pve-multipath-1765998545548.png)
+![alt text](images/pve-multipath-1765998545548.png)
 
 Pour leur permettre d’être vu comme un seul disque et d’être écrit par plusieurs serveurs, il faut installer le paquet Multipath sur les serveurs.
 
@@ -23,7 +23,7 @@ apt update
 apt install multipath-tools
 ```
 
-![alt text](./images/pve-multipath-1765998643719.png)
+![alt text](images/pve-multipath-1765998643719.png)
 
 On va récupérer l’id des disques à partir de leurs chemins
 
@@ -31,7 +31,7 @@ On va récupérer l’id des disques à partir de leurs chemins
 /lib/udev/scsi_id -g -u -d /dev/sdX
 ```
 
-![alt text](./images/pve-multipath-1765998656380.png)
+![alt text](images/pve-multipath-1765998656380.png)
 
 On va ensuite exécuter la commande pour chaque id :
 
@@ -39,7 +39,7 @@ On va ensuite exécuter la commande pour chaque id :
 multipath -a <id>
 ```
 
-![alt text](./images/pve-multipath-1765998677272.png)
+![alt text](images/pve-multipath-1765998677272.png)
 
 On va ensuite créer le /etc/multipath.conf pour que les deux disques soient vus comme un seul.
 
@@ -51,7 +51,7 @@ On peut vérifier l’id avec la commande :
 cat /etc/multipath/wwids
 ```
 
-![alt text](./images/pve-multipath-1765998715308.png)
+![alt text](images/pve-multipath-1765998715308.png)
 
 ```bash
 nano /etc/multipath.conf
@@ -76,11 +76,11 @@ multipaths {
 }
 ```
 
-![alt text](./images/pve-multipath-1765998734109.png)
+![alt text](images/pve-multipath-1765998734109.png)
 
 On redémarre le service
 
-![alt text](./images/pve-multipath-1765998759338.png)
+![alt text](images/pve-multipath-1765998759338.png)
 
 À faire uniquement sur un serveur
 
@@ -97,4 +97,4 @@ vgcreate SIO2 /dev/mapper/pve-sio2
 
 Les LVM sont bien montés sur Proxmox.
 
-![alt text](./images/pve-multipath-1765998769563.png)
+![alt text](images/pve-multipath-1765998769563.png)

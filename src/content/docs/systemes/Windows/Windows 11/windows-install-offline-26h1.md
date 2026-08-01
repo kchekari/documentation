@@ -13,5 +13,5 @@ featured: true
 
 ## Installation sans connexion Internet
 
-![alt text](./images/windows-install-offline-26h1-1783431939830.png)
+![alt text](images/windows-install-offline-26h1-1783431939830.png)
 

@@ -12,16 +12,16 @@ Un fichier OVF (Open Virtualization Format) est un format standardisé utilisé 
 ## Création d’un modèle OVF
 On sélectionne la VM puis File > Export OVF…
 
-![alt text](./images/image-22.png)
+![alt text](images/image-22.png)
 
 Dans la fenêtre qui s’ouvre, il suffit de définir le répertoire de destination et le nom du fichier pour le sauvegarder.
 
-![alt text](./images/image-23.png)
+![alt text](images/image-23.png)
 
 En OVF, vous aurez plusieurs fichiers (configuration, iso, paramétrage, RAM …)
 
-![alt text](./images/image-24.png)
+![alt text](images/image-24.png)
 
 En OVA, vous aurez un seul fichier qui contient tout.
 
-![alt text](./images/image-25.png)
+![alt text](images/image-25.png)

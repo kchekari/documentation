@@ -26,7 +26,7 @@ S’il n’est pas déjà installé, il faut installer le paquet sudo avec la co
 apt install sudo
 ```
 
-![alt text](./images/debian-sudo-1766155511432.png)
+![alt text](images/debian-sudo-1766155511432.png)
 
 Ensuite, nous allons ajouter l’utilisateur au groupe sudo.
 
@@ -38,6 +38,6 @@ usermod -aG sudo nomutilisateur
 
 Pour basculer ensuite sur le nouvel utilisateur, executer la commande su – nomutilisateur
 
-![alt text](./images/debian-sudo-1766155529514.png)
+![alt text](images/debian-sudo-1766155529514.png)
 
 Pour personnaliser les droits sudo, il faut modifier le fichier /etc/sudoers

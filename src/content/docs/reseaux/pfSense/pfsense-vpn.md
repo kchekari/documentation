@@ -26,7 +26,7 @@ Si vous êtes amenés à ajouter d’autres sites, il faudra les ajouter en tant
 
 Aller dans le menu VPN > OpenVPN :
 
-![alt text](./images/pfsense-vpn-1773674525366.png)
+![alt text](images/pfsense-vpn-1773674525366.png)
 
 Il faut ensuite ajouter un serveur depuis l’onglet « Servers ».
 
@@ -48,7 +48,7 @@ Avant de démarrer, il faut aller créer une autorité de certification `System 
 - Préciser un Common Name
 - Valider par Save
 
-![alt text](./images/pfsense-vpn-1773674782189.png)
+![alt text](images/pfsense-vpn-1773674782189.png)
 
 ### Création d'un certificat serveur
 
@@ -59,15 +59,15 @@ Avant de démarrer, il faut aller créer une autorité de certification `System 
 - Choisir un type de certificat : Server
 - Valider par Save
 
-![alt text](./images/pfsense-vpn-1773675751943.png)
-![alt text](./images/pfsense-vpn-1773676102922.png)
+![alt text](images/pfsense-vpn-1773675751943.png)
+![alt text](images/pfsense-vpn-1773676102922.png)
 
 ### Création d'un certificat Client
 
 On recommence la procédure, mais cette fois pour ajouter un certificat client
 
-![alt text](./images/pfsense-vpn-1773676262638.png)
-![alt text](./images/pfsense-vpn-1773676276884.png)
+![alt text](images/pfsense-vpn-1773676262638.png)
+![alt text](images/pfsense-vpn-1773676276884.png)
 
 Nous avons donc un certificat client et un certificat serveur
 
@@ -88,7 +88,7 @@ Une solution pourrait être de passer en TCP 443, car le port est très souvent 
 - **IPv4 Remote network(s)** : Il faut indiquer le réseau de destination du tunnel, il est possible d’en ajouter plusieurs en séparant les réseaux par des virgules. Notation avec CIDR.
 - **Concurrent connections** : Nombre de connexions client simultané sur le serveur. Le mettre à 1. Terminer par sauvegarder la configuration.
 
-![alt text](./images/pfsense-vpn-1773676708855.png)
+![alt text](images/pfsense-vpn-1773676708855.png)
 
 ### Ajout des règles de pare-feu
 
@@ -100,21 +100,21 @@ Créer une règle avec la configuration :
 - **Destination** : IP publique du site local (SITE 1).
 - **Protocol/Destination Port** : UDP 1194 (port d’OpenVPN).
 
-![alt text](./images/pfsense-vpn-1773993348314.png)
+![alt text](images/pfsense-vpn-1773993348314.png)
 
 Ajouter également une règle pour autoriser tous les flux transitant par le VPN.
 
-![alt text](./images/pfsense-vpn-1773993361402.png)
+![alt text](images/pfsense-vpn-1773993361402.png)
 
 ### Export des certificats
 
 Dans l'onglet "Authorites", on va exporter le certificat de l'autorité.
 
-![alt text](./images/pfsense-vpn-1773929883411.png)
+![alt text](images/pfsense-vpn-1773929883411.png)
 
 Dans l'onglet "Certificates", on va exporter le certificat et la clé.
 
-![alt text](./images/pfsense-vpn-1773929978282.png)
+![alt text](images/pfsense-vpn-1773929978282.png)
 
 ## Configuration coté « client » sur SITE 2
 
@@ -128,21 +128,21 @@ Il faut renseigner les champs :
 - Method
 - Certificate data (ouvrir le fichier avec un bloc-notes et copier le contenu)
 
-![alt text](./images/pfsense-vpn-1773930401092.png)
+![alt text](images/pfsense-vpn-1773930401092.png)
 
-![alt text](./images/pfsense-vpn-1773930435728.png)
+![alt text](images/pfsense-vpn-1773930435728.png)
 
 ### Importation des clés du client
 
 Dans l'onglet client, on importe le certificat avec la method "Import an existing Certificate" en copiant les données du certificat et la clé privée.
 
-![alt text](./images/pfsense-vpn-1773930559521.png)
+![alt text](images/pfsense-vpn-1773930559521.png)
 
-![alt text](./images/pfsense-vpn-1773930586393.png)
+![alt text](images/pfsense-vpn-1773930586393.png)
 
 Aller dans le menu `VPN > OpenVPN` mais cette fois dans l’onglet `Clients > + ADD`.
 
-![alt text](./images/pfsense-vpn-1773930634621.png)
+![alt text](images/pfsense-vpn-1773930634621.png)
 
 Pour correspondre à la configuration du serveur OpenVPN, il faut choisir le mode Peer to peer (SSL/TLS) et les options suivantes :
 
@@ -156,30 +156,30 @@ Pour correspondre à la configuration du serveur OpenVPN, il faut choisir le mod
 - IPv4 Tunnel Network
 - IPv4 Remote network(s)
 
-![alt text](./images/pfsense-vpn-1773930894540.png)
+![alt text](images/pfsense-vpn-1773930894540.png)
 
-![alt text](./images/pfsense-vpn-1773930955317.png)
+![alt text](images/pfsense-vpn-1773930955317.png)
 
-![alt text](./images/pfsense-vpn-1773931000285.png)
+![alt text](images/pfsense-vpn-1773931000285.png)
 
 Ajouter la même règle sur le trafic OpenVPN dans le Firewall.
 
-![alt text](./images/pfsense-vpn-1773993432671.png)
+![alt text](images/pfsense-vpn-1773993432671.png)
 
 ### Vérification de la connexion VPN
 
 Il est possible de voir l’état de la connexion VPN dans `Status > OpenVPN`.
 
-![alt text](./images/pfsense-vpn-1773993480592.png)
+![alt text](images/pfsense-vpn-1773993480592.png)
 
-![alt text](./images/pfsense-vpn-1773993513893.png)
+![alt text](images/pfsense-vpn-1773993513893.png)
 
 Les logs OpenVPN sont dans `Status > System logs > Firewall` ou `OpenVPN`.
 
-![alt text](./images/pfsense-vpn-1773993562748.png)
+![alt text](images/pfsense-vpn-1773993562748.png)
 
 Tester un ping depuis le PC sur SITE2 vers le Serveur du SITE1 :
 
-![alt text](./images/pfsense-vpn-1773994218552.png)
+![alt text](images/pfsense-vpn-1773994218552.png)
 
 En conclusion, vous constatez qu’un VPN site à site permet aux machines de deux réseaux de communiquer entre leur LAN sans avoir à installer un client sur les postes utilisateurs.

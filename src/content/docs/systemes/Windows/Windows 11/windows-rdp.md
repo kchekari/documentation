@@ -24,7 +24,7 @@ Lancer le terminal Windows et taper la commande :
 ipconfig
 ```
 
-![alt text](./images/windows-rdp-1765921278387.png)
+![alt text](images/windows-rdp-1765921278387.png)
 
 On voit que l’ordinateur a pour IP : 192.168.110.52
 
@@ -34,7 +34,7 @@ Nous allons chercher le paramètre « Paramètres du bureau à distance«
 
 Paramètres > Système > Bureau à distance > Activer
 
-![alt text](./images/windows-rdp-1765921293480.png)
+![alt text](images/windows-rdp-1765921293480.png)
 
 Par défaut, votre utilisateur administrateur à un accès (à partir du moment où il a un mot de passe).
 
@@ -44,16 +44,16 @@ Par défaut, votre utilisateur administrateur à un accès (à partir du moment 
 
 Taper « mstsc » ou « Bureau à distance »
 
-![alt text](./images/windows-rdp-1765921310146.png)
+![alt text](images/windows-rdp-1765921310146.png)
 
 Dans la fenêtre qui s’ouvre, mettre l’IP du PC virtuel puis saisir les informations de connexion.
 
-![alt text](./images/windows-rdp-1765921320617.png)
+![alt text](images/windows-rdp-1765921320617.png)
 
 Valider la connexion et autoriser la connexion.
 
-![alt text](./images/windows-rdp-1765921330517.png)
+![alt text](images/windows-rdp-1765921330517.png)
 
 Le bureau de Windows est accessible depuis le PC hôte.
 
-![alt text](./images/windows-rdp-1765921345060.png)
+![alt text](images/windows-rdp-1765921345060.png)

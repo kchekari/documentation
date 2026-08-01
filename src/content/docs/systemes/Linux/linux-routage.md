@@ -24,7 +24,7 @@ Pour activer le routage IP sur un système Linux, vous pouvez suivre les étapes
    sudo sysctl -w net.ipv4.ip_forward=1
    ```
 
-   ![alt text](./images/linux-routage-1773411302478.png)
+   ![alt text](images/linux-routage-1773411302478.png)
 
 3. Pour rendre cette modification permanente, éditez le fichier de configuration `sysctl.conf` :
 

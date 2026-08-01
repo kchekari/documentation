@@ -19,7 +19,7 @@ Du coup, dans le shell, vous pouvez essayer ses commandes :
 qm shutdown 100
 ```
 
-![alt text](./images/pve-cli-stop-vm-1766072257804.png)
+![alt text](images/pve-cli-stop-vm-1766072257804.png)
 
 Si ça ne fonctionne pas, on peut tenter un arrêt brutal.
 

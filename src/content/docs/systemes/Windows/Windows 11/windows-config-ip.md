@@ -11,19 +11,19 @@ La configuration IP dans Windows permet d’attribuer à un ordinateur une adres
 ### Via l’interface graphique
 
 Aller dans **Paramètres > Réseau et Internet > Développer le bloc Ethernet**.
-![alt text](./images/image-137.png)
+![alt text](images/image-137.png)
 
 ### Via l’ancienne interface
 
 Nous pouvons accéder par l’ancien panneau de configuration, mais le plus rapide est de lancer le programme ncpa.cpl
-![alt text](./images/image-138.png)
+![alt text](images/image-138.png)
 Dans la fenêtre qui s’ouvre, ouvrez la carte Ethernet, puis aller dans Détails. Les informations IP sont disponibles.
-![alt text](./images/image-139.png)
+![alt text](images/image-139.png)
 
 ### En ligne de commande
 
 Lancer la commande ipconfig
-![alt text](./images/image-140.png)
+![alt text](images/image-140.png)
 
 ## Modification IP
 
@@ -32,11 +32,11 @@ Lancer la commande ipconfig
 Aller dans Paramètres > Réseau et Internet > Développer le bloc Ethernet.
 
 Au niveau de la ligne **Attribution d’adresse IP**, actuellement en Automatique (DHCP) cliquer sur Modifier.
-![alt text](./images/image-141.png)
+![alt text](images/image-141.png)
 
 Passer en manuel et activer IPv4.
 Saisir ensuite vos informations IP dans les champs.
-![alt text](./images/image-142.png)
+![alt text](images/image-142.png)
 Enregistrer le paramétrage, il est appliqué automatiquement.
 
 ### Via ancienne interface
@@ -44,7 +44,7 @@ Enregistrer le paramétrage, il est appliqué automatiquement.
 Nous pouvons accéder par l’ancien panneau de configuration, mais le plus rapide est de lancer le programme ncpa.cpl
 
 Aller dans les propriétés de la carte > Protocole Internet version 4 >Propriétés > Saisir les informations.
-![alt text](./images/image-143.png)
+![alt text](images/image-143.png)
 :::caution
 Attention à bien refermer les fenêtres en les validant par ok.
 :::

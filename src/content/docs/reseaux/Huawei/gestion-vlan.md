@@ -75,4 +75,4 @@ Info: Save the configuration successfully.
 [SW-CORE]display vlan
 ```
 
-![alt text](./images/gestion-vlan-1765965954682.png)
+![alt text](images/gestion-vlan-1765965954682.png)

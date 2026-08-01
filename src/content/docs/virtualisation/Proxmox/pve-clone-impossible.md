@@ -13,7 +13,7 @@ featured: true
 ---
 En voulant cloner une VM sur un autre PVE, je me suis aperçu que je n’ai pas le stockage DATASTORE-VM car il n’est pas partagé :
 
-![alt text](./images/pve-clone-impossible-1766070149265.png)
+![alt text](images/pve-clone-impossible-1766070149265.png)
 
 Il faut editer le fichier /etc/pve/storage.cfg
 ```bash

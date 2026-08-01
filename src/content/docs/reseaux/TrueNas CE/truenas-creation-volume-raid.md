@@ -18,31 +18,31 @@ Rappel sur le RAID :
 :::
 
 Pour créer un volume RAID, aller dans **Stockage > Créer un volume**.
-![alt text](./images/image-2.png)
+![alt text](images/image-2.png)
 Donner un nom au volume, sélectionner les disques à inclure dans le volume et choisir le type de RAID (ici MIROIR).
 On en modifie pas les options facultatives.
-![alt text](./images/image-10.png)
+![alt text](images/image-10.png)
 
 Le volume est créé, nous allons créer un dataset pour stocker les données.
 Aller dans le volume créé et choisir **Add Dataset**.
 
-![alt text](./images/image-11.png)
+![alt text](images/image-11.png)
 
 Donner un nom au dataset (ici "data") et valider.
 
-![alt text](./images/image-12.png)
+![alt text](images/image-12.png)
 Le dataset est créé, nous allons maintenant configurer les permissions.
 Choisir **Edit Permissions**.
 
-![alt text](./images/image-13.png)
+![alt text](images/image-13.png)
 
 Nous allons donner les permissions à l'utilisateur "nobody" et au groupe "nogroup" pour que le partage SMB puisse y accéder.
 Sélectionner "nobody" pour l'utilisateur et "nogroup" pour le groupe.
 Cocher les cases pour donner les permissions de lecture, écriture et exécution.
 Valider en cliquant sur **Save**.
 
-![alt text](./images/image-14.png)
+![alt text](images/image-14.png)
 
 Le dataset est prêt à être utilisé pour le partage SMB.
 
-![alt text](./images/image-15.png)
+![alt text](images/image-15.png)

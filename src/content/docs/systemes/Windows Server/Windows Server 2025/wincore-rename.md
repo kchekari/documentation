@@ -14,11 +14,11 @@ featured: true
 
 Pour renommer un serveur Windows Core, depuis l'interface SConfig, sélectionnez l'option **2) Computer Name**.
 
-![alt text](./images/wincore-rename-1767902008889.png)
+![alt text](images/wincore-rename-1767902008889.png)
 
 Puis, nommer le serveur.
 
-![alt text](./images/wincore-rename-1767902044151.png)
+![alt text](images/wincore-rename-1767902044151.png)
 
 Il faudra ensuite redémarrer le serveur pour que le changement de nom prenne effet.
 

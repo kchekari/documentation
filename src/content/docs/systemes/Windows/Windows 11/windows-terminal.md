@@ -20,7 +20,7 @@ Contrairement à l’ancienne invite de commandes, le Terminal permet :
 C’est un outil incontournable pour les étudiants en BTS SIO, car il permet de pratiquer l’administration système, le scripting PowerShell, la configuration réseau, ou encore la manipulation de fichiers et services à la ligne de commande.
 
 Pour le lancer, vous pouvez rechercher le programme ou faire la combinaison de touche [WINDOWS]+X puis Terminal.
-![alt text](./images/image-26.png)
+![alt text](images/image-26.png)
 Par défaut, le Terminal s’ouvre avec PowerShell. Vous pouvez ouvrir un nouvel onglet en cliquant sur le bouton "+" ou en utilisant le raccourci clavier [CTRL]+T.
 
 Voici quelques raccourcis clavier :
@@ -33,4 +33,4 @@ Voici quelques raccourcis clavier :
 Vous pouvez personnaliser le Terminal en modifiant les paramètres JSON ou via l’interface graphique intégrée. Vous pouvez changer les couleurs, la police, le comportement des onglets, etc.
 
 Le Terminal Windows est un outil puissant et flexible qui facilite la gestion des systèmes Windows et Linux via la ligne de commande. Il est fortement recommandé aux étudiants en BTS SIO de se familiariser avec cet outil pour leurs travaux pratiques et projets.
-![alt text](./images/image-27.png)
+![alt text](images/image-27.png)

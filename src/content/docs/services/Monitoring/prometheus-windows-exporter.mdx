@@ -7,15 +7,15 @@ sidebar:
 [Releases · prometheus-community/windows_exporter](https://github.com/prometheus-community/windows_exporter/releases)
 ## Installation
 Lancer le fichier windows_exporter-0.31.3-amd64.msi
-![alt text](./images/image.png)
+![alt text](images/image.png)
 Suivre le processus d'installation
-![alt text](./images/image-1.png)
-![alt text](./images/image-2.png)
-![alt text](./images/image-3.png)
+![alt text](images/image-1.png)
+![alt text](images/image-2.png)
+![alt text](images/image-3.png)
 Windows Exporter est installé comme un service
-![alt text](./images/image-4.png)
+![alt text](images/image-4.png)
 Nous pouvons voir les métriques à l'adresse http://localhost:9182/metrics
-![alt text](./images/image-5.png)
+![alt text](images/image-5.png)
 ## Ajout de l'exporter dans Prometheus
 Nous allons modifier le fichier
 ```bash
@@ -27,8 +27,8 @@ root@MONITORING-D13:~ # nano /etc/prometheus/prometheus.yml
 
 root@MONITORING-D13:~ # service prometheus restart
 ```
-![alt text](./images/image-6.png)
+![alt text](images/image-6.png)
 
 La target est bien configurée
 
-![alt text](./images/image-7.png)
+![alt text](images/image-7.png)

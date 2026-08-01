@@ -20,15 +20,15 @@ Voici les étapes que j'ai suivies pour y parvenir :
 
 Dans les paramètres materiels de la machine virtuelle, séléctionner le disque et faire **Disk Action** > **Resize**.
 
-![alt text](./images/debian-extend-hdd-1768740258247.png)
+![alt text](images/debian-extend-hdd-1768740258247.png)
 
 Dans le popup, entrer la quantité à ajouter (en Go) et valider.
 
-![alt text](./images/debian-extend-hdd-1768740316962.png)
+![alt text](images/debian-extend-hdd-1768740316962.png)
 
 Une fois appliqué, la taille du disque dur est mise à jour.
 
-![alt text](./images/debian-extend-hdd-1768740362688.png)
+![alt text](images/debian-extend-hdd-1768740362688.png)
 
 Le paramètre est maintenant prêt à être pris en compte par le système d'exploitation invité.
 
@@ -41,7 +41,7 @@ Utiliser la commande `lsblk` pour vérifier la taille actuelle du disque dur et 
 lsblk
 ```
 
-![alt text](./images/debian-extend-hdd-1768740537141.png)
+![alt text](images/debian-extend-hdd-1768740537141.png)
 
 Pour une modification à chaud, utiliser la commande `parted` pour redimensionner la partition principale (généralement sda1).
 
@@ -52,7 +52,7 @@ apt update
 apt install parted
 ```
 
-![alt text](./images/debian-extend-hdd-1768740614896.png)
+![alt text](images/debian-extend-hdd-1768740614896.png)
 
 Désactiver la partition du swapavant de la redimensionner :
 
@@ -66,11 +66,11 @@ Commenter la ligne de swap dans `/etc/fstab` pour éviter qu'elle ne soit réact
 nano /etc/fstab
 ```
 
-![alt text](./images/debian-extend-hdd-1768740758622.png)
+![alt text](images/debian-extend-hdd-1768740758622.png)
 
 On peut voir que la partition sda1 est celle à redimensionner.
 
-![alt text](./images/debian-extend-hdd-1768740828297.png)
+![alt text](images/debian-extend-hdd-1768740828297.png)
 
 Nous allons manipuler la table de partition GPT avec `parted` :
 
@@ -86,7 +86,7 @@ print
 quit
 ```
 
-![alt text](./images/debian-extend-hdd-1768741043479.png)
+![alt text](images/debian-extend-hdd-1768741043479.png)
 
 Ensuite, utiliser `resize2fs` pour étendre le système de fichiers à la nouvelle taille de la partition :
 
@@ -94,7 +94,7 @@ Ensuite, utiliser `resize2fs` pour étendre le système de fichiers à la nouvel
 resize2fs /dev/sda1
 ```
 
-![alt text](./images/debian-extend-hdd-1768741098169.png)
+![alt text](images/debian-extend-hdd-1768741098169.png)
 
 Il faut maintenant réactiver le swap mais nous allons le faire sur un swapfile plutotôt qu'une partition dédiée.
 
@@ -118,8 +118,8 @@ Ajouter la ligne suivante dans `/etc/fstab` pour activer le swapfile au démarra
 /swapfile none swap sw 0 0
 ``` 
 
-![alt text](./images/debian-extend-hdd-1768741461103.png)
+![alt text](images/debian-extend-hdd-1768741461103.png)
 
 Nous pouvons voir que la taille de la partition sda1 a été étendue avec succès.
 
-![alt text](./images/debian-extend-hdd-1768741156144.png)
+![alt text](images/debian-extend-hdd-1768741156144.png)

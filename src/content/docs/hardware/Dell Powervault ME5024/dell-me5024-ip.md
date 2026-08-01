@@ -14,4 +14,4 @@ La baie PowerVault ME5024 possède deux cartes. Très pratique pour configurer u
 
 Menu Paramètres > Réseau
 
-![alt text](./images/dell-me5024-ip-1766046553033.png)
+![alt text](images/dell-me5024-ip-1766046553033.png)

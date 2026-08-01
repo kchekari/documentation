@@ -20,7 +20,7 @@ deb http://deb.debian.org/debian/ trixie-updates main non-free-firmware
 deb-src http://deb.debian.org/debian/ trixie-updates main non-free-firmware
 ```
 
-![alt text](./images/image-117.png)
+![alt text](images/image-117.png)
 
 Pour éditer le fichier sources.list
 ```bash

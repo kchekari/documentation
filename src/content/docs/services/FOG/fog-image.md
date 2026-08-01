@@ -25,4 +25,4 @@ Ajouter une image.
 - Pour **Windows**, choisir Single Disk – Resizable.
 - Pour **Linux**, choisir Multiple Partition Image – Single Disk – Not Resizable
 
-![alt text](./images/fog-image-1768903514959.png)
+![alt text](images/fog-image-1768903514959.png)

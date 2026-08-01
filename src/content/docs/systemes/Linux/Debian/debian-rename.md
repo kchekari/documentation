@@ -23,7 +23,7 @@ Pour voir son hostname, utiliser la commande :
 admin-fw@m2l-routeur:~$ hostnamectl
 ```
 
-![alt text](./images/debian-rename-1766154999001.png)
+![alt text](images/debian-rename-1766154999001.png)
 
 Pour changer le nom d’une machine linux Debian, il faut modifier deux fichiers :
 
@@ -35,8 +35,8 @@ nano /etc/hosts
 nano /etc/hostname
 ```
 
-![alt text](./images/debian-rename-1766155009507.png)
-![alt text](./images/debian-rename-1766155016883.png)
+![alt text](images/debian-rename-1766155009507.png)
+![alt text](images/debian-rename-1766155016883.png)
 
 On peut également le changer en ligne de commande
 
@@ -52,4 +52,4 @@ invoke-rc.d hostname.sh restart
 
 Après une déconnexion, l’hostname est à jour.
 
-![alt text](./images/debian-rename-1766155028465.png)
+![alt text](images/debian-rename-1766155028465.png)

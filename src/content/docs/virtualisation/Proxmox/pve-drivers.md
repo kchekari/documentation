@@ -16,7 +16,7 @@ Dans Proxmox, l’installation des drivers VirtIO et du QEMU Guest Agent est for
 
 Il faut dans un premier temps, activer le QEMU Guest Agent dans les options de la VM.
 
-![alt text](./images/pve-drivers-1766071949101.png)
+![alt text](images/pve-drivers-1766071949101.png)
 
 ### Installation sous Windows
 
@@ -26,33 +26,33 @@ Nous allons monter l’iso sur la machine. Il faut aller dans l’onglet Hardwar
 
 Si elle n’a pas de CD/DVD, il faut en ajouter un :
 
-![alt text](./images/pve-drivers-1766071967702.png)
+![alt text](images/pve-drivers-1766071967702.png)
 
 - Storage : ISO
 - ISO Image : virtio-win-0.1.271.iso
 
 Il faut ensuite arrêter et démarrer la VM pour que le changement soir appliqué.
 
-![alt text](./images/pve-drivers-1766071979965.png)
+![alt text](images/pve-drivers-1766071979965.png)
 
 Et ensuite charger le fichier iso.
 
-![alt text](./images/pve-drivers-1766071993741.png)
+![alt text](images/pve-drivers-1766071993741.png)
 
 Une fois l’iso monté, il faut installer le logiciel à partir du fichier virtio-win-guest-tools.exe
 
-![alt text](./images/pve-drivers-1766072012089.png)
+![alt text](images/pve-drivers-1766072012089.png)
 
 Le fichier exe va installer les drivers virtio ainsi que les qemu agent, il y aura donc deux installations.
 On accepte la licence et on lance l’installation.
 
-![alt text](./images/pve-drivers-1766072020918.png)
+![alt text](images/pve-drivers-1766072020918.png)
 
 Accepter ensuite toutes les étapes par défaut.
 Une fois terminé, vous devez redémarrer.
 Si tout est bon, dans le résumé de la machine, vous devez voir son IP
 
-![alt text](./images/pve-drivers-1766072055407.png)
+![alt text](images/pve-drivers-1766072055407.png)
 
 ### Installation sous Linux
 

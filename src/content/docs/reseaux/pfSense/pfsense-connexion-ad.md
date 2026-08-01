@@ -18,7 +18,7 @@ Sur l’AD, afficher les certificats racine et leur empreinte :
 Get-ChildItem -Path Cert:\LocalMachine\Root
 ```
 
-![alt text](./images/pfsense-connexion-ad-1765958514235.png)
+![alt text](images/pfsense-connexion-ad-1765958514235.png)
 On va ensuite exporter le certificat de l’AD :
 
 ```powershell
@@ -27,20 +27,20 @@ Export-Certificate -Cert $cert -FilePath c:\ssl\root-ca-cert.cer -Type CERT
 certutil -encode c:\ssl\root-ca-cert.cer c:\ssl\root-ca-cert.pem
 ```
 
-![alt text](./images/pfsense-connexion-ad-1765958528193.png)
+![alt text](images/pfsense-connexion-ad-1765958528193.png)
 Une fois le certificat en main, il faut également un utilisateur LDAP capable de lire l’annuaire (j’ai déjà un ldap.reader).
 
 Maintenant que nous avons tout le nécessaire, direction pfSense.
 
 `System > Certificates > Authorities > Add`
-![alt text](./images/pfsense-connexion-ad-1765958706049.png)
+![alt text](images/pfsense-connexion-ad-1765958706049.png)
 Nous allons importer le certificat
-![alt text](./images/pfsense-connexion-ad-1765958713697.png)
+![alt text](images/pfsense-connexion-ad-1765958713697.png)
 L’autorité est créé.
-![alt text](./images/pfsense-connexion-ad-1765958720850.png)
+![alt text](images/pfsense-connexion-ad-1765958720850.png)
 Il faut que le serveur puisse répondre au ping donc configurer le DNS et rajouter un Host Overrides
-![alt text](./images/pfsense-connexion-ad-1765958728890.png)
+![alt text](images/pfsense-connexion-ad-1765958728890.png)
 Le ping doit fonctionner
-![alt text](./images/pfsense-connexion-ad-1765958736499.png)
+![alt text](images/pfsense-connexion-ad-1765958736499.png)
 Nous pouvons maintenant créer le serveur d’authentification dans le menu System > User Manager > Authentification Server
-![alt text](./images/pfsense-connexion-ad-1765958744435.png)
+![alt text](images/pfsense-connexion-ad-1765958744435.png)

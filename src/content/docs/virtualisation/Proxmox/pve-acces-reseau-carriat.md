@@ -9,9 +9,9 @@ Le serveur de stockage QNAP est disponible à l’adresse :
 ```
 \\172.29.30.41
 ```
-![alt text](./images/image-160.png)
+![alt text](images/image-160.png)
 Le QNAP étant sur le réseau du BTS, vous devez utiliser vos identifiants BTS pour vous connecter.
-![alt text](./images/image-161.png)
+![alt text](images/image-161.png)
 Deux partages sont importants :
 - Home : Représente votre dossier personnel (équivalent de votre H:).
 - Iso : Contient les fichiers iso et les logiciels, notamment le dossier \\172.29.30.41\iso\logiciels

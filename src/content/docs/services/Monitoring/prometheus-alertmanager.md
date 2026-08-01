@@ -12,7 +12,7 @@ root@MONITORING-D13:/opt # wget https://github.com/prometheus/alertmanager/relea
 root@MONITORING-D13:/opt # tar xvf alertmanager-0.29.0.linux-amd64.tar.gz
 root@MONITORING-D13:/opt # mv alertmanager-0.29.0.linux-amd64 alertmanager
 ```
-![alt text](./images/image-8.png)
+![alt text](images/image-8.png)
 ## Configuration de l'envoi des alertes
 Créez un fichier de configuration `alertmanager.yml` dans le répertoire d'Alertmanager (`/opt/alertmanager` dans notre exemple).
 Voilà un exemple de configuration pour envoyer des alertes par email via un compte Gmail :

@@ -26,7 +26,7 @@ Créez un répertoire pour le datastore local. Par exemple, vous pouvez créer u
 mkdir -p /mnt/local-datastore
 ```
 
-![alt text](./images/pbs-local-datastore-1770204659312.png)
+![alt text](images/pbs-local-datastore-1770204659312.png)
 
 Assurez-vous que le répertoire a les permissions appropriées pour que Proxmox Backup Server puisse y accéder.
 
@@ -34,8 +34,8 @@ Assurez-vous que le répertoire a les permissions appropriées pour que Proxmox 
 
 Dans le menu de gauche, cliquez sur **Datastore** > **Add**.
 
-![alt text](./images/pbs-local-datastore-1770210340430.png)
+![alt text](images/pbs-local-datastore-1770210340430.png)
 
-![alt text](./images/pbs-local-datastore-1770210414798.png)
+![alt text](images/pbs-local-datastore-1770210414798.png)
 
 

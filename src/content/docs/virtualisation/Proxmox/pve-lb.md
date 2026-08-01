@@ -28,7 +28,7 @@ a2enmod proxy proxy_balancer proxy_http lbmethod_byrequests
 systemctl restart apache2
 ```
 
-![alt text](./images/pve-lb-1766149677247.png)
+![alt text](images/pve-lb-1766149677247.png)
 
 Nous allons créer un fichier /etc/apache2/sites-available/pve.conf
 
@@ -94,4 +94,4 @@ On va mettre le contenu suivant :
 
 On peut voir que les utilisateurs sont redirigés sur des nœuds différents, avec un seul point d’entrée.
 
-![alt text](./images/pve-lb-1766149688070.png)
+![alt text](images/pve-lb-1766149688070.png)

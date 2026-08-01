@@ -5,7 +5,7 @@ sidebar:
   label: "PVE - Quorum"
 ---
 En plus de trois nouveaux serveurs Proxmox, j’ai voulu dans mon datacenter, inclure mes 3 anciens serveurs.
-![alt text](./images/image-1-1.png)
+![alt text](images/image-1-1.png)
 Problème, à 3 serveurs, Proxmox ne fonctionne plus s’il reste qu’un serveur opérationnel. Mais à 6 serveurs, le quorum passe à 4/6. Si mes anciens serveurs sont en maintenance, mes nouveaux serveurs se bloquent en attente du quorum 😅.
 
 L’idée est donc d’exclure du quorum mes anciens serveurs.
@@ -25,7 +25,7 @@ nodelist {
         quorum_votes: 0
     }
 ```
-![alt text](./images/image-2-1024x719.png)
+![alt text](images/image-2-1024x719.png)
 On redémarre le service corosync pour que le changement soit pris en compte et c’est réglé.
 
 ```bash

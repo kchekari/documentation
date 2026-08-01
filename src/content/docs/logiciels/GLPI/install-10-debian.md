@@ -41,7 +41,7 @@ Téléchargement des binaires et décompression
 wget https://github.com/glpi-project/glpi/releases/download/10.0.3/glpi-10.0.3.tgz
 ```
 
-![alt text](./images/install-10-debian-1766159808640.png)
+![alt text](images/install-10-debian-1766159808640.png)
 
 Décompresser l’archive et la placer dans le répertoire d’apache
 
@@ -50,7 +50,7 @@ tar -xvzf glpi-10.0.3.tgz
 mv glpi/ /var/www/html/glpi
 ```
 
-![alt text](./images/install-10-debian-1766159816284.png)
+![alt text](images/install-10-debian-1766159816284.png)
 
 Donner les droits à Apache sur le repertoire files et config
 
@@ -66,48 +66,48 @@ Il faut se rendre à l’adresse : http://IP_DU_SERVEUR/glpi/
 
 On valide la langue
 
-![alt text](./images/install-10-debian-1766159828006.png)
+![alt text](images/install-10-debian-1766159828006.png)
 
 On accepte la licence
 
-![alt text](./images/install-10-debian-1766159836084.png)
+![alt text](images/install-10-debian-1766159836084.png)
 
 On choisit l’installation
 
-![alt text](./images/install-10-debian-1766159842792.png)
+![alt text](images/install-10-debian-1766159842792.png)
 
 Il faut que tous les paramètres requis soient validés
 
-![alt text](./images/install-10-debian-1766159851152.png)
+![alt text](images/install-10-debian-1766159851152.png)
 
 Remplir les informations de connexion à la base de données
 
-![alt text](./images/install-10-debian-1766159859100.png)
+![alt text](images/install-10-debian-1766159859100.png)
 
 Créer une nouvelle base de données
 
-![alt text](./images/install-10-debian-1766159869370.png)
+![alt text](images/install-10-debian-1766159869370.png)
 
 La base de données est bien créée
 
-![alt text](./images/install-10-debian-1766159878084.png)
+![alt text](images/install-10-debian-1766159878084.png)
 
 On désactive la collecte des données
 
-![alt text](./images/install-10-debian-1766159885071.png)
+![alt text](images/install-10-debian-1766159885071.png)
 
 On valide
 
-![alt text](./images/install-10-debian-1766159891840.png)
+![alt text](images/install-10-debian-1766159891840.png)
 
 Un dernier écran avec les informations de connexion
 
-![alt text](./images/install-10-debian-1766159902316.png)
+![alt text](images/install-10-debian-1766159902316.png)
 
 On peut maintenant se connecter
 
-![alt text](./images/install-10-debian-1766159910188.png)
+![alt text](images/install-10-debian-1766159910188.png)
 
 On arrive sur le tableau de bord
 
-![alt text](./images/install-10-debian-1766159915808.png)
+![alt text](images/install-10-debian-1766159915808.png)

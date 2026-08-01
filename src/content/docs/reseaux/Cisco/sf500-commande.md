@@ -28,7 +28,7 @@ Saisissez les informations de connexion par défaut :
 - Nom d’utilisateur : cisco
 - Mot de passe par défaut :  cisco  (les mots de passe sont sensibles à la casse)
 
-![alt text](./images/sf500-commande-1766160026774.png)
+![alt text](images/sf500-commande-1766160026774.png)
 
 #### Passer le switch en N3 ou N2
 
@@ -37,7 +37,7 @@ set system mode switch queues-mode 4  //passer en niveau 2
 set system mode router queues-mode 4    //passer en niveau 3
 ```
 
-![alt text](./images/sf500-commande-1766160204363.png)
+![alt text](images/sf500-commande-1766160204363.png)
 
 Pour le N3, il faut redémarrer
 
@@ -52,7 +52,7 @@ vlan [numero] //Création d'un VLAN
 sh vlan //affichage des VLAN
 ```
 
-![alt text](./images/sf500-commande-1766160226037.png)
+![alt text](images/sf500-commande-1766160226037.png)
 
 #### Nommer un VLAN
 
@@ -61,7 +61,7 @@ interface vlan [numero]
 name [nom]
 ```
 
-![alt text](./images/sf500-commande-1766160238247.png)
+![alt text](images/sf500-commande-1766160238247.png)
 
 #### Affecter une interface à un VLAN
 
@@ -77,7 +77,7 @@ sw mode acc
 sw acc vlan [numero]
 ```
 
-![alt text](./images/sf500-commande-1766160251008.png)
+![alt text](images/sf500-commande-1766160251008.png)
 
 #### Afficher les IP du commutateur
 
@@ -85,7 +85,7 @@ sw acc vlan [numero]
 sh ip interface
 ```
 
-![alt text](./images/sf500-commande-1766160261554.png)
+![alt text](images/sf500-commande-1766160261554.png)
 
 #### Désactiver le DHCP sur un VLAN
 
@@ -94,7 +94,7 @@ int vlan [numero]
 no ip addr dhcp
 ```
 
-![alt text](./images/sf500-commande-1766160337508.png)
+![alt text](images/sf500-commande-1766160337508.png)
 
 #### Affecter une ip à un VLAN
 
@@ -103,7 +103,7 @@ int vlan [numero]
 ip addr [ip] [masque]
 ```
 
-![alt text](./images/sf500-commande-1766160325316.png)
+![alt text](images/sf500-commande-1766160325316.png)
 
 #### Afficher les routes
 
@@ -111,4 +111,4 @@ ip addr [ip] [masque]
 sh ip route
 ```
 
-![alt text](./images/sf500-commande-1766160312465.png)
+![alt text](images/sf500-commande-1766160312465.png)

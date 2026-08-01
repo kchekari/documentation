@@ -12,7 +12,7 @@ Testé sous VMWare Workstation 17 Pro
 
 Vous devez récupérer une machine au format Workstation, OVA ou OVF.
 
-![alt text](./images/image.png)
+![alt text](images/image.png)
 
 Il faut la restaurer dans la dossier :
 `D:\VMWARE_working-directory`
@@ -84,6 +84,6 @@ Lancer ensuite la commande SSH depuis une CMD Windows
 
 Avec une VM sur le VMNet0, aller dans les paramètres proxy de Windows et ajouter proxy.univ-lyon1.fr sur le port 3128
 
-![alt text](./images/blobid0.png)
+![alt text](images/blobid0.png)
 
 Il est possible d'ajouter les IP à exclure dans le cadre en dessous. Très utile pour cumuler proxy avec un accès à Grafana et Prometheus.

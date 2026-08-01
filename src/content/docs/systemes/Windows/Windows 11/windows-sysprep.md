@@ -18,7 +18,7 @@ En résumé, Sysprep garantit que chaque clone obtenu sera vu comme un poste dis
 
 L’outil est à l’adresse : `C:\Windows\System32\Sysprep\sysprep.exe`
 
-![alt text](./images/windows-sysprep-1765895229767.png)
+![alt text](images/windows-sysprep-1765895229767.png)
 
 ### Mode de démarrage système
 
@@ -47,6 +47,6 @@ Quit : Ferme simplement l’assistant.
 
 L’option la plus courante est : OOBE + Generalize + Shutdown
 
-![alt text](./images/windows-sysprep-1765895190242.png)
+![alt text](images/windows-sysprep-1765895190242.png)
 
 Au redémarrage, vous arrivez sur l’écran de configuration post installation de Windows.

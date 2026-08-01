@@ -23,14 +23,14 @@ BGinfo est un utilitaire de Sysinternals qui permet d'afficher des informations 
 
 Téléchargez l'outil BGinfo depuis le site officiel de Sysinternals.
 
-![alt text](./images/bginfo-1767968290149.png)
+![alt text](images/bginfo-1767968290149.png)
 
 Décompresser l'archive téléchargée dans un répertoire de votre choix, par exemple `C:\BGinfo`.
 
-![alt text](./images/bginfo-1767969170581.png)
+![alt text](images/bginfo-1767969170581.png)
 
 Pour le lancer au démarrage, créer un raccourci dans le dossier de démarrage.
 
 1. Appuyez sur `Win + R`, tapez `shell:startup` et appuyez sur Entrée pour ouvrir le dossier de démarrage.
 
-![alt text](./images/bginfo-1767969355186.png)
+![alt text](images/bginfo-1767969355186.png)

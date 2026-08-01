@@ -25,4 +25,4 @@ Ajouter le paramètre
 **/*.md : ${documentDirName}/images/${documentBaseName}-${unixTime}.${fileExtName}
 ```
 
-![alt text](./images/vscode-images-1765740693360.png)
+![alt text](images/vscode-images-1765740693360.png)

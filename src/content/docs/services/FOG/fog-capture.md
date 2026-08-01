@@ -18,24 +18,24 @@ Cette opération est réalisée après avoir préparé le poste (mises à jour, 
 
 Pour capturer une image, vous pouvez la préparer depuis l'interface web de FOG.
 
-![alt text](./images/fog-capture-1768903966930.png)
+![alt text](images/fog-capture-1768903966930.png)
 
 On peut ensuite planifier la capture ou la lancer lorsque le PC va démarrer.
 
-![alt text](./images/fog-capture-1768905299428.png)
+![alt text](images/fog-capture-1768905299428.png)
 
 Il est possible de voir et suivez la capture depuis le menu Tasks.
 
-![alt text](./images/fog-capture-1768905487322.png)
+![alt text](images/fog-capture-1768905487322.png)
 
 En démarrant le PC, la capture se lance automatiquement.
 
-![alt text](./images/fog-capture-1768905562076.png)
+![alt text](images/fog-capture-1768905562076.png)
 
 Et son statut évolue dans FOG
 
-![alt text](./images/fog-capture-1768905588157.png)
+![alt text](images/fog-capture-1768905588157.png)
 
 L'image du disque est stocké sur le serveur, dans le dossier `images`
 
-![alt text](./images/fog-capture-1768905742497.png)
+![alt text](images/fog-capture-1768905742497.png)

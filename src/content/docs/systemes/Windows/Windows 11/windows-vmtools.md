@@ -14,12 +14,12 @@ Si votre VM ne s’est pas installé automatiquement, il faut installer les VM T
 
 VM > Install Vmware Tools …
 
-![alt text](./images/windows-vmtools-1765921699715.png)
+![alt text](images/windows-vmtools-1765921699715.png)
 
-![alt text](./images/windows-vmtools-1765921707236.png)
+![alt text](images/windows-vmtools-1765921707236.png)
 
 Installer le programme depuis le lecteur virtuel.
 
-![alt text](./images/windows-vmtools-1765921717346.png)
+![alt text](images/windows-vmtools-1765921717346.png)
 
 Laisser les options par défaut et redémarrer.

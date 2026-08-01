@@ -44,7 +44,7 @@ Avant tout, nous allons mettre à jour le serveur.
 root@srv-glpi:~ # apt update && apt upgrade
 ```
 
-![alt text](./images/install-11-debian13-1766295897212.png)
+![alt text](images/install-11-debian13-1766295897212.png)
 
 ### 1.2 Installation des paquets de base
 
@@ -55,13 +55,13 @@ Vérifier que vous n'avez pas de message d'erreur.
 root@srv-glpi:~ # apt install apache2 php8.4-fpm mariadb-server
 ```
 
-![alt text](./images/install-11-debian13-1766296349604.png)
+![alt text](images/install-11-debian13-1766296349604.png)
 
 ```bash
 root@srv-glpi:~ # apt install php8.4-{common,curl,gd,intl,mysql,zip,bcmath,mbstring,xml,bz2,ldap}
 ```
 
-![alt text](./images/install-11-debian13-1766296226728.png)
+![alt text](images/install-11-debian13-1766296226728.png)
 
 ### 1.3 Sécurisation de la base de données
 
@@ -77,11 +77,11 @@ root@srv-glpi:~ # mariadb-secure-installation
 
 Répondre aux questions comme dans l'image ci-dessous :
 
-![alt text](./images/install-11-debian13-1766296936012.png)
+![alt text](images/install-11-debian13-1766296936012.png)
 
 Votre serveur web doit être accessible depuis son adresse IP :
 
-![alt text](./images/install-11-debian13-1766298678628.png)
+![alt text](images/install-11-debian13-1766298678628.png)
 
 ## 2- Installation de GLPI
 
@@ -97,7 +97,7 @@ Se connecter à MariaDB :
 root@srv-glpi:~ # mysql -u root -p
 ```
 
-![alt text](./images/install-11-debian13-1766297157532.png)
+![alt text](images/install-11-debian13-1766297157532.png)
 
 Puis, créer la base de données ainsi qu'un utilisateur.
 
@@ -108,7 +108,7 @@ FLUSH PRIVILEGES;
 EXIT
 ```
 
-![alt text](./images/install-11-debian13-1766297309791.png)
+![alt text](images/install-11-debian13-1766297309791.png)
 
 ### 2.2 Téléchargement de GLPI
 
@@ -122,7 +122,7 @@ La dernière version à date est la version 11.0.4.
 root@srv-glpi:~ # wget https://github.com/glpi-project/glpi/releases/download/11.0.4/glpi-11.0.4.tgz
 ```
 
-![alt text](./images/install-11-debian13-1766298456409.png)
+![alt text](images/install-11-debian13-1766298456409.png)
 
 Nous allons ensuite décompresser l'archive de GLPI
 
@@ -131,7 +131,7 @@ root@srv-glpi:~ # tar -xzvf glpi-11.0.4.tgz
 ```
 
 Un dossier glpi a été créé avec le contenu de l'application
-![alt text](./images/install-11-debian13-1766298580764.png)
+![alt text](images/install-11-debian13-1766298580764.png)
 
 Déplacer les fichiers de glpi dans le repertoire du serveur et changer le propriétaire du dossier.
 
@@ -143,7 +143,7 @@ root@srv-glpi:~ # chown -R www-data /var/www/html/
 
 La commande `ls -l /var/www/html` doit retourner ceci :
 
-![alt text](./images/install-11-debian13-1766299779357.png)
+![alt text](images/install-11-debian13-1766299779357.png)
 
 ### 2.3 Configuration d'Apache
 
@@ -202,68 +202,68 @@ root@srv-glpi:~ # systemctl reload apache2
 
 Si vous avez suivi toutes les commandes, la page d'accueil de votre site lance l'installation de GLPI.
 
-![alt text](./images/install-11-debian13-1766314661968.png)
+![alt text](images/install-11-debian13-1766314661968.png)
 
 ### 2.4 Assistant d'installation
 
 Sur la page d'accueil, cliquer sur `Aller à la page d'installation`.
 
-![alt text](./images/install-11-debian13-1766314785610.png)
+![alt text](images/install-11-debian13-1766314785610.png)
 
 - Choisir la langue.
 
-![alt text](./images/install-11-debian13-1766316652237.png)
+![alt text](images/install-11-debian13-1766316652237.png)
 
 - Accepter le contrat de licence.
 
-![alt text](./images/install-11-debian13-1766316720503.png)
+![alt text](images/install-11-debian13-1766316720503.png)
 
 - Choisir `Installer` car il s'agie d'une nouvelle installation.
 
-![alt text](./images/install-11-debian13-1766316773814.png)
+![alt text](images/install-11-debian13-1766316773814.png)
 
 - Une vérification de la configuration du serveur est faite, si tout est bon, les résultats seront tous positifs.
 
-![alt text](./images/install-11-debian13-1766316910405.png)
+![alt text](images/install-11-debian13-1766316910405.png)
 
 - Fournir les informations de connexion au moteur MariaDB pour que la base de données puisse être créé.
 - Reprendre les infos de la requête de création de la base.
 
-![alt text](./images/install-11-debian13-1766317068701.png)
+![alt text](images/install-11-debian13-1766317068701.png)
 
 - Choisir ensuite la base de données que nous avons créé.
 
-![alt text](./images/install-11-debian13-1766317151057.png)
+![alt text](images/install-11-debian13-1766317151057.png)
 
 - L'installation se lance
 
-![alt text](./images/install-11-debian13-1766317185481.png)
+![alt text](images/install-11-debian13-1766317185481.png)
 
 - Une fois terminé, vous devez avoir un retour comme celui ci.
 
-![alt text](./images/install-11-debian13-1766317227343.png)
+![alt text](images/install-11-debian13-1766317227343.png)
 
 - Vous pouvez décocher l'envoi de statistiques d'usage.
 
-![alt text](./images/install-11-debian13-1766317290628.png)
+![alt text](images/install-11-debian13-1766317290628.png)
 
 - Continuer
 
-![alt text](./images/install-11-debian13-1766317345631.png)
+![alt text](images/install-11-debian13-1766317345631.png)
 
 - Noter les utilisateurs par défaut ainsi que leur mot de passe.
 
-![alt text](./images/install-11-debian13-1766317393788.png)
+![alt text](images/install-11-debian13-1766317393788.png)
 
 - Vous arrivez sur la page de login.
 - L'administrateur de la base, est l'utilisateur glpi
 
-![alt text](./images/install-11-debian13-1766317638703.png)
+![alt text](images/install-11-debian13-1766317638703.png)
 
 - L'application contient un jeu de données de démonstration.
 - Cliquer sur `Désactiver les données de démonstration`
 
-![alt text](./images/install-11-debian13-1766317762472.png)
+![alt text](images/install-11-debian13-1766317762472.png)
 
 ## 3- Configuration de GLPI
 
@@ -292,7 +292,7 @@ pipx install git+https://github.com/Orange-Cyberdefense/glpwnme
 
 L'application est installée/
 
-![alt text](./images/install-11-debian13-1766380508939.png)
+![alt text](images/install-11-debian13-1766380508939.png)
 
 #### Lancer un scan complet
 
@@ -304,7 +304,7 @@ root@srv-glpi:~ # glpwnme -t http://127.0.0.1 --check-all
 
 Nous sommes sur une version recente de GLPI, il n'y a donc pas de faille (ou plutôt, pas de faille connue).
 
-![alt text](./images/install-11-debian13-1766380828424.png)
+![alt text](images/install-11-debian13-1766380828424.png)
 
 Nous sommes restés sur l'identifiant et le mot de passe par défaut.
 Sans surprises, nous avons une alerte sur cette vulnérabilité.
@@ -317,13 +317,13 @@ root@srv-glpi:~ # glpwnme -t http://127.0.0.1 --run --exploit DEFAULT_PASSWORD_C
 
 Nous pouvons voir que les comptes standard ont été testés par l'outil et permettent une connexion.
 
-![alt text](./images/install-11-debian13-1766381187274.png)
+![alt text](images/install-11-debian13-1766381187274.png)
 
 #### résoudre la faille
 
 Modifier les mots de passe des utilisateurs concernés et lancer  à nouveau le test.
 
-![alt text](./images/install-11-debian13-1766381802580.png)
+![alt text](images/install-11-debian13-1766381802580.png)
 
 ### 3.2 Connexion avec l'annuaire Active Directory
 
@@ -354,7 +354,7 @@ nano /usr/local/share/ca-certificates/ad-root-ca.crt
 
 Coller le contenu du certificat serveur.
 
-![alt text](./images/install-11-debian13-1766344015804.png)
+![alt text](images/install-11-debian13-1766344015804.png)
 
 Puis mettre à jour les certificats et redémarrer les services Apache et PHP.
 
@@ -368,7 +368,7 @@ root@srv-glpi:/usr/local/share/ca-certificates # systemctl restart php8.4-fpm.se
 
 Aller dans `Configuration > Authentification > Annuaire LDAP`
 
-![alt text](./images/install-11-debian13-1766336691846.png)
+![alt text](images/install-11-debian13-1766336691846.png)
 
 Ajouter un annuaire et renseigner les champs avec les informations suivantes :
 
@@ -380,7 +380,7 @@ update-ca-certificates
 
 Nous voyons que le certificat est importé.
 
-![alt text](./images/install-11-debian13-1766344300931.png)
+![alt text](images/install-11-debian13-1766344300931.png)
 
 :::tip
 Pour trouver la BaseDN de l'utilisateur, suivez la [procédure suivante](https://kb.aktraizer.com/win2025-dn/)
@@ -399,45 +399,45 @@ Pour trouver la BaseDN de l'utilisateur, suivez la [procédure suivante](https:/
 - Champ de l'identifiant : userprincipalname
 - Champ de synchronisation : objectguid
 
-![alt text](./images/install-11-debian13-1766345160949.png)
+![alt text](images/install-11-debian13-1766345160949.png)
 
 Dans `Tester`la connexion doit être réussite
 
-![alt text](./images/install-11-debian13-1766345223883.png)
+![alt text](images/install-11-debian13-1766345223883.png)
 
 #### Import des utilisateurs
 
 La connexion étant opérationnelle, il faut aller maintenant dans la gestion des utilisateurs.
 
-![alt text](./images/install-11-debian13-1766345743987.png)
+![alt text](images/install-11-debian13-1766345743987.png)
 
 Nous allons ensuite Ìmporter des nouveau utilisateurs`.
 
-![alt text](./images/install-11-debian13-1766345794923.png)
+![alt text](images/install-11-debian13-1766345794923.png)
 
 Cliquer sur Rechercher puis séléctionner les utilisateurs à importer.
 
-![alt text](./images/install-11-debian13-1766345904805.png)
+![alt text](images/install-11-debian13-1766345904805.png)
 
 Dans le menu action, choisir Ìmporter`.
 
-![alt text](./images/install-11-debian13-1766345957277.png)
+![alt text](images/install-11-debian13-1766345957277.png)
 
 Les utilisateurs sont maintenant importés.
 
-![alt text](./images/install-11-debian13-1766346508940.png)
+![alt text](images/install-11-debian13-1766346508940.png)
 
 Il est possible de rajouter des habilitations aux utilisateurs mais par défaut, ils ont accès au portail "libre service".
 
-![alt text](./images/install-11-debian13-1766346559841.png)
+![alt text](images/install-11-debian13-1766346559841.png)
 
 L'utilisateur peut se connecter à l'application.
 
-![alt text](./images/install-11-debian13-1766346583718.png)
+![alt text](images/install-11-debian13-1766346583718.png)
 
 Dans le portail `Libre Service`, il est possible de créer des tickets.
 
-![alt text](./images/install-11-debian13-1766346760935.png)
+![alt text](images/install-11-debian13-1766346760935.png)
 
 ### 3.3 Installation de l'agent GLPI
 
@@ -453,11 +453,11 @@ L'objectif de l'agent est de faire un inventaire.
 
 Activer l'inventaire dans GLPI.
 
-![alt text](./images/install-11-debian13-1766348791404.png)
+![alt text](images/install-11-debian13-1766348791404.png)
 
 Il faut ensuite sélectionner les informations à inventorier.
 
-![alt text](./images/install-11-debian13-1766348841906.png)
+![alt text](images/install-11-debian13-1766348841906.png)
 
 [Documentation officiel de l'agent](https://glpi-agent.readthedocs.io/en/latest/installation/index.html#gnu-linux)
 
@@ -476,7 +476,7 @@ Télécharger la dernière version du GPLI Agent pour linux
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.15/glpi-agent-1.15-linux-installer.pl
 ```
 
-![alt text](./images/install-11-debian13-1766348220644.png)
+![alt text](images/install-11-debian13-1766348220644.png)
 
 ```bash
 root@srv-glpi:~ # perl glpi-agent-1.15-linux-installer.pl
@@ -488,43 +488,43 @@ Préciser :
 - Le repertoire local.
 - le Tag (nom).
 
-![alt text](./images/install-11-debian13-1766348377350.png)
+![alt text](images/install-11-debian13-1766348377350.png)
 
 Une fois l'inventaire réalisé, il suffit de lancer la commande `glpi-agent` pour lancer l'inventaire.
 
 L'ordinateur apparait sur le serveur.
 
-![alt text](./images/install-11-debian13-1766349463843.png)
-![alt text](./images/install-11-debian13-1766349478328.png)
+![alt text](images/install-11-debian13-1766349463843.png)
+![alt text](images/install-11-debian13-1766349478328.png)
 
 #### Installation de l'agent sur un système Windows
 
 Télécharger le fichier d'installation de GLPI Agent
 
-![alt text](./images/install-11-debian13-1766349718136.png)
+![alt text](images/install-11-debian13-1766349718136.png)
 
 Accepter le contrat de licence.
 
-![alt text](./images/install-11-debian13-1766349752073.png)
+![alt text](images/install-11-debian13-1766349752073.png)
 
 Sélectionner l'emplacement d'installation.
 
-![alt text](./images/install-11-debian13-1766349792462.png)
+![alt text](images/install-11-debian13-1766349792462.png)
 
 Choisir une installation typique.
 
-![alt text](./images/install-11-debian13-1766349838737.png)
+![alt text](images/install-11-debian13-1766349838737.png)
 
 Renseigner l’URL de son serveur GLPI suivi de `/front/inventory.php`
 
-![alt text](./images/install-11-debian13-1766349959265.png)
+![alt text](images/install-11-debian13-1766349959265.png)
 
 Puis, lancer l'installation.
 
-![alt text](./images/install-11-debian13-1766350066118.png)
+![alt text](images/install-11-debian13-1766350066118.png)
 
 Il est possible de lancer l'inventaire manuellement en allant à l'adresse `http://localhost:62354/now`
 
 GLPI à bien la remontée de l'ordinateur.
 
-![alt text](./images/install-11-debian13-1766350305587.png)
+![alt text](images/install-11-debian13-1766350305587.png)

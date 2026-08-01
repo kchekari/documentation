@@ -18,11 +18,11 @@ Il faut installer le paquet openssh-server avec la commande :
 carriat@B1-UBUNTU2:~$ sudo apt install openssh-server
 ```
 Il faut ensuite ouvrir le logiciel PuTTy et saisir l’IP de la machine distante.
-![alt text](./images/ubuntu-connexion-distant-1765896966188.png)
+![alt text](images/ubuntu-connexion-distant-1765896966188.png)
 Lancer ensuite le logiciel PuTTy sur le PC hôte .
 Saisir l’IP de votre machine virtuelle
-![alt text](./images/ubuntu-connexion-distant-1765896973897.png)
+![alt text](images/ubuntu-connexion-distant-1765896973897.png)
 Accepter la clé SSH
-![alt text](./images/ubuntu-connexion-distant-1765896982943.png)
+![alt text](images/ubuntu-connexion-distant-1765896982943.png)
 Vous pouvez vous identifier avec le compte créé précédemment.
-![alt text](./images/ubuntu-connexion-distant-1765897015327.png)
+![alt text](images/ubuntu-connexion-distant-1765897015327.png)

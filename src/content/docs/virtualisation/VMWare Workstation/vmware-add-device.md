@@ -17,8 +17,8 @@ featured: true
 Pour ajouter un périphérique à une VM existante, il faut d’abord s’assurer que la VM est arrêtée.
 Sélectionner la VM dans la liste puis utiliser le menu « VM » > « Settings… »
 
-![alt text](./images/vmware-add-device-1768408835250.png)
+![alt text](images/vmware-add-device-1768408835250.png)
 
 Dans l'onglet « Hardware », cliquer sur le bouton « Add… » en bas à gauche.
 
-![alt text](./images/vmware-add-device-1768408939308.png)
+![alt text](images/vmware-add-device-1768408939308.png)

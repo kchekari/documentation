@@ -29,7 +29,7 @@ Les **forwarders** sont des serveurs DNS vers lesquels votre serveur DNS va redi
 Pour configurer les forwarders dans BIND9, vous devez modifier le fichier de configuration principal, généralement situé à `/etc/bind/named.conf.options`.
 Voici un exemple de configuration avec des forwarders :
 
-![alt text](./images/bind9-1768384570893.png)
+![alt text](images/bind9-1768384570893.png)
 
 Dans cet exemple, les serveurs DNS de Google et de Cloudflare sont utilisés comme forwarders. Vous pouvez ajouter ou modifier les adresses IP des serveurs DNS selon vos besoins.
 

@@ -17,18 +17,18 @@ Pour passer sur une solution Community Edition (gratuite, mais hors maintenance)
 
 Allez sur le serveur > Mises à jour > Dépôts.
 
-![alt text](./images/pve-ce-1766152122798.png)
+![alt text](images/pve-ce-1766152122798.png)
 
 On va commencer par désactiver les dépôts Proxmox VE Entreprise.
 
-![alt text](./images/pve-ce-1766152133216.png)
+![alt text](images/pve-ce-1766152133216.png)
 
 On va ensuite ajouter un dépôt « No-Subscription ».
 
-![alt text](./images/pve-ce-1766152142316.png)
+![alt text](images/pve-ce-1766152142316.png)
 
 Le dépôt est automatiquement activé.
 
 Vous avez noté qu’une alerte vous prévient qu’il n’est pas recommandé de l’utiliser en production.
 
-![alt text](./images/pve-ce-1766152152667.png)
+![alt text](images/pve-ce-1766152152667.png)

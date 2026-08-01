@@ -13,7 +13,7 @@ Syntaxe de base :
 ```cmd
 ipconfig [options]
 ```
-![alt text](./images/image-28-1024x428.png)
+![alt text](images/image-28-1024x428.png)
 
 Exemples d'utilisation :
 - Pour afficher la configuration IP de toutes les interfaces réseau :

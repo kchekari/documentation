@@ -15,7 +15,7 @@ shutdown est une commande qui permet de redémarrer ou arrêter un PC à partir 
 
 Voici la syntaxe de la commande shutdown et notamment les multiples paramètres disponibles :
 
-![alt text](./images/windows-shutdown-1766157799527.png)
+![alt text](images/windows-shutdown-1766157799527.png)
 
 Voici quelques syntaxes autour de la commande shutdown.
 

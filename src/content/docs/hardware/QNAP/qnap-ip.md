@@ -12,8 +12,8 @@ featured: true
 ---
 Nous allons dans le menu Network et Virtual Switch.
 
-![alt text](./images/qnap-ip-1766046033793.png)
+![alt text](images/qnap-ip-1766046033793.png)
 
 Dans réseau > Interfaces, il est possible de configurer l’adressage IP.
 
-![alt text](./images/qnap-ip-1766046040663.png)
+![alt text](images/qnap-ip-1766046040663.png)

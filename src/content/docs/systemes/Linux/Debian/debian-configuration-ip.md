@@ -39,9 +39,9 @@ ip address show ens33
 ip address
 ```
 
-![alt text](./images/image-6.png)
+![alt text](images/image-6.png)
 Dans la copie d’écran, on voit l’interface ens34 en DHCP et l’interface ens33 en IP fixe.
-![alt text](./images/image-5.png)
+![alt text](images/image-5.png)
 
 # Activation de l’interface
 

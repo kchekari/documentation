@@ -19,14 +19,14 @@ Pour pouvoir brancher plus de deux interfaces sur un routeur dans Cisco Packet T
 2. **Accéder à l'onglet "Physical"** : Dans la fenêtre des propriétés du routeur, cliquez sur l'onglet "Physical" pour accéder à la vue physique du routeur.
 3. **Éteindre le routeur** : Avant d'ajouter un module, il est nécessaire d'éteindre le routeur en cliquant sur l'interrupteur situé à droite de l'image du routeur.
 
-![alt text](./images/cpk-ajouter-serial-1769074675606.png)
+![alt text](images/cpk-ajouter-serial-1769074675606.png)
 
 4. Choisir une carte d'extension HWIC-2T pour ajouter deux ports série.
 
-![alt text](./images/cpk-ajouter-serial-1769074786675.png)
+![alt text](images/cpk-ajouter-serial-1769074786675.png)
 
 5. Redémarrer le routeur en cliquant à nouveau sur l'interrupteur.
 
 Une fois le routeur redémarré, vous verrez que deux nouveaux ports série ont été ajoutés et sont prêts à être utilisés.
 
-![alt text](./images/cpk-ajouter-serial-1769074857532.png)
+![alt text](images/cpk-ajouter-serial-1769074857532.png)

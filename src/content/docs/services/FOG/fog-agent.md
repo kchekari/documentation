@@ -30,27 +30,27 @@ Se rendre à l'adresse suivante : `http://<adresse_ip_ou_nom_de_domaine_du_serve
 
 2. Télécharger le fichier Smart Installer FOG Client.
 
-![alt text](./images/fog-agent-1768980994188.png)
+![alt text](images/fog-agent-1768980994188.png)
 
 3. Lancer le fichier téléchargé sur la machine cliente.
 
-![alt text](./images/fog-agent-1768981078077.png)
+![alt text](images/fog-agent-1768981078077.png)
 
 4. Accepter le contrat de licence.
 
-![alt text](./images/fog-agent-1768981097797.png)
+![alt text](images/fog-agent-1768981097797.png)
 
 5. Personnaliser l'adresse du serveur FOG.
 
-![alt text](./images/fog-agent-1768981154450.png)
+![alt text](images/fog-agent-1768981154450.png)
 
 6. Laisser l'emplacement d'installation par défaut.
 
-![alt text](./images/fog-agent-1768981180738.png)
+![alt text](images/fog-agent-1768981180738.png)
 
 7. Lancer l'installation
 
-![alt text](./images/fog-agent-1768981203628.png)
+![alt text](images/fog-agent-1768981203628.png)
 
 ## Création d’un snapin
 
@@ -58,7 +58,7 @@ Se rendre à l'adresse suivante : `http://<adresse_ip_ou_nom_de_domaine_du_serve
 
 Dans le menu Snapins, ajoutez un nouveau snapin en cliquant sur "Create New Snapin".
 
-![alt text](./images/fog-agent-1768984814553.png)
+![alt text](images/fog-agent-1768984814553.png)
 
 1- Donnez un nom à votre snapin.
 
@@ -80,7 +80,7 @@ En éditant un snapin, vous pouvez assigner ce snapin à une machine spécifique
 
 Le plus pratique est d'aller dans les groupes de machines et d'assigner le snapin à un groupe entier.
 
-![alt text](./images/fog-agent-1768982045440.png)
+![alt text](images/fog-agent-1768982045440.png)
 
 ## Exécution d’un snapin
 
@@ -88,15 +88,15 @@ Une fois l’agent FOG installé sur la machine cliente et le snapin assigné, i
 
 Dans le groupe de machines ou la machine individuelle, créez une nouvelle tâche avancée et sélectionnez "All Snapins".
 
-![alt text](./images/fog-agent-1768983490002.png)
+![alt text](images/fog-agent-1768983490002.png)
 
 Valider la tâche.
 
-![alt text](./images/fog-agent-1768983523465.png)
+![alt text](images/fog-agent-1768983523465.png)
 
 Elles sont visibles dans l'onglet Tâches.
 
-![alt text](./images/fog-agent-1768983556765.png)
+![alt text](images/fog-agent-1768983556765.png)
 
 Sur le poste utilisateur, l'agent FOG va détecter la tâche et exécuter le snapin assigné.
 
@@ -108,6 +108,6 @@ Vous pouvez vérifier l’état de l’exécution des snapins dans l’interface
 
 Il est possible de consulter les logs de l'agent : `C:\fog.log`.
 
-![alt text](./images/fog-agent-1768985262971.png)
+![alt text](images/fog-agent-1768985262971.png)
 
-![alt text](./images/fog-agent-1768985092567.png)
+![alt text](images/fog-agent-1768985092567.png)

@@ -33,7 +33,7 @@ installer OpenVPN sur Debian est relativement simple et peut être réalisé en 
    apt install openvpn easy-rsa
    ```
 
-![alt text](./images/openvpn-installation-debian-1773414756776.png)
+![alt text](images/openvpn-installation-debian-1773414756776.png)
 
 ## CONFIGURATION D’OPENVPN SUR DEBIAN
 
@@ -57,7 +57,7 @@ cd /etc/openvpn/easy-rsa
 ./easyrsa init-pki
 ```
 
-![alt text](./images/openvpn-installation-debian-1773415231815.png)
+![alt text](images/openvpn-installation-debian-1773415231815.png)
 
 5. **Création de l'autorité de certification**
 
@@ -65,11 +65,11 @@ cd /etc/openvpn/easy-rsa
 ./easyrsa build-ca nopass
 ```
 
-![alt text](./images/openvpn-installation-debian-1773415309547.png)
+![alt text](images/openvpn-installation-debian-1773415309547.png)
 
 Le certificat CA est créé `pki/ca.crt`
 
-![alt text](./images/openvpn-installation-debian-1773415385111.png)
+![alt text](images/openvpn-installation-debian-1773415385111.png)
 
 6. **Création du certificat serveur**
 
@@ -77,7 +77,7 @@ Le certificat CA est créé `pki/ca.crt`
 ./easyrsa gen-req server nopass
 ```
 
-![alt text](./images/openvpn-installation-debian-1773415473840.png)
+![alt text](images/openvpn-installation-debian-1773415473840.png)
 
 7. **Signer le certificat** :
 
@@ -85,7 +85,7 @@ Le certificat CA est créé `pki/ca.crt`
 ./easyrsa sign-req server server
 ```
 
-![alt text](./images/openvpn-installation-debian-1773417003201.png)
+![alt text](images/openvpn-installation-debian-1773417003201.png)
 
 8. **Génération de Diffie-Hellman** :
 
@@ -119,7 +119,7 @@ cp ta.key /etc/openvpn/server/
 ./easyrsa gen-req [USER] nopass
 ```
 
-![alt text](./images/openvpn-installation-debian-1773418589923.png)
+![alt text](images/openvpn-installation-debian-1773418589923.png)
 
 - Signer le certificat :
 
@@ -127,7 +127,7 @@ cp ta.key /etc/openvpn/server/
 ./easyrsa sign-req client [USER]
 ```
 
-![alt text](./images/openvpn-installation-debian-1773418613842.png)
+![alt text](images/openvpn-installation-debian-1773418613842.png)
 
 12. **Configuration du serveur OpenVPN**
 
@@ -192,7 +192,7 @@ Vérifier :
 systemctl status openvpn-server@server
 ```
 
-![alt text](./images/openvpn-installation-debian-1773418864062.png)
+![alt text](images/openvpn-installation-debian-1773418864062.png)
 
 ## CONFIGURATION DU CLIENT WINDOWS
 
@@ -318,26 +318,26 @@ $(cat /etc/openvpn/server/ta.key)
 EOF
 ```
 
-![alt text](./images/openvpn-installation-debian-1773419587285.png)
+![alt text](images/openvpn-installation-debian-1773419587285.png)
 
 Vous pouvez ensuite importer ce fichier .ovpn dans le client OpenVPN Connect pour établir la connexion VPN avec le serveur Debian.
 
-![alt text](./images/openvpn-installation-debian-1773420425131.png)
+![alt text](images/openvpn-installation-debian-1773420425131.png)
 
 15. **Test de la connexion VPN**
 
 Une fois la configuration du client terminée, vous pouvez tester la connexion VPN en lançant le client OpenVPN Connect et en vérifiant que vous pouvez accéder aux ressources du réseau interne du serveur Debian (par exemple, en pingant une machine du réseau interne ou en faisant un bureau à distance). Vous pouvez également vérifier les logs du serveur OpenVPN pour vous assurer que la connexion a été établie correctement.
 
-![alt text](./images/openvpn-installation-debian-1773420437476.png)
+![alt text](images/openvpn-installation-debian-1773420437476.png)
 
 Le poste client a bien une IP du réseau VPN.
 
-![alt text](./images/openvpn-installation-debian-1773420460416.png)
+![alt text](images/openvpn-installation-debian-1773420460416.png)
 
 Il a également une route vers le réseau interne du serveur Debian.
 
-![alt text](./images/openvpn-installation-debian-1773420559419.png)
+![alt text](images/openvpn-installation-debian-1773420559419.png)
 
 Et le bureau à distance fonctionne.
 
-![alt text](./images/openvpn-installation-debian-1773420575961.png)
+![alt text](images/openvpn-installation-debian-1773420575961.png)

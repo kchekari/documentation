@@ -20,15 +20,15 @@ Pour configurer un serveur d'impression sur Windows Server 2025 et partager les 
 
 Depuis le gestionnaire de serveur, cliquez sur "Ajouter des rôles et fonctionnalités". 
 
-![alt text](./images/win2025-print-1779183273773.png)
+![alt text](images/win2025-print-1779183273773.png)
 
 Sélectionnez "Rôle basé ou installation de fonctionnalités" et choisissez votre serveur. Ensuite, cochez la case "Serveur d'impression et de numérisation de document" 
 
-![alt text](./images/win2025-print-1779183371017.png)
+![alt text](images/win2025-print-1779183371017.png)
 
 Suivez les instructions pour installer le rôle et cocher uniquement `Serveur d'impression`
 
-![alt text](./images/win2025-print-1779183461429.png)
+![alt text](images/win2025-print-1779183461429.png)
 
 Terminez par `Ìnstaller`.
 
@@ -44,31 +44,31 @@ Dans la console de gestion de l'impression, nous allons configurer une première
 
 Dans un premier temps,, nous allons ajouter l'imprimante à notre serveur d'impression. Cliquez sur "Ajouter une imprimante" dans le serveur d'impression.
 
-![alt text](./images/win2025-print-1779183989125.png)
+![alt text](images/win2025-print-1779183989125.png)
 
 On va ensuite ajouter l'mprimante via son adresse IP.
 
-![alt text](./images/win2025-print-1779184096592.png)
+![alt text](images/win2025-print-1779184096592.png)
 
 Il faut donc saisir l'adresse IP de l'imprimante, puis cliquer sur "Suivant".
 
-![alt text](./images/win2025-print-1779184209624.png)
+![alt text](images/win2025-print-1779184209624.png)
 
 Nous allons ensuite choisir d'installer le pilote de l'imprimante. Si le pilote est disponible dans la liste, sélectionnez-le. Sinon, vous pouvez cliquer sur "Disque fourni" pour installer le pilote à partir d'un fichier.
 
-![alt text](./images/win2025-print-1779184365390.png)
+![alt text](images/win2025-print-1779184365390.png)
 
-![alt text](./images/win2025-print-1779184550013.png)
+![alt text](images/win2025-print-1779184550013.png)
 
 Nommer ensuite l'imprimante et cliquer sur "Suivant".
 
-![alt text](./images/win2025-print-1779184588990.png)
+![alt text](images/win2025-print-1779184588990.png)
 
 L'installation se lance puis vous pouvez imprimer une page de test pour vérifier que l'imprimante fonctionne correctement.
 
-![alt text](./images/win2025-print-1779184633679.png)
+![alt text](images/win2025-print-1779184633679.png)
 
 L'imprimante est maintenant ajoutée à votre serveur d'impression et prête à être partagée avec les utilisateurs de votre domaine Active Directory.
 
-![alt text](./images/win2025-print-1779184715210.png)
+![alt text](images/win2025-print-1779184715210.png)
 

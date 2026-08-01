@@ -31,7 +31,7 @@ La syntaxe de base pour utiliser WGET est la suivante :
 wget [options] [URL]
 ```
 
-![alt text](./images/wget-1768577707078.png)
+![alt text](images/wget-1768577707078.png)
 
 Exemple :
 

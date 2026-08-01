@@ -12,4 +12,4 @@ Ajouter le dépôt MariaDB
 ```bash
 apt install mariadb-server
 ``` 
-![alt text](./images/image-1024x246.png)
+![alt text](images/image-1024x246.png)

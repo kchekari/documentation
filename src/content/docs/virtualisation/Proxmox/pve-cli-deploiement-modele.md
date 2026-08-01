@@ -236,10 +236,10 @@ Exemple :
 /root/migration-via-pbs-arret.sh 110 pve11 pve23 PBS DATASTORE-PVE23  --max-age-days 2 --pool CHEKARI  --name "MODELE-SCRIPTD13"
 ```
 
-![alt text](./images/pve-cli-deploiement-modele-1768734461101.png)
+![alt text](images/pve-cli-deploiement-modele-1768734461101.png)
 
 La VM est bien créé !
 
-![alt text](./images/pve-cli-deploiement-modele-1768734618202.png)
+![alt text](images/pve-cli-deploiement-modele-1768734618202.png)
 
 Vous pouvez relancer le script, la fois suivante il ne fera pas de nouvelle sauvegarde si le backup est récent.
