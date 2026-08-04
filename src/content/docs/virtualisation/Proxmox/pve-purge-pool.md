@@ -4,6 +4,7 @@ tableOfContents: true
 sidebar:
   label: "Proxmox - Purger les VM des pools"
 date: 2026-07-21
+lastUpdated: 2026-07-21
 tags:
     - Windows
 authors:

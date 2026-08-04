@@ -4,6 +4,7 @@ tableOfContents: false
 sidebar:
   label: "Création VM Windows 11"
 date: 2025-12-16
+lastUpdated: 2026-08-03
 tags:
     - Windows
     - VMWare Workstation

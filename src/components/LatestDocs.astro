@@ -2,20 +2,21 @@
 import { getCollection } from 'astro:content';
 
 interface Props {
-  directory: string;
+  directory?: string;
   limit?: number;
   title?: string;
   debug?: boolean;
 }
 
 const {
-  directory,
+  directory = 'all',
   limit = 6,
   title = 'Dernières mises à jour',
   debug = false,
 } = Astro.props;
 
 const normalizedDirectory = normalizePath(directory);
+
 const showAllDirectories =
   normalizedDirectory === 'all' ||
   normalizedDirectory === '*' ||
@@ -24,13 +25,61 @@ const showAllDirectories =
 const allDocs = await getCollection('docs');
 
 /**
- * Normalise un chemin ou un identifiant.
+ * Normalise un chemin ou un identifiant :
+ * - remplace les antislashs Windows ;
+ * - retire les slashs au début et à la fin ;
+ * - convertit en minuscules.
  */
 function normalizePath(value: string): string {
   return value
     .replace(/\\/g, '/')
     .replace(/^\/+|\/+$/g, '')
     .toLowerCase();
+}
+
+/**
+ * Retourne la date de référence d'une page.
+ *
+ * Priorité :
+ * 1. lastUpdated
+ * 2. date
+ * 3. aucune date
+ */
+function getEntryDate(
+  entry: (typeof allDocs)[number],
+): unknown {
+  if (entry.data.lastUpdated) {
+    return entry.data.lastUpdated;
+  }
+
+  if (
+    'date' in entry.data &&
+    entry.data.date
+  ) {
+    return entry.data.date;
+  }
+
+  return undefined;
+}
+
+/**
+ * Indique le type de date utilisé.
+ */
+function getDateType(
+  entry: (typeof allDocs)[number],
+): 'updated' | 'published' | null {
+  if (entry.data.lastUpdated) {
+    return 'updated';
+  }
+
+  if (
+    'date' in entry.data &&
+    entry.data.date
+  ) {
+    return 'published';
+  }
+
+  return null;
 }
 
 /**
@@ -46,7 +95,9 @@ function getTimestamp(value: unknown): number {
 
   const timestamp = date.getTime();
 
-  return Number.isNaN(timestamp) ? 0 : timestamp;
+  return Number.isNaN(timestamp)
+    ? 0
+    : timestamp;
 }
 
 /**
@@ -73,7 +124,9 @@ function belongsToDirectory(
     id === normalizedDirectory ||
     id.startsWith(`${normalizedDirectory}/`) ||
     frontmatterSlug === normalizedDirectory ||
-    frontmatterSlug.startsWith(`${normalizedDirectory}/`)
+    frontmatterSlug.startsWith(
+      `${normalizedDirectory}/`,
+    )
   );
 }
 
@@ -88,7 +141,10 @@ function isDirectoryIndex(
   const id = normalizePath(entry.id);
 
   if (showAllDirectories) {
-    return id === 'index' || id.endsWith('/index');
+    return (
+      id === 'index' ||
+      id.endsWith('/index')
+    );
   }
 
   return (
@@ -98,9 +154,14 @@ function isDirectoryIndex(
 }
 
 /**
- * Génère l’URL publique d’une page.
+ * Génère l'URL publique d'une page.
+ *
+ * Si un slug personnalisé est défini, il est utilisé.
+ * Sinon, l'identifiant Astro est utilisé.
  */
-function entryUrl(entry: (typeof allDocs)[number]): string {
+function entryUrl(
+  entry: (typeof allDocs)[number],
+): string {
   const rawSlug =
     'slug' in entry.data &&
     typeof entry.data.slug === 'string'
@@ -126,7 +187,9 @@ function formatDate(value: unknown): string {
       ? value
       : new Date(String(value));
 
-  if (Number.isNaN(date.getTime())) return '';
+  if (Number.isNaN(date.getTime())) {
+    return '';
+  }
 
   return new Intl.DateTimeFormat('fr-FR', {
     day: '2-digit',
@@ -135,12 +198,33 @@ function formatDate(value: unknown): string {
   }).format(date);
 }
 
+/**
+ * Texte affiché devant la date.
+ */
+function getDateLabel(
+  type: 'updated' | 'published' | null,
+): string {
+  if (type === 'updated') {
+    return 'Mis à jour le';
+  }
+
+  if (type === 'published') {
+    return 'Publié le';
+  }
+
+  return '';
+}
+
 const latestDocs = allDocs
   .filter((entry) => {
-    const isDraft = entry.data.draft === true;
-    const timestamp = getTimestamp(
-      entry.data.lastUpdated,
-    );
+    const isDraft =
+      entry.data.draft === true;
+
+    const referenceDate =
+      getEntryDate(entry);
+
+    const timestamp =
+      getTimestamp(referenceDate);
 
     return (
       belongsToDirectory(entry) &&
@@ -150,8 +234,13 @@ const latestDocs = allDocs
     );
   })
   .sort((a, b) => {
-    const dateA = getTimestamp(a.data.lastUpdated);
-    const dateB = getTimestamp(b.data.lastUpdated);
+    const dateA = getTimestamp(
+      getEntryDate(a),
+    );
+
+    const dateB = getTimestamp(
+      getEntryDate(b),
+    );
 
     return dateB - dateA;
   })
@@ -167,21 +256,42 @@ if (debug) {
   );
 
   console.table(
-    allDocs.map((entry) => ({
-      id: entry.id,
-      title: entry.data.title,
-      slug:
-        'slug' in entry.data
-          ? entry.data.slug
-          : undefined,
-      lastUpdated: entry.data.lastUpdated,
-      draft: entry.data.draft,
-      appartient: belongsToDirectory(entry),
-      index: isDirectoryIndex(entry),
-      retenu: latestDocs.some(
-        (doc) => doc.id === entry.id,
-      ),
-    })),
+    allDocs.map((entry) => {
+      const referenceDate =
+        getEntryDate(entry);
+
+      return {
+        id: entry.id,
+        title: entry.data.title,
+        slug:
+          'slug' in entry.data
+            ? entry.data.slug
+            : undefined,
+        lastUpdated:
+          entry.data.lastUpdated,
+        date:
+          'date' in entry.data
+            ? entry.data.date
+            : undefined,
+        dateUtilisee:
+          referenceDate,
+        typeDate:
+          getDateType(entry),
+        timestamp:
+          getTimestamp(referenceDate),
+        draft:
+          entry.data.draft,
+        appartient:
+          belongsToDirectory(entry),
+        index:
+          isDirectoryIndex(entry),
+        retenu:
+          latestDocs.some(
+            (doc) =>
+              doc.id === entry.id,
+          ),
+      };
+    }),
   );
 }
 ---
@@ -193,15 +303,25 @@ if (debug) {
     latestDocs.length > 0 ? (
       <ul>
         {latestDocs.map((entry) => {
-          const timestamp = getTimestamp(
-            entry.data.lastUpdated,
-          );
+          const referenceDate =
+            getEntryDate(entry);
+
+          const timestamp =
+            getTimestamp(referenceDate);
+
+          const dateType =
+            getDateType(entry);
+
+          const dateLabel =
+            getDateLabel(dateType);
 
           return (
             <li>
               <a href={entryUrl(entry)}>
                 <span class="latest-docs__content">
-                  <strong>{entry.data.title}</strong>
+                  <strong>
+                    {entry.data.title}
+                  </strong>
 
                   {entry.data.description && (
                     <span class="latest-docs__description">
@@ -210,11 +330,19 @@ if (debug) {
                   )}
                 </span>
 
-                <time
-                  datetime={new Date(timestamp).toISOString()}
-                >
-                  {formatDate(entry.data.lastUpdated)}
-                </time>
+                <span class="latest-docs__date">
+                  <span class="latest-docs__date-label">
+                    {dateLabel}
+                  </span>
+
+                  <time
+                    datetime={new Date(
+                      timestamp,
+                    ).toISOString()}
+                  >
+                    {formatDate(referenceDate)}
+                  </time>
+                </span>
               </a>
             </li>
           );
@@ -222,8 +350,8 @@ if (debug) {
       </ul>
     ) : (
       <p class="latest-docs__empty">
-        Aucune page datée n’est disponible dans cette
-        rubrique.
+        Aucune page datée n’est disponible dans
+        cette rubrique.
       </p>
     )
   }
@@ -280,11 +408,24 @@ if (debug) {
     line-height: 1.5;
   }
 
-  .latest-docs time {
+  .latest-docs__date {
+    display: flex;
     flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
     color: var(--sl-color-gray-2);
     font-size: 0.8rem;
     white-space: nowrap;
+  }
+
+  .latest-docs__date-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+  }
+
+  .latest-docs time {
+    font-weight: 500;
   }
 
   .latest-docs__empty {
@@ -295,6 +436,10 @@ if (debug) {
   @media (max-width: 40rem) {
     .latest-docs a {
       flex-direction: column;
+    }
+
+    .latest-docs__date {
+      align-items: flex-start;
     }
   }
 </style>
