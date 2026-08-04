@@ -16,14 +16,15 @@ const {
 } = Astro.props;
 
 const normalizedDirectory = normalizePath(directory);
+const showAllDirectories =
+  normalizedDirectory === 'all' ||
+  normalizedDirectory === '*' ||
+  normalizedDirectory === '';
 
 const allDocs = await getCollection('docs');
 
 /**
- * Normalise un chemin ou un identifiant :
- * - remplace les antislashs Windows ;
- * - retire les slashs au début et à la fin ;
- * - convertit en minuscules.
+ * Normalise un chemin ou un identifiant.
  */
 function normalizePath(value: string): string {
   return value
@@ -51,15 +52,20 @@ function getTimestamp(value: unknown): number {
 /**
  * Détermine si une entrée appartient au répertoire demandé.
  *
- * Attention :
- * lorsqu’un champ `slug` personnalisé est utilisé,
- * Astro peut remplacer l’identifiant basé sur le chemin.
+ * Avec directory="all", toutes les pages sont retenues.
  */
-function belongsToDirectory(entry: (typeof allDocs)[number]): boolean {
+function belongsToDirectory(
+  entry: (typeof allDocs)[number],
+): boolean {
+  if (showAllDirectories) {
+    return true;
+  }
+
   const id = normalizePath(entry.id);
 
   const frontmatterSlug =
-    'slug' in entry.data && typeof entry.data.slug === 'string'
+    'slug' in entry.data &&
+    typeof entry.data.slug === 'string'
       ? normalizePath(entry.data.slug)
       : '';
 
@@ -72,10 +78,18 @@ function belongsToDirectory(entry: (typeof allDocs)[number]): boolean {
 }
 
 /**
- * Exclut la page d’accueil de la rubrique.
+ * Exclut les pages d'accueil.
+ *
+ * Avec directory="all", toutes les pages index sont exclues.
  */
-function isDirectoryIndex(entry: (typeof allDocs)[number]): boolean {
+function isDirectoryIndex(
+  entry: (typeof allDocs)[number],
+): boolean {
   const id = normalizePath(entry.id);
+
+  if (showAllDirectories) {
+    return id === 'index' || id.endsWith('/index');
+  }
 
   return (
     id === normalizedDirectory ||
@@ -85,16 +99,20 @@ function isDirectoryIndex(entry: (typeof allDocs)[number]): boolean {
 
 /**
  * Génère l’URL publique d’une page.
- *
- * L’ID retourné par Astro prend déjà en compte un éventuel slug.
  */
-function entryUrl(id: string): string {
-  const normalizedId = id
+function entryUrl(entry: (typeof allDocs)[number]): string {
+  const rawSlug =
+    'slug' in entry.data &&
+    typeof entry.data.slug === 'string'
+      ? entry.data.slug
+      : entry.id;
+
+  const normalizedSlug = rawSlug
     .replace(/\\/g, '/')
     .replace(/^\/+|\/+$/g, '')
     .replace(/\/index$/, '');
 
-  return `/${normalizedId}/`;
+  return `/${normalizedSlug}/`;
 }
 
 /**
@@ -117,40 +135,18 @@ function formatDate(value: unknown): string {
   }).format(date);
 }
 
-if (debug) {
-  console.log(
-    `[LatestDocs] Répertoire recherché : ${normalizedDirectory}`,
-  );
-
-  console.table(
-    allDocs
-      .filter((entry) =>
-        entry.data.title
-          ?.toLowerCase()
-          .includes('portfolio'),
-      )
-      .map((entry) => ({
-        id: entry.id,
-        title: entry.data.title,
-        slug:
-          'slug' in entry.data
-            ? entry.data.slug
-            : undefined,
-        lastUpdated: entry.data.lastUpdated,
-        draft: entry.data.draft,
-        retenu: belongsToDirectory(entry),
-      })),
-  );
-}
-
 const latestDocs = allDocs
   .filter((entry) => {
     const isDraft = entry.data.draft === true;
+    const timestamp = getTimestamp(
+      entry.data.lastUpdated,
+    );
 
     return (
       belongsToDirectory(entry) &&
       !isDirectoryIndex(entry) &&
-      !isDraft
+      !isDraft &&
+      timestamp > 0
     );
   })
   .sort((a, b) => {
@@ -160,6 +156,34 @@ const latestDocs = allDocs
     return dateB - dateA;
   })
   .slice(0, limit);
+
+if (debug) {
+  console.log(
+    `[LatestDocs] Répertoire demandé : ${normalizedDirectory}`,
+  );
+
+  console.log(
+    `[LatestDocs] Mode global : ${showAllDirectories}`,
+  );
+
+  console.table(
+    allDocs.map((entry) => ({
+      id: entry.id,
+      title: entry.data.title,
+      slug:
+        'slug' in entry.data
+          ? entry.data.slug
+          : undefined,
+      lastUpdated: entry.data.lastUpdated,
+      draft: entry.data.draft,
+      appartient: belongsToDirectory(entry),
+      index: isDirectoryIndex(entry),
+      retenu: latestDocs.some(
+        (doc) => doc.id === entry.id,
+      ),
+    })),
+  );
+}
 ---
 
 <section class="latest-docs">
@@ -175,7 +199,7 @@ const latestDocs = allDocs
 
           return (
             <li>
-              <a href={entryUrl(entry.id)}>
+              <a href={entryUrl(entry)}>
                 <span class="latest-docs__content">
                   <strong>{entry.data.title}</strong>
 
@@ -186,22 +210,18 @@ const latestDocs = allDocs
                   )}
                 </span>
 
-                {timestamp > 0 && (
-                  <time
-                    datetime={new Date(
-                      timestamp,
-                    ).toISOString()}
-                  >
-                    {formatDate(entry.data.lastUpdated)}
-                  </time>
-                )}
+                <time
+                  datetime={new Date(timestamp).toISOString()}
+                >
+                  {formatDate(entry.data.lastUpdated)}
+                </time>
               </a>
             </li>
           );
         })}
       </ul>
     ) : (
-      <p>
+      <p class="latest-docs__empty">
         Aucune page datée n’est disponible dans cette
         rubrique.
       </p>
@@ -237,12 +257,14 @@ const latestDocs = allDocs
     text-decoration: none;
     transition:
       border-color 150ms ease,
-      background-color 150ms ease;
+      background-color 150ms ease,
+      transform 150ms ease;
   }
 
   .latest-docs a:hover {
     border-color: var(--sl-color-accent);
     background: var(--sl-color-gray-6);
+    transform: translateY(-1px);
   }
 
   .latest-docs__content {
@@ -255,6 +277,7 @@ const latestDocs = allDocs
   .latest-docs__description {
     color: var(--sl-color-gray-2);
     font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .latest-docs time {
@@ -262,6 +285,11 @@ const latestDocs = allDocs
     color: var(--sl-color-gray-2);
     font-size: 0.8rem;
     white-space: nowrap;
+  }
+
+  .latest-docs__empty {
+    color: var(--sl-color-gray-2);
+    font-style: italic;
   }
 
   @media (max-width: 40rem) {
