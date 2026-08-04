@@ -58,13 +58,59 @@ L’installation se lance.
 
 Après les redémarrages, il faut fournir les informations de personnalisation du système d’exploitation.
 
+:::note
 Les écrans varient en fonction des versions majeures de Windows 11.
+:::
 
 Choisir la région et la disposition du clavier.
 
+![alt text](images/25h2-installation-1785837011665.png)
+
+![alt text](images/25h2-installation-1785837031168.png)
+
+![alt text](images/25h2-installation-1785837043413.png)
+
+Nommer ensuite la machine (donnez-lui le même nom que votre VM).
+
+![alt text](images/25h2-installation-1785837133614.png)
+
+:::danger
+Ne vous connectez pas à un compte Microsoft, il est fortement déconseillé d’utiliser un compte Microsoft pour des raisons de sécurité.
+:::
+
+Choisir l'option `Configurer pour le travail ou l'école` puis `Options de connexion`.
+
+![alt text](images/25h2-installation-1785837281526.png)
+
+![alt text](images/25h2-installation-1785837320702.png)
+
+Sélectionner l'option `Joindre le domaine à la place` puis `Suivant`.
+
+![alt text](images/25h2-installation-1785837365544.png)
+
+Donner un nom d'utilisateur à la machine, puis un mot de passe.
+Si vous ne renseignez pas de mot de passe, l’ouverture de session se fera directement sous Windows au démarrage (pas très sécurisé …).
+
+![alt text](images/25h2-installation-1785837405124.png)
+
+:::tip
 Je vous conseille de tous créer un compte identique :
 Login : `etudiant`
 Mot de passe : `Etudiant_1234`
+:::
+
+![alt text](images/25h2-installation-1785837451567.png)
 
 Il faut ensuite répondre aux questions de sécurité pour pouvoir récupérer le mot de passe si vous l’oubliez. (mettre toto à chaques réponses).
 
+![alt text](images/25h2-installation-1785837472488.png)
+
+Les questions servent à réinitialiser le mot de passe de l’utilisateur en cas d’oubli.
+
+Plusieurs questions orientées sur la collecte de données s’enchainent, il faut sélectionner les plus restrictives :
+
+![alt text](images/25h2-installation-1785837538056.png)
+
+Le système va chercher des mises à jour et vous arriverez sur votre bureau.
+
+![alt text](images/25h2-installation-1785838628972.png)
