@@ -1,9 +1,10 @@
 ---
-title: "Ubuntu - Installation"
+title: "Ubuntu 26.04- Installation"
 tableOfContents: true
 sidebar:
-  label: "Installation v25.04"
+  label: "Installation 26.04"
 date: 2025-12-16
+lastUpdated: 2026-08-03
 tags:
     - Ubuntu
     - Virtualisation
