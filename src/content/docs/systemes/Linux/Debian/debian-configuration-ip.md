@@ -3,6 +3,8 @@ title: "Debian - Configuration IP"
 description: "Guide pas à pas pour configurer l'adresse IP sur Debian."
 sidebar:
   label: "Debian - Configuration IP"
+lastUpdated: 2026-08-03
+date: 2025-12-16
 ---
 :::note
 testé sur Debian 12/13
@@ -37,11 +39,16 @@ Vérifier la configuration avec la commande ip address
 ```bash
 ip address show ens33
 ip address
+ip -br a
 ```
 
 ![alt text](images/image-6.png)
+
 Dans la copie d’écran, on voit l’interface ens34 en DHCP et l’interface ens33 en IP fixe.
+
 ![alt text](images/image-5.png)
+
+![alt text](images/debian-configuration-ip-1785943768561.png)
 
 # Activation de l’interface
 
