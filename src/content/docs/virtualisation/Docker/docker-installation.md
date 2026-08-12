@@ -13,7 +13,7 @@ authors:
   - Karim
 featured: true
 ---
-:::noye
+:::note
 Testé sur Debian 13
 :::
 
