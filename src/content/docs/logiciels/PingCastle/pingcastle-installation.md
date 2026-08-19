@@ -40,6 +40,10 @@ Dans la première fenêtre, sélectionner l’option 1 – healthscore-Score the
 
 ![alt text](images/pingcastle-installation-1765997123430.png)
 
+Il faut ensuite choisir d'utiliser le `Privileged Mode`
+
+![alt text](images/pingcastle-installation-1787141034603.png)
+
 L’outil nous demande ensuite quel est le domaine à auditer si jamais il est différent de celui spécifié.
 
 ![alt text](images/pingcastle-installation-1765997135963.png)
