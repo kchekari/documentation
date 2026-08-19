@@ -72,3 +72,5 @@ Il ne vous reste plus qu'à l'appliquer.
 Le pare-feu est bien désactivé et il n’est pas possible de le réactiver car vous avez le message `Ce paramètre est géré par votre administrateur`.
 
 ![alt text](images/gpo-disable-firewall-1787142400395.png)
+
+![alt text](images/gpo-disable-firewall-1787143879444.png)
