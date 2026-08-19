@@ -12,6 +12,10 @@ featured: true
 ---
 [Site Officiel de PingCastle](https://www.pingcastle.com)
 
+:::note
+Testé avec la version 3.5.0.44 au 19/08/2026
+:::
+
 ![alt text](images/pingcastle-installation-1765997097155.png)
 
 PingCastle permet de faire un audit de votre Active Directory.
