@@ -1,7 +1,7 @@
 ---
 title: "Debian 12 - Sources.list"
 sidebar:
-  label: "Debian 13 - Sources.list"
+  label: "Debian 12 - Sources.list"
 ---
 :::note
 testé sur Debian 12
