@@ -36,6 +36,7 @@ ipconfig /renew
 ```cmd
 ipconfig /flushdns
 ```
+
 Interprétation des résultats :
 - `Adresse IPv4` : Affiche l'adresse IP attribuée à l'interface réseau.
 - `Masque de sous-réseau` : Indique le masque de sous-réseau associé à l'adresse IP.
