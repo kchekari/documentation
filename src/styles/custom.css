@@ -1,4 +1,61 @@
-/* Largeur de contenu étendue (desktop / tablette) */
+/* =========================================================
+   AKTRAIZER DOCS - THEME STARLIGHT PERSONNALISE
+   ========================================================= */
+
+
+/* =========================================================
+   1. PALETTE GENERALE
+   ========================================================= */
+
+:root {
+  /* Accent principal */
+  --sl-color-accent-low: #ede9fe;
+  --sl-color-accent: #7c3aed;
+  --sl-color-accent-high: #4c1d95;
+
+  /* Gris / fond clair */
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #111827;
+  --sl-color-gray-2: #374151;
+  --sl-color-gray-3: #6b7280;
+  --sl-color-gray-4: #cbd5e1;
+  --sl-color-gray-5: #e2e8f0;
+  --sl-color-gray-6: #f8fafc;
+
+  /* Fond sombre */
+  --sl-color-black: #0b0f19;
+
+  /* Largeur de contenu */
+  --sl-content-width: 80rem;
+}
+
+
+/* =========================================================
+   2. MODE SOMBRE
+   ========================================================= */
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #2e1065;
+  --sl-color-accent: #a78bfa;
+  --sl-color-accent-high: #ddd6fe;
+
+  --sl-color-white: #f8fafc;
+  --sl-color-gray-1: #f1f5f9;
+  --sl-color-gray-2: #e2e8f0;
+  --sl-color-gray-3: #94a3b8;
+  --sl-color-gray-4: #475569;
+  --sl-color-gray-5: #1e293b;
+  --sl-color-gray-6: #111827;
+
+  --sl-color-black: #080b12;
+}
+
+
+/* =========================================================
+   3. LARGEUR DE CONTENU
+   ========================================================= */
+
+/* Largeur de contenu étendue sur desktop / tablette */
 @media (min-width: 50rem) {
   :root {
     --sl-content-width: calc(
@@ -16,11 +73,347 @@
   }
 }
 
+
+/* =========================================================
+   4. FOND GENERAL
+   ========================================================= */
+
+body {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--sl-color-accent-low) 20%, transparent),
+      transparent 20rem
+    ),
+    var(--sl-color-bg);
+}
+
+
+/* =========================================================
+   5. HEADER
+   ========================================================= */
+
+header {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  background-color:
+    color-mix(in srgb, var(--sl-color-bg) 88%, transparent);
+
+  border-bottom:
+    1px solid var(--sl-color-gray-5);
+}
+
+
+/* =========================================================
+   6. SIDEBAR
+   ========================================================= */
+
+.sidebar-pane {
+  border-right:
+    1px solid var(--sl-color-gray-5);
+
+  background-color:
+    color-mix(in srgb, var(--sl-color-bg) 96%, transparent);
+}
+
+
+/* Liens de navigation */
+.sidebar-content a {
+  border-radius: 8px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Survol */
+.sidebar-content a:hover {
+  background-color: var(--sl-color-accent-low);
+  color: var(--sl-color-accent-high);
+}
+
+
+/* Lien actif */
+.sidebar-content a[aria-current='page'] {
+  background-color: var(--sl-color-accent-low);
+  color: var(--sl-color-accent-high);
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   7. CONTENU PRINCIPAL
+   ========================================================= */
+
+main {
+  line-height: 1.7;
+}
+
+
+/* Titres */
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+
+/* Titre principal */
+h1 {
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   8. LIENS
+   ========================================================= */
+
+a {
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+/* =========================================================
+   9. CARTES STARLIGHT
+   ========================================================= */
+
+.card {
+  border-radius: 14px;
+
+  border:
+    1px solid var(--sl-color-gray-5);
+
+  box-shadow:
+    0 6px 24px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Effet au survol */
+.card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-accent) 40%,
+      var(--sl-color-gray-5)
+    );
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   10. BOUTONS
+   ========================================================= */
+
+.sl-link-button {
+  border-radius: 10px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sl-link-button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   11. BLOCS DE CODE
+   ========================================================= */
+
+.expressive-code {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   12. CODE INLINE
+   ========================================================= */
+
+:not(pre) > code {
+  border-radius: 6px;
+
+  padding:
+    0.15em 0.4em;
+
+  background-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-accent-low) 50%,
+      var(--sl-color-bg)
+    );
+}
+
+
+/* =========================================================
+   13. TABLEAUX
+   ========================================================= */
+
+table {
+  border-radius: 10px;
+  overflow: hidden;
+
+  border:
+    1px solid var(--sl-color-gray-5);
+}
+
+thead {
+  background-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-accent-low) 35%,
+      var(--sl-color-bg)
+    );
+}
+
+th {
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   14. BLOCKQUOTES
+   ========================================================= */
+
+blockquote {
+  border-left:
+    4px solid var(--sl-color-accent);
+
+  border-radius:
+    0 8px 8px 0;
+
+  background-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-accent-low) 25%,
+      transparent
+    );
+
+  padding:
+    0.75rem 1rem;
+}
+
+
+/* =========================================================
+   15. IMAGES
+   ========================================================= */
+
 /* Centre les images sans casser le layout */
 img {
   display: block;
+
   margin-left: auto;
   margin-right: auto;
+
   max-width: 100%;
   height: auto;
+}
+
+
+/* Images dans le contenu */
+.sl-markdown-content img {
+  border-radius: 10px;
+
+  box-shadow:
+    0 4px 18px rgba(15, 23, 42, 0.08);
+
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* =========================================================
+   16. SEPARATEURS
+   ========================================================= */
+
+hr {
+  border-color:
+    var(--sl-color-gray-5);
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   17. BARRE DE RECHERCHE
+   ========================================================= */
+
+site-search button {
+  border-radius: 10px;
+
+  border:
+    1px solid var(--sl-color-gray-5);
+}
+
+
+/* =========================================================
+   18. SCROLLBAR
+   ========================================================= */
+
+* {
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    var(--sl-color-gray-4)
+    transparent;
+}
+
+
+/* Chromium / Edge / Chrome */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color:
+    var(--sl-color-gray-4);
+
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color:
+    var(--sl-color-gray-3);
+}
+
+
+/* =========================================================
+   19. TRANSITIONS GLOBALES
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   20. ACCESSIBILITE
+   ========================================================= */
+
+:focus-visible {
+  outline:
+    2px solid var(--sl-color-accent);
+
+  outline-offset: 3px;
 }
