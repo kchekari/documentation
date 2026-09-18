@@ -4,34 +4,41 @@
 
 
 /* =========================================================
-   1. PALETTE GENERALE
+   1. THEME CLAIR
    ========================================================= */
 
 :root {
   /* Accent principal */
-  --sl-color-accent-low: #ede9fe;
+  --sl-color-accent-low: #f3e8ff;
   --sl-color-accent: #7c3aed;
-  --sl-color-accent-high: #4c1d95;
+  --sl-color-accent-high: #5b21b6;
 
-  /* Gris / fond clair */
-  --sl-color-white: #ffffff;
-  --sl-color-gray-1: #111827;
+  /* Texte */
+  --sl-color-white: #111827;
+  --sl-color-gray-1: #1f2937;
   --sl-color-gray-2: #374151;
   --sl-color-gray-3: #6b7280;
+
+  /* Bordures */
   --sl-color-gray-4: #cbd5e1;
-  --sl-color-gray-5: #e2e8f0;
+  --sl-color-gray-5: #e5e7eb;
+
+  /* Fonds */
   --sl-color-gray-6: #f8fafc;
+  --sl-color-black: #ffffff;
 
-  /* Fond sombre */
-  --sl-color-black: #0b0f19;
+  /* Fonds principaux */
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #f8fafc;
 
-  /* Largeur de contenu */
+  /* Largeur */
   --sl-content-width: 80rem;
 }
 
 
 /* =========================================================
-   2. MODE SOMBRE
+   2. THEME SOMBRE
    ========================================================= */
 
 :root[data-theme='dark'] {
@@ -40,14 +47,18 @@
   --sl-color-accent-high: #ddd6fe;
 
   --sl-color-white: #f8fafc;
-  --sl-color-gray-1: #f1f5f9;
-  --sl-color-gray-2: #e2e8f0;
+  --sl-color-gray-1: #e5e7eb;
+  --sl-color-gray-2: #cbd5e1;
   --sl-color-gray-3: #94a3b8;
   --sl-color-gray-4: #475569;
   --sl-color-gray-5: #1e293b;
   --sl-color-gray-6: #111827;
 
   --sl-color-black: #080b12;
+
+  --sl-color-bg: #080b12;
+  --sl-color-bg-nav: #080b12;
+  --sl-color-bg-sidebar: #0b0f19;
 }
 
 
@@ -55,7 +66,7 @@
    3. LARGEUR DE CONTENU
    ========================================================= */
 
-/* Largeur de contenu étendue sur desktop / tablette */
+/* Desktop / tablette */
 @media (min-width: 50rem) {
   :root {
     --sl-content-width: calc(
@@ -66,7 +77,7 @@
   }
 }
 
-/* Mobile : laisser Starlight gérer la largeur */
+/* Mobile */
 @media (max-width: 50rem) {
   :root {
     --sl-content-width: 100%;
@@ -78,14 +89,13 @@
    4. FOND GENERAL
    ========================================================= */
 
+html,
 body {
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--sl-color-accent-low) 20%, transparent),
-      transparent 20rem
-    ),
-    var(--sl-color-bg);
+  background-color: var(--sl-color-bg);
+}
+
+body {
+  color: var(--sl-color-gray-1);
 }
 
 
@@ -94,31 +104,43 @@ body {
    ========================================================= */
 
 header {
+  background-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-bg-nav) 96%,
+      transparent
+    );
+
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
-  background-color:
-    color-mix(in srgb, var(--sl-color-bg) 88%, transparent);
-
-  border-bottom:
-    1px solid var(--sl-color-gray-5);
+  border-bottom: 1px solid var(--sl-color-gray-5);
 }
 
 
 /* =========================================================
-   6. SIDEBAR
+   6. LOGO / TITRE DU SITE
    ========================================================= */
 
-.sidebar-pane {
-  border-right:
-    1px solid var(--sl-color-gray-5);
-
-  background-color:
-    color-mix(in srgb, var(--sl-color-bg) 96%, transparent);
+.site-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 
-/* Liens de navigation */
+/* =========================================================
+   7. SIDEBAR
+   ========================================================= */
+
+.sidebar-pane {
+  background-color: var(--sl-color-bg-sidebar);
+
+  border-right:
+    1px solid var(--sl-color-gray-5);
+}
+
+
+/* Liens */
 .sidebar-content a {
   border-radius: 8px;
 
@@ -131,21 +153,35 @@ header {
 
 /* Survol */
 .sidebar-content a:hover {
-  background-color: var(--sl-color-accent-low);
+  background-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-accent-low) 70%,
+      transparent
+    );
+
   color: var(--sl-color-accent-high);
 }
 
 
-/* Lien actif */
+/* Page active */
 .sidebar-content a[aria-current='page'] {
   background-color: var(--sl-color-accent-low);
+
   color: var(--sl-color-accent-high);
+
+  font-weight: 600;
+}
+
+
+/* Titres de groupes */
+.sidebar-content summary {
   font-weight: 600;
 }
 
 
 /* =========================================================
-   7. CONTENU PRINCIPAL
+   8. CONTENU PRINCIPAL
    ========================================================= */
 
 main {
@@ -153,23 +189,40 @@ main {
 }
 
 
-/* Titres */
+/* =========================================================
+   9. TITRES
+   ========================================================= */
+
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   letter-spacing: -0.02em;
+  color: var(--sl-color-white);
 }
 
-
-/* Titre principal */
 h1 {
   font-weight: 750;
 }
 
+h2 {
+  font-weight: 700;
+}
+
 
 /* =========================================================
-   8. LIENS
+   10. PARAGRAPHES
+   ========================================================= */
+
+.sl-markdown-content p {
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   11. LIENS
    ========================================================= */
 
 a {
@@ -178,9 +231,13 @@ a {
     opacity 0.2s ease;
 }
 
+.sl-markdown-content a {
+  text-underline-offset: 3px;
+}
+
 
 /* =========================================================
-   9. CARTES STARLIGHT
+   12. CARTES STARLIGHT
    ========================================================= */
 
 .card {
@@ -189,8 +246,15 @@ a {
   border:
     1px solid var(--sl-color-gray-5);
 
+  background-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-bg) 96%,
+      var(--sl-color-gray-6)
+    );
+
   box-shadow:
-    0 6px 24px rgba(15, 23, 42, 0.05);
+    0 5px 20px rgba(15, 23, 42, 0.05);
 
   transition:
     transform 0.2s ease,
@@ -199,14 +263,13 @@ a {
 }
 
 
-/* Effet au survol */
 .card:hover {
   transform: translateY(-2px);
 
   border-color:
     color-mix(
       in srgb,
-      var(--sl-color-accent) 40%,
+      var(--sl-color-accent) 35%,
       var(--sl-color-gray-5)
     );
 
@@ -216,7 +279,7 @@ a {
 
 
 /* =========================================================
-   10. BOUTONS
+   13. BOUTONS
    ========================================================= */
 
 .sl-link-button {
@@ -233,17 +296,26 @@ a {
 
 
 /* =========================================================
-   11. BLOCS DE CODE
+   14. BARRE DE RECHERCHE
    ========================================================= */
 
-.expressive-code {
-  border-radius: 12px;
-  overflow: hidden;
+site-search button {
+  border-radius: 10px;
+
+  border:
+    1px solid var(--sl-color-gray-5);
+
+  background-color:
+    color-mix(
+      in srgb,
+      var(--sl-color-bg) 95%,
+      var(--sl-color-gray-6)
+    );
 }
 
 
 /* =========================================================
-   12. CODE INLINE
+   15. CODE INLINE
    ========================================================= */
 
 :not(pre) > code {
@@ -255,14 +327,36 @@ a {
   background-color:
     color-mix(
       in srgb,
-      var(--sl-color-accent-low) 50%,
+      var(--sl-color-accent-low) 55%,
       var(--sl-color-bg)
+    );
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--sl-color-accent) 15%,
+      var(--sl-color-gray-5)
     );
 }
 
 
 /* =========================================================
-   13. TABLEAUX
+   16. BLOCS DE CODE
+   ========================================================= */
+
+.expressive-code {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.expressive-code .frame {
+  border-radius: 12px;
+}
+
+
+/* =========================================================
+   17. TABLEAUX
    ========================================================= */
 
 table {
@@ -286,9 +380,14 @@ th {
   font-weight: 600;
 }
 
+td,
+th {
+  border-color: var(--sl-color-gray-5);
+}
+
 
 /* =========================================================
-   14. BLOCKQUOTES
+   18. BLOCKQUOTES
    ========================================================= */
 
 blockquote {
@@ -311,7 +410,7 @@ blockquote {
 
 
 /* =========================================================
-   15. IMAGES
+   19. IMAGES
    ========================================================= */
 
 /* Centre les images sans casser le layout */
@@ -326,7 +425,7 @@ img {
 }
 
 
-/* Images dans le contenu */
+/* Images dans les articles */
 .sl-markdown-content img {
   border-radius: 10px;
 
@@ -339,31 +438,50 @@ img {
 
 
 /* =========================================================
-   16. SEPARATEURS
+   20. SEPARATEURS
    ========================================================= */
 
 hr {
-  border-color:
-    var(--sl-color-gray-5);
-
+  border-color: var(--sl-color-gray-5);
   opacity: 0.7;
 }
 
 
 /* =========================================================
-   17. BARRE DE RECHERCHE
+   21. TABLE DES MATIERES A DROITE
    ========================================================= */
 
-site-search button {
-  border-radius: 10px;
-
-  border:
+.right-sidebar {
+  border-left:
     1px solid var(--sl-color-gray-5);
+}
+
+.right-sidebar a {
+  transition:
+    color 0.2s ease;
 }
 
 
 /* =========================================================
-   18. SCROLLBAR
+   22. BADGES
+   ========================================================= */
+
+.sl-badge {
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   23. ASIDES / NOTES / ALERTES
+   ========================================================= */
+
+.starlight-aside {
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   24. SCROLLBAR
    ========================================================= */
 
 * {
@@ -375,7 +493,7 @@ site-search button {
 }
 
 
-/* Chromium / Edge / Chrome */
+/* Chrome / Edge */
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -399,7 +517,7 @@ site-search button {
 
 
 /* =========================================================
-   19. TRANSITIONS GLOBALES
+   25. TRANSITIONS GENERALES
    ========================================================= */
 
 html {
@@ -408,7 +526,7 @@ html {
 
 
 /* =========================================================
-   20. ACCESSIBILITE
+   26. ACCESSIBILITE
    ========================================================= */
 
 :focus-visible {
@@ -416,4 +534,65 @@ html {
     2px solid var(--sl-color-accent);
 
   outline-offset: 3px;
+}
+
+
+/* =========================================================
+   27. CORRECTIONS SPECIFIQUES MODE CLAIR
+   ========================================================= */
+
+:root:not([data-theme='dark']) body,
+:root:not([data-theme='dark']) main {
+  background-color: #ffffff;
+}
+
+:root:not([data-theme='dark']) .sidebar-pane {
+  background-color: #f8fafc;
+}
+
+:root:not([data-theme='dark']) header {
+  background-color:
+    rgba(255, 255, 255, 0.96);
+}
+
+:root:not([data-theme='dark']) .sl-markdown-content,
+:root:not([data-theme='dark']) .content-panel {
+  color: #1f2937;
+}
+
+
+/* =========================================================
+   28. CORRECTIONS SPECIFIQUES MODE SOMBRE
+   ========================================================= */
+
+:root[data-theme='dark'] body,
+:root[data-theme='dark'] main {
+  background-color: #080b12;
+}
+
+:root[data-theme='dark'] .sidebar-pane {
+  background-color: #0b0f19;
+}
+
+:root[data-theme='dark'] header {
+  background-color:
+    rgba(8, 11, 18, 0.96);
+}
+
+
+/* =========================================================
+   29. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 50rem) {
+
+  header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .sl-markdown-content img {
+    border-radius: 6px;
+  }
+
 }
