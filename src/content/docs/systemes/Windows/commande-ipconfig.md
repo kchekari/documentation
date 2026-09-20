@@ -43,4 +43,4 @@ Interprétation des résultats :
 - `Passerelle par défaut` : Montre l'adresse IP de la passerelle par défaut utilisée pour accéder à d'autres réseaux.
 - `Serveurs DNS` : Liste les adresses IP des serveurs DNS configurés pour la résolution de noms de domaine.
 
-La commande `ipconfig` est un outil essentiel pour les administrateurs réseau et les utilisateurs avancés afin de gérer et diagnostiquer les configurations réseau sur les systèmes Windows.            
+La commande `ipconfig` est un outil essentiel pour les administrateurs réseau et les utilisateurs avancés afin de gérer et diagnostiquer les configurations réseau sur les systèmes Windows.
