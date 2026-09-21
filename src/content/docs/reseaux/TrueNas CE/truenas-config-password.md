@@ -1,9 +1,9 @@
 ---
 title: "TrueNas CE : Changement du mot de passe administrateur"
-tableOfContents: false
+tableOfContents: True
 sidebar:
   label: "TrueNas CE : Changement root password"
-date: 2026-09-2&
+date: 2026-09-21
 tags:
     - TrueNas CE
     - Security
