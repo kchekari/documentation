@@ -13,13 +13,17 @@ authors:
  - Karim
 featured: true
 ---
+
 :::note
 Fonctionnalité testé avec Debian 13 et Veeam Agent for Linux 13.0
 :::
+
 :::caution
 Seule la version nosnap de Veeam Agent for Linux est compatible avec les systèmes de fichiers LVM et les disques en mode bloc. La version standard avec snapshot peut rencontrer des problèmes lors de la sauvegarde de ces types de volumes.
 :::
+
 ## Prérequis :
+
 Nous allons mettre en place une sauvegarde niveau bloc avec le logiciel spécialisé Veeam Agent. L’objectif est de sauvegarder un disque complet et de restaurer l’OS sur un autre VM.
 Pour cela, nous allons utiliser la version gratuite de Veeam Agent for Linux, téléchargeable à l’adresse suivante :
 https://www.veeam.com/fr/products/free/linux.html?ad=downloads
@@ -80,13 +84,16 @@ Lancer la commande `veeam` pour initialiser Veeam Agent for Linux
 veeam
 ```
 Accepter le contrat de licence (**Touche ESPACE**)
+
 ![alt text](images/image-27.png)
-::: caution
+
+:::caution
 Créer le média de restauration personnalisée :
 À savoir ! Le média de récupération Veeam peut être téléchargé directement sur leur site.
 À cette étape, Veeam Agent vous propose de créer une version personnalisée qui intégrera les drivers spécifiques de la machine sauvegardée.
 Cela permet d’assurer une meilleure compatibilité lors de la restauration sur du matériel différent.
 :::
+
 ![alt text](images/image-38.png)
 Choisir de le sauvegarder dans le dossier `/root`
 
@@ -97,33 +104,53 @@ Récupérer l'ISO de Veeam Recovery
 Patienter le temps de la création de l’ISO
 
 ## Création du job de sauvegarde
+
 Lancer l’outil Veeam Agent for Linux avec la commande **veeam** puis appuyer sur la touche **C** pour CONFIGURE :
 Nommer le job
+
 ![alt text](images/image-30.png)
+
 Choisir les données à sauvegarder
+
 ![alt text](images/image-31.png)
+
 Choisir la destination
+
 ![alt text](images/image-32.png)
+
 Nous allons utiliser un partage SMB
+
 ![alt text](images/image-33.png)
+
 Dans "Advanced", il est possible de définir une fréquence pour les backup full (par exemple tous les dimanches).
+
 ![alt text](images/image-34.png)
+
 On planifie ensuite la sauvegarde
+
 ![alt text](images/image-35.png)
+
 On exécute le job.
+
 ![alt text](images/image-36.png)
+
 Le job se lance
+
 ```bash
  veeamconfig job start --name "BackupJob1"
 ```
+
 ![alt text](images/image-37.png)
+
 Il est possible de voir le job réussi
 
 Les fichiers ont bien été sauvegardés sur le NAS.
 
 ## Récupération de fichiers spécifiques
+
 Pour récupérer des fichiers spécifiques, nous allons utiliser l’outil Veeam Agent for Linux.
 
 ## Restauration du système
+
 Pour restaurer le système, nous allons démarrer la machine à restaurer avec le média de récupération Veeam.
 Une fois dans l’environnement de récupération, nous allons sélectionner l’option de
