@@ -58,11 +58,7 @@ Remplacez IP_SMB par l’adresse IP du serveur SMB. Si la connexion est réussie
 ![alt text](images/image.png)
 
 ## Installation de Veeam Agent for Linux
-Installation des paquerets nécessaires pour Veeam Agent for Linux
 
-```bash
-apt install -y dkms linux-headers-$(uname -r) lvm2 nfs-common
-```
 Téléchargement et installation de Veeam Agent for Linux
 
 ```bash
@@ -71,6 +67,8 @@ dpkg -i veeam-release-deb_13.0.1_amd64.deb
 apt update
 apt install veeam-nosnap -y
 ```
+
+![alt text](images/veeam-agent-linux-1790156724279.png)
 
 Vérification de l’installation
 
