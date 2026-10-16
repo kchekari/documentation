@@ -117,6 +117,13 @@ export default defineConfig({
           },
         },
         {
+          label: 'Outils',
+          autogenerate: {
+            directory: 'outils',
+            collapsed: true,
+          },
+        },
+        {
           label: 'Hardware',
           autogenerate: {
             directory: 'hardware',
