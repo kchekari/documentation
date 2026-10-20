@@ -13,8 +13,6 @@ authors:
  - Karim
 featured: true
 ---
-# Linux - Activer le routage IP
-
 Pour activer le routage IP sur un système Linux, vous pouvez suivre les étapes suivantes :
 
 1. Ouvrez un terminal avec des privilèges administratifs (par exemple, en utilisant `sudo`).
@@ -77,3 +75,11 @@ Pour captuer uniquement les pings (ICMP), vous pouvez utiliser le filtre suivant
 ```bash
 tcpdump -ni ens19 icmp
 ```
+
+Pour voir les routes configurées sur votre système, vous pouvez utiliser la commande suivante :
+
+```bash
+ip route show
+```
+![alt text](images/linux-routage-1792511077778.png)
+
