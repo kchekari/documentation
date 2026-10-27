@@ -1,13 +1,15 @@
 <password-generator>
   <section aria-label="Générateur de mots de passe">
-    <div class="result" data-result hidden>
+    <div class="result">
       <label class="field">Votre mot de passe
-        <input data-password type="password" readonly autocomplete="off" spellcheck="false" />
+        <input data-password type="text" readonly autocomplete="off" spellcheck="false" placeholder="Cliquez sur Générer" />
       </label>
-      <div class="actions">
-        <button type="button" data-toggle aria-pressed="false">Afficher</button>
-        <button type="button" data-copy>Copier</button>
-      </div>
+      <button class="copy" type="button" data-copy disabled aria-label="Copier le mot de passe" title="Copier le mot de passe">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="9" width="12" height="12" rx="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+      </button>
     </div>
     <p role="status" aria-live="polite" data-status></p>
     <form>
@@ -75,17 +77,12 @@
       this.dataset.ready = 'true';
       const form = this.querySelector('form')!;
       const output = this.querySelector<HTMLInputElement>('[data-password]')!;
-      const result = this.querySelector<HTMLElement>('[data-result]')!;
       const error = this.querySelector<HTMLElement>('[data-error]')!;
       const status = this.querySelector<HTMLElement>('[data-status]')!;
-      const toggle = this.querySelector<HTMLButtonElement>('[data-toggle]')!;
       const copy = this.querySelector<HTMLButtonElement>('[data-copy]')!;
       const reset = () => {
         output.value = '';
-        output.type = 'password';
-        result.hidden = true;
-        toggle.textContent = 'Afficher';
-        toggle.setAttribute('aria-pressed', 'false');
+        copy.disabled = true;
         status.textContent = '';
         error.textContent = '';
       };
@@ -100,25 +97,20 @@
             .filter(([cle]) => data.has(cle))
             .map(([, caracteres]) => Array.from(caracteres).filter((c) => !interdits.has(c)));
           output.value = creerMotDePasse(Number(data.get('longueur')), groupes);
-          result.hidden = false;
+          copy.disabled = false;
         } catch (e) {
           error.textContent = e instanceof Error ? e.message : 'La génération a échoué.';
         }
       });
       output.addEventListener('focus', () => output.select());
-      toggle.addEventListener('click', () => {
-        const visible = output.type === 'password';
-        output.type = visible ? 'text' : 'password';
-        toggle.textContent = visible ? 'Masquer' : 'Afficher';
-        toggle.setAttribute('aria-pressed', String(visible));
-      });
       copy.addEventListener('click', async () => {
         const mot = output.value;
+        if (!mot) return;
         try {
           await navigator.clipboard.writeText(mot);
           if (output.value === mot) status.textContent = 'Mot de passe copié.';
         } catch {
-          if (output.value === mot) status.textContent = 'Copie automatique indisponible : affichez le mot de passe puis sélectionnez-le pour le copier.';
+          if (output.value === mot) status.textContent = 'Copie automatique indisponible : sélectionnez le mot de passe pour le copier manuellement.';
         }
       });
     }
@@ -146,16 +138,19 @@
   fieldset label, .ambiguous { display: flex; align-items: center; gap: 6px; min-height: 28px; }
   input:not([type='checkbox']) { width: 100%; min-width: 0; box-sizing: border-box; padding: 8px 10px; border: 1px solid #94a3b8; border-radius: 8px; background: white; color: #0f172a; font-size: 16px; line-height: 1.4; }
   input[type='checkbox'] { accent-color: #1d4ed8; flex-shrink: 0; }
-  input[data-password] { font-family: monospace; font-size: 1.15rem; font-weight: 600; padding: 10px 12px; border: 2px solid #2563eb; }
+  input[data-password] { font-family: monospace; font-size: 1.1rem; font-weight: 600; height: 46px; padding: 10px 54px 10px 12px; border: 1px solid #94a3b8; }
+  input[data-password]::placeholder { font-family: system-ui, sans-serif; font-size: .9rem; font-weight: 400; color: #64748b; opacity: 1; }
   button { padding: 8px 12px; min-height: 40px; border: 1px solid #64748b; border-radius: 8px; background: white; color: #0f172a; cursor: pointer; font-size: .9rem; line-height: 1.4; }
   button:hover { background: #e2e8f0; }
   button.primary { background: #1d4ed8; border-color: #1d4ed8; color: white; font-weight: 700; }
   button.primary:hover { background: #1e40af; }
   :is(input, button):focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
-  .result { margin: 0 0 14px; padding: 12px; border: 1px solid #93c5fd; border-radius: 12px; background: #eff6ff; grid-template-columns: minmax(0, 1fr); gap: 8px; }
-  .result label { color: #1e40af; font-weight: 700; }
-  .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 8px; }
-  .actions > button { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 100%; height: 40px; min-height: 40px; margin: 0 !important; padding: 0 12px; font-size: .9rem; line-height: 1; white-space: nowrap; }
+  .result { position: relative; margin: 0 0 14px; grid-template-columns: minmax(0, 1fr); }
+  .result label { color: #0f172a; font-weight: 700; }
+  button.copy { position: absolute; right: 4px; bottom: 3px; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 40px; height: 40px; min-height: 40px; margin: 0 !important; padding: 0; border: 0; border-radius: 6px; color: #1d4ed8; background: #eff6ff; }
+  button.copy:hover:not(:disabled) { background: #dbeafe; }
+  button.copy:disabled { opacity: .4; cursor: default; }
+  .copy svg { display: block; flex-shrink: 0; margin: 0; pointer-events: none; }
   .error { color: #991b1b; }
   .error:not(:empty) { margin-top: 8px; font-size: .9rem; }
   [data-status]:not(:empty) { margin: 0 0 10px; font-size: .9rem; }
