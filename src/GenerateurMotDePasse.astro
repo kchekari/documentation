@@ -1,0 +1,155 @@
+<password-generator>
+  <section aria-label="Générateur de mots de passe">
+    <p class="intro">VOS CRITÈRES, VOTRE MOT DE PASSE</p>
+    <form>
+      <label class="field">Longueur (4 à 128 caractères)
+        <input name="longueur" type="number" min="4" max="128" step="1" required value="20" />
+      </label>
+      <fieldset>
+        <legend>Caractères autorisés</legend>
+        <label><input type="checkbox" name="minuscules" checked /> Minuscules (a–z)</label>
+        <label><input type="checkbox" name="majuscules" checked /> Majuscules (A–Z)</label>
+        <label><input type="checkbox" name="chiffres" checked /> Chiffres (0–9)</label>
+        <label><input type="checkbox" name="symboles" checked /> Symboles (!@#…)</label>
+      </fieldset>
+      <label><input type="checkbox" name="sansAmbigus" /> Éviter I, l, 1, O, 0, o et |</label>
+      <label class="field">Caractères à exclure (facultatif)
+        <input name="exclusions" type="text" placeholder="Exemple : @&%" autocomplete="off" />
+      </label>
+      <button class="primary" type="submit">Générer un mot de passe</button>
+    </form>
+    <p class="error" role="alert" data-error></p>
+    <div class="result" data-result hidden>
+      <label class="field">Votre mot de passe
+        <input data-password type="password" readonly autocomplete="off" spellcheck="false" />
+      </label>
+      <div class="actions">
+        <button type="button" data-toggle aria-pressed="false">Afficher</button>
+        <button type="button" data-copy>Copier</button>
+      </div>
+    </div>
+    <p role="status" aria-live="polite" data-status></p>
+    <p class="note">Chaque catégorie activée apparaît au moins une fois. La génération utilise le générateur aléatoire sécurisé du navigateur. Aucun mot de passe n’est envoyé ni enregistré par ce composant.</p>
+    <noscript>Activez JavaScript pour utiliser le générateur.</noscript>
+  </section>
+</password-generator>
+
+<script>
+  const categories = {
+    minuscules: 'abcdefghijklmnopqrstuvwxyz',
+    majuscules: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    chiffres: '0123456789',
+    symboles: '!@#$%&*+-_=?.,:;~^()[]{}',
+  };
+
+  function tirerIndex(taille: number): number {
+    if (!globalThis.crypto?.getRandomValues) {
+      throw new Error('La génération sécurisée est indisponible dans ce navigateur.');
+    }
+    const limite = Math.floor(4294967296 / taille) * taille;
+    const valeur = new Uint32Array(1);
+    do { globalThis.crypto.getRandomValues(valeur); } while (valeur[0] >= limite);
+    return valeur[0] % taille;
+  }
+
+  function creerMotDePasse(longueur: number, groupes: string[][]): string {
+    if (!Number.isInteger(longueur) || longueur < 4 || longueur > 128) {
+      throw new Error('Choisissez une longueur entière entre 4 et 128.');
+    }
+    if (!groupes.length) throw new Error('Activez au moins une catégorie.');
+    if (groupes.some((g) => !g.length)) {
+      throw new Error('Les exclusions vident une catégorie sélectionnée. Modifiez les critères.');
+    }
+    const alphabet = groupes.flat();
+    // Le rejet conserve une distribution uniforme parmi les résultats valides.
+    for (let tentative = 0; tentative < 10000; tentative++) {
+      const resultat = Array.from({ length: longueur }, () => alphabet[tirerIndex(alphabet.length)]);
+      if (groupes.every((g) => resultat.some((c) => g.includes(c)))) return resultat.join('');
+    }
+    throw new Error('Critères trop restrictifs : augmentez la longueur ou réduisez les exclusions.');
+  }
+
+  class PasswordGenerator extends HTMLElement {
+    connectedCallback() {
+      // Évite les écouteurs en double si le même élément est reconnecté.
+      if (this.dataset.ready) return;
+      this.dataset.ready = 'true';
+      const form = this.querySelector('form')!;
+      const output = this.querySelector<HTMLInputElement>('[data-password]')!;
+      const result = this.querySelector<HTMLElement>('[data-result]')!;
+      const error = this.querySelector<HTMLElement>('[data-error]')!;
+      const status = this.querySelector<HTMLElement>('[data-status]')!;
+      const toggle = this.querySelector<HTMLButtonElement>('[data-toggle]')!;
+      const copy = this.querySelector<HTMLButtonElement>('[data-copy]')!;
+      const reset = () => {
+        output.value = '';
+        output.type = 'password';
+        result.hidden = true;
+        toggle.textContent = 'Afficher';
+        toggle.setAttribute('aria-pressed', 'false');
+        status.textContent = '';
+        error.textContent = '';
+      };
+      form.addEventListener('input', reset);
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        reset();
+        try {
+          const data = new FormData(form);
+          const interdits = new Set(Array.from(String(data.get('exclusions') ?? '') + (data.has('sansAmbigus') ? 'Il1O0o|' : '')));
+          const groupes = Object.entries(categories)
+            .filter(([cle]) => data.has(cle))
+            .map(([, caracteres]) => Array.from(caracteres).filter((c) => !interdits.has(c)));
+          output.value = creerMotDePasse(Number(data.get('longueur')), groupes);
+          result.hidden = false;
+        } catch (e) {
+          error.textContent = e instanceof Error ? e.message : 'La génération a échoué.';
+        }
+      });
+      output.addEventListener('focus', () => output.select());
+      toggle.addEventListener('click', () => {
+        const visible = output.type === 'password';
+        output.type = visible ? 'text' : 'password';
+        toggle.textContent = visible ? 'Masquer' : 'Afficher';
+        toggle.setAttribute('aria-pressed', String(visible));
+      });
+      copy.addEventListener('click', async () => {
+        const mot = output.value;
+        try {
+          await navigator.clipboard.writeText(mot);
+          if (output.value === mot) status.textContent = 'Mot de passe copié.';
+        } catch {
+          if (output.value === mot) status.textContent = 'Copie automatique indisponible : affichez le mot de passe puis sélectionnez-le pour le copier.';
+        }
+      });
+    }
+  }
+
+  if (!customElements.get('password-generator')) {
+    customElements.define('password-generator', PasswordGenerator);
+  }
+</script>
+
+<style>
+  password-generator { display: block; max-width: 620px; color: #0f172a; font-family: system-ui, sans-serif; }
+  section { padding: clamp(16px, 4vw, 28px); border-radius: 20px; background: #f1f5f9; }
+  .intro, .note { color: #475569; }
+  .intro { margin-top: 0; font-size: .85rem; letter-spacing: .08em; }
+  .note { font-size: .9rem; margin-bottom: 0; }
+  form, .result, .field { display: grid; gap: 12px; }
+  form { gap: 20px; }
+  fieldset { min-width: 0; margin: 0; padding: 16px; border: 1px solid #94a3b8; border-radius: 12px; }
+  fieldset label { display: block; padding: 7px 0; }
+  input:not([type='checkbox']) { width: 100%; min-width: 0; box-sizing: border-box; padding: 12px; border: 1px solid #94a3b8; border-radius: 10px; background: white; color: #0f172a; font-size: 16px; }
+  input[type='checkbox'] { accent-color: #1d4ed8; }
+  [data-password] { font-family: monospace; }
+  button { padding: 12px 18px; border: 1px solid #64748b; border-radius: 10px; background: white; color: #0f172a; cursor: pointer; font-size: 1rem; }
+  button:hover { background: #e2e8f0; }
+  button.primary { background: #1d4ed8; border-color: #1d4ed8; color: white; font-weight: 700; }
+  button.primary:hover { background: #1e40af; }
+  :is(input, button):focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .result { margin-top: 24px; }
+  .error { color: #991b1b; }
+  [hidden] { display: none !important; }
+</style>
