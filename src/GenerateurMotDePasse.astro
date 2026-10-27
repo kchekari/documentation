@@ -1,24 +1,5 @@
 <password-generator>
   <section aria-label="Générateur de mots de passe">
-    <p class="intro">VOS CRITÈRES, VOTRE MOT DE PASSE</p>
-    <form>
-      <label class="field">Longueur (4 à 128 caractères)
-        <input name="longueur" type="number" min="4" max="128" step="1" required value="20" />
-      </label>
-      <fieldset>
-        <legend>Caractères autorisés</legend>
-        <label><input type="checkbox" name="minuscules" checked /> Minuscules (a–z)</label>
-        <label><input type="checkbox" name="majuscules" checked /> Majuscules (A–Z)</label>
-        <label><input type="checkbox" name="chiffres" checked /> Chiffres (0–9)</label>
-        <label><input type="checkbox" name="symboles" checked /> Symboles (!@#…)</label>
-      </fieldset>
-      <label><input type="checkbox" name="sansAmbigus" /> Éviter I, l, 1, O, 0, o et |</label>
-      <label class="field">Caractères à exclure (facultatif)
-        <input name="exclusions" type="text" placeholder="Exemple : @&%" autocomplete="off" />
-      </label>
-      <button class="primary" type="submit">Générer un mot de passe</button>
-    </form>
-    <p class="error" role="alert" data-error></p>
     <div class="result" data-result hidden>
       <label class="field">Votre mot de passe
         <input data-password type="password" readonly autocomplete="off" spellcheck="false" />
@@ -29,7 +10,25 @@
       </div>
     </div>
     <p role="status" aria-live="polite" data-status></p>
-    <p class="note">Chaque catégorie activée apparaît au moins une fois. La génération utilise le générateur aléatoire sécurisé du navigateur. Aucun mot de passe n’est envoyé ni enregistré par ce composant.</p>
+    <form>
+      <label class="field length">Longueur (4–128)
+        <input name="longueur" type="number" min="4" max="128" step="1" required value="20" />
+      </label>
+      <fieldset>
+        <legend>Caractères autorisés</legend>
+        <label><input type="checkbox" name="minuscules" checked /> Minuscules (a–z)</label>
+        <label><input type="checkbox" name="majuscules" checked /> Majuscules (A–Z)</label>
+        <label><input type="checkbox" name="chiffres" checked /> Chiffres (0–9)</label>
+        <label><input type="checkbox" name="symboles" checked /> Symboles (!@#…)</label>
+      </fieldset>
+      <label class="ambiguous"><input type="checkbox" name="sansAmbigus" /> Éviter I, l, 1, O, 0, o et |</label>
+      <label class="field exclusions">Caractères à exclure
+        <input name="exclusions" type="text" placeholder="Exemple : @&%" autocomplete="off" />
+      </label>
+      <button class="primary" type="submit">Générer un mot de passe</button>
+    </form>
+    <p class="error" role="alert" data-error></p>
+    <p class="note">Génération sécurisée dans votre navigateur, sans enregistrement.</p>
     <noscript>Activez JavaScript pour utiliser le générateur.</noscript>
   </section>
 </password-generator>
@@ -132,24 +131,37 @@
 
 <style>
   password-generator { display: block; max-width: 620px; color: #0f172a; font-family: system-ui, sans-serif; }
-  section { padding: clamp(16px, 4vw, 28px); border-radius: 20px; background: #f1f5f9; }
-  .intro, .note { color: #475569; }
-  .intro { margin-top: 0; font-size: .85rem; letter-spacing: .08em; }
-  .note { font-size: .9rem; margin-bottom: 0; }
-  form, .result, .field { display: grid; gap: 12px; }
-  form { gap: 20px; }
-  fieldset { min-width: 0; margin: 0; padding: 16px; border: 1px solid #94a3b8; border-radius: 12px; }
-  fieldset label { display: block; padding: 7px 0; }
-  input:not([type='checkbox']) { width: 100%; min-width: 0; box-sizing: border-box; padding: 12px; border: 1px solid #94a3b8; border-radius: 10px; background: white; color: #0f172a; font-size: 16px; }
-  input[type='checkbox'] { accent-color: #1d4ed8; }
-  [data-password] { font-family: monospace; }
-  button { padding: 12px 18px; border: 1px solid #64748b; border-radius: 10px; background: white; color: #0f172a; cursor: pointer; font-size: 1rem; }
+  section { padding: 16px; border-radius: 14px; background: #f1f5f9; line-height: 1.4; }
+  section :is(form, label, input, button, div, fieldset, legend, p) { margin: 0; }
+  .note { color: #475569; font-size: .8rem; margin-top: 10px; }
+  form, .result, .field { display: grid; gap: 6px; min-width: 0; }
+  form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: 'length exclusions' 'categories categories' 'ambiguous ambiguous' 'generate generate'; gap: 10px 14px; }
+  .length { grid-area: length; }
+  .exclusions { grid-area: exclusions; }
+  .ambiguous { grid-area: ambiguous; }
+  .primary { grid-area: generate; }
+  label, legend { font-size: .9rem; }
+  fieldset { grid-area: categories; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; min-width: 0; padding: 6px 10px 8px; border: 1px solid #94a3b8; border-radius: 10px; }
+  legend { padding: 0 4px; }
+  fieldset label, .ambiguous { display: flex; align-items: center; gap: 6px; min-height: 28px; }
+  input:not([type='checkbox']) { width: 100%; min-width: 0; box-sizing: border-box; padding: 8px 10px; border: 1px solid #94a3b8; border-radius: 8px; background: white; color: #0f172a; font-size: 16px; line-height: 1.4; }
+  input[type='checkbox'] { accent-color: #1d4ed8; flex-shrink: 0; }
+  input[data-password] { font-family: monospace; font-size: 1.15rem; font-weight: 600; padding: 10px 12px; border: 2px solid #2563eb; }
+  button { padding: 8px 12px; min-height: 40px; border: 1px solid #64748b; border-radius: 8px; background: white; color: #0f172a; cursor: pointer; font-size: .9rem; line-height: 1.4; }
   button:hover { background: #e2e8f0; }
   button.primary { background: #1d4ed8; border-color: #1d4ed8; color: white; font-weight: 700; }
   button.primary:hover { background: #1e40af; }
   :is(input, button):focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
-  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  .result { margin-top: 24px; }
+  .result { margin: 0 0 14px; padding: 12px; border: 1px solid #93c5fd; border-radius: 12px; background: #eff6ff; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .result label { color: #1e40af; font-weight: 700; }
+  .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 8px; }
+  .actions > button { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 100%; height: 40px; min-height: 40px; margin: 0 !important; padding: 0 12px; font-size: .9rem; line-height: 1; white-space: nowrap; }
   .error { color: #991b1b; }
+  .error:not(:empty) { margin-top: 8px; font-size: .9rem; }
+  [data-status]:not(:empty) { margin: 0 0 10px; font-size: .9rem; }
+  @media (max-width: 360px) {
+    form { grid-template-areas: 'length length' 'exclusions exclusions' 'categories categories' 'ambiguous ambiguous' 'generate generate'; }
+    fieldset { grid-template-columns: minmax(0, 1fr); }
+  }
   [hidden] { display: none !important; }
 </style>
