@@ -11,8 +11,6 @@ authors:
 featured: true
 ---
 
-# Les principales balises HTML
-
 Le **HTML** structure une page Web. Pour chaque balise, voici son rôle, un exemple et son **rendu réel** dans Astro.
 
 > Les rendus dépendent également du CSS du thème Astro. Les exemples de formulaire sont uniquement démonstratifs.
