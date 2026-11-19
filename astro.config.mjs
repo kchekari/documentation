@@ -130,6 +130,13 @@ export default defineConfig({
             collapsed: true,
           },
         },
+        {
+          label: 'Intelligence Artificielle',
+          autogenerate: {
+            directory: 'ia',
+            collapsed: true,
+          },
+        },
       ],
     }),
 
