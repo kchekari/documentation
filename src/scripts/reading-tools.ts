@@ -89,19 +89,6 @@ if (time && content) {
   time.textContent = Math.max(1, Math.ceil(words / 200)) + ' min de lecture estimée';
 }
 document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
-document.querySelector('[data-copy-article]')?.addEventListener('click', async () => {
-  const status = document.querySelector<HTMLElement>('[data-copy-status]');
-  const url = document.querySelector<HTMLElement>('[data-md-source]')?.dataset.mdSource;
-  if (!url) return;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Source introuvable');
-    await navigator.clipboard.writeText(await response.text());
-    if (status) status.textContent = 'Source copiée.';
-  } catch {
-    if (status) status.textContent = 'Copie impossible : utilisez Télécharger la source.';
-  }
-});
 const dialog = document.querySelector<HTMLDialogElement>('#v2-code-dialog');
 const codeContent = document.querySelector<HTMLElement>('#v2-code-content');
 let opener: HTMLButtonElement | null = null;
