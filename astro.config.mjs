@@ -13,6 +13,19 @@ export default defineConfig({
     starlight({
       // --- Informations générales ---
       title: 'Aktraizer Docs',
+
+      head: [
+    {
+        tag: 'script',
+        attrs: {
+            src: 'https://stats.aktraizer.com/script.js',
+            'data-website-id': 'be548dda-035e-4791-8a78-2aa528b1c8d6',
+            'data-domains': 'docs.aktraizer.com',
+            defer: true,
+        },
+    },
+],
+
       customCss: ['./src/styles/custom.css'],
       lastUpdated: true,
 
