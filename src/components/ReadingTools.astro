@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+const { hasSidebar, entry } = Astro.locals.starlightRoute;
+const remember = (await getCollection('docs')).some((doc) => doc.id === entry.id && !doc.data.draft) && entry.id !== 'index' && !entry.id.endsWith('/index');
+---
+<div id="v2-reading-tools" data-remember={String(remember)} data-title={entry.data.title}>
+  <div id="v2-progress" aria-hidden="true"></div>
+  <div class="v2-floating-tools" aria-label="Outils de lecture">
+    {hasSidebar && <button type="button" id="v2-sidebar-toggle" aria-controls="starlight__sidebar" aria-expanded="true">Masquer le menu</button>}
+    <button type="button" id="v2-focus" aria-pressed="false">Concentration</button>
+    <button type="button" id="v2-top">↑ Haut</button>
+  </div>
+</div>
+<dialog id="v2-code-dialog" aria-label="Bloc de code en plein écran">
+  <button type="button" id="v2-code-close" autofocus>Fermer (Échap)</button>
+  <div id="v2-code-content"></div>
+</dialog>
+<script>
+  import '../scripts/reading-tools';
+</script>

@@ -1,0 +1,23 @@
+<aside id="v2-resume" class="v2-resume" hidden>
+  <strong>Reprendre ma dernière lecture</strong>
+  <p><a id="v2-resume-link"></a></p>
+  <button type="button" id="v2-resume-forget">Oublier ma lecture</button>
+</aside>
+<script>
+  try {
+    const saved = JSON.parse(localStorage.getItem('aktraizer.reading.v2') || 'null');
+    const box = document.querySelector<HTMLElement>('#v2-resume');
+    const link = document.querySelector<HTMLAnchorElement>('#v2-resume-link');
+    if (saved && typeof saved.path === 'string' && typeof saved.title === 'string' && box && link) {
+      const url = new URL(saved.path, location.origin);
+      if (url.origin === location.origin && url.pathname !== '/') {
+        url.searchParams.set('reprendre', '1');
+        link.href = url.href; link.textContent = saved.title; box.hidden = false;
+      }
+    }
+    document.querySelector('#v2-resume-forget')?.addEventListener('click', () => {
+      try { localStorage.removeItem('aktraizer.reading.v2'); } catch {}
+      if (box) box.hidden = true;
+    });
+  } catch {}
+</script>

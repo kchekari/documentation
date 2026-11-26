@@ -1,42 +1,55 @@
 name: Déploiement GitHub Pages
-
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: pages
-  cancel-in-progress: false
-
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
-    name: Construction Astro
+    name: Construction Astro et audit
     runs-on: ubuntu-latest
-
     steps:
-      - name: Récupération du dépôt
+      - name: Récupération du dépôt et des dates Git
         uses: actions/checkout@v4
-
-      - name: Installation et build Astro
-        uses: withastro/action@v5
-
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Vérification des liens internes
+        id: links
+        run: npm run check:links
+      - name: Rapport des liens
+        if: always() && steps.links.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-liens
+          path: link-report.md
+          if-no-files-found: ignore
+      - name: Préparation de GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
   deploy:
-    name: Publication GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
-
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Déploiement
         id: deployment

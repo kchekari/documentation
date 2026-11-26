@@ -1,6 +1,7 @@
 ---
 title: Aktraizer Docs
 description: Documentation technique consacrée aux systèmes, réseaux, services, logiciels, langages, matériels et environnements numériques.
+template: splash
 hero:
   title: Aktraizer Docs
   tagline: Documentation technique, procédures et ressources pour l’administration système, les réseaux, la virtualisation et l’informatique.
@@ -8,6 +9,9 @@ hero:
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 import LatestDocs from '../../components/LatestDocs.astro';
+import ResumeReading from '../../components/ResumeReading.astro';
+
+<ResumeReading />
 
 ## Explorer la documentation
 
@@ -55,6 +59,9 @@ Retrouvez les procédures, configurations et ressources classées par domaine te
     description="Matériel informatique, diagnostic, maintenance, BIOS, stockage et périphériques."
     href="/hardware/"
   />
+  <LinkCard title="Outils" description="Calculateurs, terminal et ressources interactives." href="/outils/" />
+  <LinkCard title="Intelligence artificielle" description="Modèles locaux, installation et usages." href="/ia/" />
+  <LinkCard title="Blog" description="Actualités, projets et retours d’expérience." href="/blog/" />
 </CardGrid>
 
 <LatestDocs

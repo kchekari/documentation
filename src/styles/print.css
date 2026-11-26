@@ -1,0 +1,18 @@
+@media print {
+  .nova-page-frame-header, #nova-sidebar-nav, .right-sidebar-container,
+  starlight-toc, mobile-starlight-toc, .v2-floating-tools, #v2-progress,
+  .v2-article-actions, .v2-code-expand, #v2-code-dialog, .v2-resume,
+  .expressive-code .copy, footer { display: none !important; }
+  :root { --sl-content-width: 100%; --sl-content-inline-start: 0rem; --sl-nav-height: 0rem; --sl-mobile-toc-height: 0rem; }
+  html, body, main, .main-pane { background: white !important; color: black !important; }
+  body, main, .main-frame { padding: 0 !important; margin: 0 !important; }
+  .content-panel, .sl-container { max-width: none !important; padding: 0 !important; }
+  .right-sidebar-container, .nova-page-frame-sidebar-pane { display: none !important; }
+  .expressive-code pre, pre, code { white-space: pre-wrap !important; overflow-wrap: anywhere; }
+  .expressive-code pre, .expressive-code code { background: #f3f4f6 !important; color: black !important; }
+  .expressive-code span { color: inherit !important; }
+  .expressive-code, figure, img, table { break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; }
+  .v2-diagram { overflow: visible; }
+}
+@page { margin: 15mm; }

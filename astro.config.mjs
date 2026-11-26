@@ -4,11 +4,14 @@ import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightBlog from 'starlight-blog';
 import sitemap from '@astrojs/sitemap';
+import starlightThemeNova from 'starlight-theme-nova';
+import mermaidBlocks from './src/plugins/mermaid-blocks.mjs';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://docs.aktraizer.com',
 
+  markdown: { remarkPlugins: [mermaidBlocks] },
   integrations: [
     starlight({
       // --- Informations générales ---
@@ -26,12 +29,16 @@ export default defineConfig({
     },
 ],
 
-      customCss: ['./src/styles/custom.css'],
-      customCss: ['./src/styles/reading.css'],
+      customCss: ['./src/styles/custom.css', './src/styles/reading.css', './src/styles/print.css'],
       components: {
-        Header: './src/components/CustomHeader.astro',
+        PageFrame: './src/components/V2PageFrame.astro',
+        PageTitle: './src/components/ArticleTitle.astro',
       },
       lastUpdated: true,
+      expressiveCode: {
+        themes: ['github-dark', 'github-light'],
+        defaultProps: { frame: 'terminal' },
+      },
 
       social: [
         {
@@ -51,7 +58,7 @@ export default defineConfig({
 
       // --- Plugins Starlight ---
       plugins: [
-        starlightImageZoom(),
+
 
         starlightBlog({
           title: 'Blog',
@@ -72,7 +79,7 @@ export default defineConfig({
           recentPostCount: 10,
 
           // Affiche le lien Blog dans l’en-tête
-          navigation: 'header-end',
+          navigation: 'none',
 
           // Adresse du blog : /blog/
           prefix: 'blog',
@@ -85,72 +92,87 @@ export default defineConfig({
 
           // Le flux RSS sera généré automatiquement
           // puisque l’option Astro "site" est définie.
-          rss: true,
+          // Le flux RSS est généré dès que site est défini.
         }),
+        // Après le blog : Nova conserve son override MarkdownContent.
+        starlightThemeNova({ nav: [
+          { label: 'Accueil', href: '/' },
+          { label: 'Systèmes', href: '/systemes/' },
+          { label: 'Virtualisation', href: '/virtualisation/' },
+          { label: 'Réseaux', href: '/reseaux/' },
+          { label: 'Services', href: '/services/' },
+          { label: 'Logiciels', href: '/logiciels/' },
+          { label: 'Langages', href: '/langages/' },
+          { label: 'Outils', href: '/outils/' },
+          { label: 'Hardware', href: '/hardware/' },
+          { label: 'IA', href: '/ia/' },
+          { label: 'Blog', href: '/blog/' },
+        ] }),
+        starlightImageZoom(),
       ],
 
       // --- Sidebar de la documentation ---
       sidebar: [
         {
-          label: 'Systèmes',
+          label: '🖥️ Systèmes',
           autogenerate: {
             directory: 'systemes',
             collapsed: true,
           },
         },
         {
-          label: 'Virtualisation',
+          label: '📦 Virtualisation',
           autogenerate: {
             directory: 'virtualisation',
             collapsed: true,
           },
         },
         {
-          label: 'Réseaux',
+          label: '🌐 Réseaux',
           autogenerate: {
             directory: 'reseaux',
             collapsed: true,
           },
         },
         {
-          label: 'Services',
+          label: '⚙️ Services',
           autogenerate: {
             directory: 'services',
             collapsed: true,
           },
         },
         {
-          label: 'Logiciels',
+          label: '🧩 Logiciels',
           autogenerate: {
             directory: 'logiciels',
             collapsed: true,
           },
         },
         {
-          label: 'Langages',
+          label: '💻 Langages',
           autogenerate: {
             directory: 'langages',
             collapsed: true,
           },
         },
         {
-          label: 'Outils',
+          label: '🛠️ Outils',
           autogenerate: {
             directory: 'outils',
             collapsed: true,
           },
         },
         {
-          label: 'Hardware',
+          label: '🔧 Hardware',
           autogenerate: {
             directory: 'hardware',
             collapsed: true,
           },
         },
         {
-          label: 'Intelligence Artificielle',
+          label: '🤖 Intelligence Artificielle',
           autogenerate: {
-            directory: 'ia',
+            directory: 'IA',
             collapsed: true,
           },
         },

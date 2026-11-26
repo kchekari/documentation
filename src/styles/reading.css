@@ -1,83 +1,21 @@
-/* =========================================
-   Barre de progression de lecture
-   ========================================= */
-
-#reading-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ff4057, #ff8c94);
-    border-radius: 0 4px 4px 0;
-    z-index: 9999;
-    pointer-events: none;
-    transition: width 0.1s linear;
-}
-
-/* =========================================
-   Bouton de réduction du menu
-   ========================================= */
-
-#sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: calc(var(--sl-nav-height) + 12px);
-    left: calc(var(--sl-sidebar-width) - 42px);
-    width: 30px;
-    height: 30px;
-    background: var(--sl-color-bg-sidebar);
-    color: var(--sl-color-white);
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: 6px;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 100;
-    transition: left 0.2s ease;
-}
-
-#sidebar-toggle:hover {
-    color: var(--sl-color-text-accent);
-    background: var(--sl-color-gray-6);
-}
-
-/* =========================================
-   Gestion du menu sur ordinateur
-   ========================================= */
-
+#v2-progress { position: fixed; inset: 0 0 auto; height: 4px; z-index: 10000; background: linear-gradient(90deg,#2563eb,#38bdf8); transform: scaleX(var(--progress,0)); transform-origin: left; pointer-events: none; }
+.v2-floating-tools { position: fixed; z-index: 100; bottom: 1rem; right: 1rem; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem; max-width: calc(100vw - 2rem); padding: .35rem; border-radius: .75rem; background: var(--sl-color-bg); box-shadow: 0 2px 18px #0002; font-size: .8rem; }
+body { padding-bottom: 5rem; }
+#v2-sidebar-toggle { display: none; }
 @media (min-width: 50rem) {
-
-    [data-has-sidebar] #sidebar-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Masquer le menu de gauche */
-    .sidebar-collapsed #starlight__sidebar {
-        display: none;
-    }
-
-    /* Récupérer l'espace disponible */
-    .sidebar-collapsed .main-frame {
-        padding-inline-start: 0 !important;
-    }
-
-    /* Repositionner le bouton */
-    .sidebar-collapsed #sidebar-toggle {
-        left: 10px;
-    }
-
-    /* Agrandir la zone de lecture */
-    .sidebar-collapsed {
-        --sl-content-width: 80rem;
-    }
+  #v2-sidebar-toggle { display: inline-block; }
+  .v2-sidebar-collapsed #nova-sidebar-nav { display: none; }
+  html.v2-sidebar-collapsed { --sl-content-inline-start: 0rem; }
+  .v2-sidebar-collapsed .main-frame { padding-inline-start: 0; }
 }
-
-/* Ne rien modifier sur mobile */
-
-@media (max-width: 49.999rem) {
-    #sidebar-toggle {
-        display: none;
-    }
-}
+/* La concentration garde son bouton de sortie visible. */
+.v2-focus .nova-mobile-table-of-contents, .v2-focus #nova-sidebar-nav, .v2-focus .right-sidebar-container, .v2-focus starlight-toc, .v2-focus mobile-starlight-toc, .v2-focus .nova-page-frame-header { display: none !important; }
+html.v2-focus { --sl-content-inline-start: 0rem; --sl-nav-height: 0rem; --sl-mobile-toc-height: 0rem; --sl-content-width: 80rem; }
+.v2-focus .main-frame { padding-inline-start: 0; padding-top: 0; }
+.v2-focus .main-pane { width: 100%; }
+.v2-code-expand { display: block; margin: .5rem 0 1rem auto; font-size: .8rem; }
+#v2-code-dialog { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 1rem; border: 0; background: var(--sl-color-bg); color: var(--sl-color-text); }
+#v2-code-dialog::backdrop { background: #000b; }
+#v2-code-close { position: sticky; top: 0; z-index: 2; margin-bottom: 1rem; }
+#v2-code-content pre { overflow: auto; padding: 1rem; min-height: calc(100dvh - 7rem); font-size: 1rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

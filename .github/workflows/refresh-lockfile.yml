@@ -1,0 +1,24 @@
+name: Préparer le lockfile npm
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Version npm utilisée pour le paquet V2
+        run: npm install --global npm@11.6.2
+      - name: Régénération sans installation locale
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+      - name: Vérification de la cohérence du lockfile
+        run: npm ci
+      - name: Télécharger le lockfile dans les artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-lock-a-replacer
+          path: package-lock.json

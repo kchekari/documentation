@@ -1,0 +1,10 @@
+---
+import NovaPageFrame from 'starlight-theme-nova/components/PageFrame.astro';
+import ReadingTools from './ReadingTools.astro';
+---
+<NovaPageFrame>
+  <slot name="header" slot="header" />
+  <slot name="sidebar" slot="sidebar" />
+  <slot />
+</NovaPageFrame>
+<ReadingTools />

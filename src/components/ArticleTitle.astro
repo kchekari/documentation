@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+import { markdownPath, pagePath } from '../lib/docs-path';
+const { entry } = Astro.locals.starlightRoute;
+const categories: Record<string, string> = {
+  systemes: 'Systèmes', virtualisation: 'Virtualisation', reseaux: 'Réseaux',
+  services: 'Services', logiciels: 'Logiciels', langages: 'Langages',
+  outils: 'Outils', hardware: 'Hardware', ia: 'Intelligence artificielle', blog: 'Blog',
+};
+const id = entry.id || '';
+const sourceDoc = (await getCollection('docs')).find((doc) => doc.id === id && !doc.data.draft);
+const category = sourceDoc?.filePath?.replace(/\\/g, '/').split('/docs/')[1]?.split('/')[0]?.toLowerCase() || id.split('/')[0];
+const isSource = Boolean(sourceDoc);
+const isIndex = id === 'index' || id.endsWith('/index');
+---
+<nav class="v2-breadcrumb" aria-label="Fil d’Ariane">
+  <a href="/">Accueil</a>
+  {categories[category] && !isIndex && <><span aria-hidden="true"> / </span><a href={pagePath(category)}>{categories[category]}</a></>}
+  <span aria-hidden="true"> / </span><span aria-current="page">{entry.data.title}</span>
+</nav>
+<Default />
+{isSource && <div class="v2-article-actions" data-md-source={markdownPath(id)}>
+  {!isIndex && category !== 'blog' && <span data-reading-time></span>}
+  <button type="button" data-copy-article>Copier le Markdown</button>
+  <a href={markdownPath(id)} download>Télécharger la source</a>
+  <button type="button" data-print>Imprimer / PDF</button>
+  <span role="status" data-copy-status></span>
+</div>}
