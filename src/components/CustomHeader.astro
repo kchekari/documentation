@@ -1,0 +1,78 @@
+---
+import Default from '@astrojs/starlight/components/Header.astro';
+---
+
+<div id="reading-progress" aria-hidden="true"></div>
+
+<button
+  id="sidebar-toggle"
+  type="button"
+  title="Réduire le menu"
+  aria-label="Réduire le menu"
+  aria-controls="starlight__sidebar"
+  aria-expanded="true"
+>
+  «
+</button>
+
+<Default><slot /></Default>
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const progress = document.getElementById('reading-progress');
+    const toggle = document.getElementById('sidebar-toggle');
+
+    // Barre de progression de lecture
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const height = root.scrollHeight - window.innerHeight;
+
+      const percent = height > 0
+        ? Math.max(0, Math.min(100, scrollTop / height * 100))
+        : 0;
+
+      progress.style.width = percent + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress, {
+      passive: true
+    });
+
+    window.addEventListener('resize', updateProgress);
+    window.addEventListener('load', updateProgress);
+
+    updateProgress();
+
+    // Réduction du menu latéral
+    function setSidebar(collapsed) {
+      root.classList.toggle('sidebar-collapsed', collapsed);
+
+      toggle.textContent = collapsed ? '»' : '«';
+
+      const label = collapsed
+        ? 'Afficher le menu'
+        : 'Réduire le menu';
+
+      toggle.title = label;
+      toggle.setAttribute('aria-label', label);
+      toggle.setAttribute('aria-expanded', String(!collapsed));
+
+      updateProgress();
+    }
+
+    // Restauration du choix de l'utilisateur
+    setSidebar(localStorage.getItem('sidebar-collapsed') === 'true');
+
+    toggle.addEventListener('click', () => {
+      const collapsed = !root.classList.contains('sidebar-collapsed');
+
+      setSidebar(collapsed);
+
+      localStorage.setItem(
+        'sidebar-collapsed',
+        String(collapsed)
+      );
+    });
+  })();
+</script>

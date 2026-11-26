@@ -27,6 +27,10 @@ export default defineConfig({
 ],
 
       customCss: ['./src/styles/custom.css'],
+      customCss: ['./src/styles/reading.css'],
+      components: {
+        Header: './src/components/CustomHeader.astro',
+      },
       lastUpdated: true,
 
       social: [
